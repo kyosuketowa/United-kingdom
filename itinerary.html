@@ -993,6 +993,10 @@
       /* 乗継セクション スマホ対応 */
       #connection-title+div{grid-template-columns:1fr}
       #connection-title+div>div:last-child{grid-column:1}
+      /* 写真ギャラリー スマホ対応 */
+      #city-liverpool>div:nth-of-type(1){grid-template-columns:1fr!important}
+      #city-london>div:nth-of-type(1){grid-template-columns:repeat(2,1fr)!important}
+      #city-munich>div:nth-of-type(1){grid-template-columns:repeat(2,1fr)!important}
     }
 
     /* Print Styles - 印刷時もライトモードベース */
@@ -1108,7 +1112,7 @@
           </article>
           <article class="card" style="border-color:var(--orange);background:var(--orange-light)">
             <small><i class="fa-solid fa-futbol" style="color:var(--orange)"></i> MAIN EVENT</small>
-            <div class="big" style="color:var(--orange)">日本 vs イングランド<br>ウェンブリー観戦予定</div>
+            <div class="big" style="color:var(--orange)">🇯🇵 日本 vs イングランド 🏴󠁧󠁢󠁥󠁮󠁧󠁿<br>ウェンブリー観戦予定</div>
             <div class="sub muted">3/31(火)（現地）</div>
           </article>
           <article class="card">
@@ -1438,7 +1442,7 @@
                       <div style="background:var(--card);border:2px solid var(--line);border-radius:8px;padding:16px;">
                         <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:6px;">対戦カード</div>
                         <div style="font-size:18px;font-weight:900;color:var(--text);">
-                          <span style="color:var(--orange);">日本</span> vs <span style="color:var(--blue);">イングランド</span>
+                          🇯🇵 <span style="color:var(--orange);">日本</span> vs <span style="color:var(--blue);">イングランド</span> 🏴󠁧󠁢󠁥󠁮󠁧󠁿
                         </div>
                       </div>
                       <div style="background:var(--card);border:2px solid var(--line);border-radius:8px;padding:16px;">
@@ -1717,13 +1721,13 @@
           <!-- クイックジャンプボタン -->
           <div class="spots-nav">
             <a href="#city-liverpool" class="spot-btn beatles">
-              <i class="fa-solid fa-music"></i> リバプール（ビートルズ）
+              🇬🇧 リバプール（ビートルズ）
             </a>
             <a href="#city-london" class="spot-btn">
-              <i class="fa-solid fa-city"></i> ロンドン
+              🇬🇧 ロンドン
             </a>
             <a href="#city-munich" class="spot-btn">
-              <i class="fa-solid fa-beer-mug-empty"></i> ミュンヘン
+              🇩🇪 ミュンヘン
             </a>
             <a href="#safety" class="spot-btn" style="border-color:var(--orange);color:var(--orange);">
               <i class="fa-solid fa-triangle-exclamation"></i> 安全情報
@@ -1735,10 +1739,26 @@
           <!-- ========================================== -->
           <div id="city-liverpool" style="margin-bottom:40px;">
             <h3 style="font-size:24px;font-weight:900;color:var(--orange);margin-bottom:20px;padding:16px;background:var(--orange-light);border-radius:var(--radius);display:flex;align-items:center;gap:12px;border:3px solid var(--orange);">
-              <i class="fa-solid fa-music"></i>
+              <span style="font-size:28px;">🇬🇧</span>
               リバプール ― ビートルズの聖地
               <span class="beatles-badge"><i class="fa-solid fa-star"></i> お父さん必見！</span>
             </h3>
+
+            <!-- 写真ギャラリー -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;">
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop" alt="リバプールの街並み" style="width:100%;height:150px;object-fit:cover;" loading="lazy">
+                <div style="padding:8px;background:var(--card);border:1px solid var(--line);font-size:12px;color:var(--text-muted);text-align:center;">リバプールの街並み</div>
+              </div>
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1598197748967-b4674cb3c266?w=400&h=250&fit=crop" alt="キャバーン・クラブ" style="width:100%;height:150px;object-fit:cover;" loading="lazy">
+                <div style="padding:8px;background:var(--card);border:1px solid var(--line);font-size:12px;color:var(--text-muted);text-align:center;">キャバーン・クラブ周辺</div>
+              </div>
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?w=400&h=250&fit=crop" alt="アルバート・ドック" style="width:100%;height:150px;object-fit:cover;" loading="lazy">
+                <div style="padding:8px;background:var(--card);border:1px solid var(--line);font-size:12px;color:var(--text-muted);text-align:center;">アルバート・ドック</div>
+              </div>
+            </div>
 
             <!-- アクセス情報 -->
             <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
@@ -1915,9 +1935,29 @@
           <!-- ========================================== -->
           <div id="city-london" style="margin-bottom:40px;">
             <h3 style="font-size:24px;font-weight:900;color:var(--blue);margin-bottom:20px;padding:16px;background:var(--blue-light);border-radius:var(--radius);display:flex;align-items:center;gap:12px;border:3px solid var(--blue);">
-              <i class="fa-solid fa-city"></i>
+              <span style="font-size:28px;">🇬🇧</span>
               ロンドン ― 見どころ満載の大都市
             </h3>
+
+            <!-- 写真ギャラリー -->
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;">
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=400&h=250&fit=crop" alt="ビッグベン" style="width:100%;height:130px;object-fit:cover;" loading="lazy">
+                <div style="padding:6px;background:var(--card);border:1px solid var(--line);font-size:11px;color:var(--text-muted);text-align:center;">ビッグベン</div>
+              </div>
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=250&fit=crop" alt="タワーブリッジ" style="width:100%;height:130px;object-fit:cover;" loading="lazy">
+                <div style="padding:6px;background:var(--card);border:1px solid var(--line);font-size:11px;color:var(--text-muted);text-align:center;">タワーブリッジ</div>
+              </div>
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=400&h=250&fit=crop" alt="大英博物館" style="width:100%;height:130px;object-fit:cover;" loading="lazy">
+                <div style="padding:6px;background:var(--card);border:1px solid var(--line);font-size:11px;color:var(--text-muted);text-align:center;">大英博物館</div>
+              </div>
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1520986606214-8b456906c813?w=400&h=250&fit=crop" alt="バッキンガム宮殿" style="width:100%;height:130px;object-fit:cover;" loading="lazy">
+                <div style="padding:6px;background:var(--card);border:1px solid var(--line);font-size:11px;color:var(--text-muted);text-align:center;">バッキンガム宮殿</div>
+              </div>
+            </div>
 
             <!-- アビーロード（ビートルズスポット） -->
             <div style="background:var(--orange-light);border:3px solid var(--orange);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
@@ -1925,7 +1965,9 @@
                 <i class="fa-solid fa-music"></i> ロンドンのビートルズスポット
                 <span class="beatles-badge"><i class="fa-solid fa-star"></i> お父さん必見！</span>
               </h4>
-              <div style="background:var(--card);border:2px solid var(--orange);border-radius:8px;padding:16px;">
+              <div style="background:var(--card);border:2px solid var(--orange);border-radius:8px;overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&h=300&fit=crop" alt="アビーロードの横断歩道" style="width:100%;height:200px;object-fit:cover;" loading="lazy">
+                <div style="padding:16px;">
                 <div style="font-size:18px;font-weight:900;color:var(--orange);">アビーロード（Abbey Road）</div>
                 <div style="font-size:14px;color:var(--text-muted);margin-top:4px;"><i class="fa-solid fa-location-dot"></i> Abbey Road, London NW8 9AY</div>
                 <div style="font-size:15px;color:var(--text);margin-top:10px;line-height:1.8;">
@@ -1933,6 +1975,7 @@
                   <b style="color:var(--orange);">アクセス：</b>地下鉄 St John's Wood駅から徒歩5分<br>
                   <b style="color:var(--orange);">ポイント：</b>24時間訪問可能。早朝が空いていておすすめ。車の往来があるので注意！<br>
                   <b style="color:var(--orange);">周辺：</b>スタジオの壁にはファンのメッセージがびっしり。ギフトショップもあり。
+                </div>
                 </div>
               </div>
             </div>
@@ -2039,9 +2082,29 @@
           <!-- ========================================== -->
           <div id="city-munich" style="margin-bottom:40px;">
             <h3 style="font-size:24px;font-weight:900;color:var(--text);margin-bottom:20px;padding:16px;background:var(--gray-light);border-radius:var(--radius);display:flex;align-items:center;gap:12px;border:3px solid var(--gray);">
-              <i class="fa-solid fa-beer-mug-empty"></i>
+              <span style="font-size:28px;">🇩🇪</span>
               ミュンヘン ― バイエルンの中心都市（1泊滞在）
             </h3>
+
+            <!-- 写真ギャラリー -->
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;">
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1595867818082-083862f3d630?w=400&h=250&fit=crop" alt="マリエン広場" style="width:100%;height:130px;object-fit:cover;" loading="lazy">
+                <div style="padding:6px;background:var(--card);border:1px solid var(--line);font-size:11px;color:var(--text-muted);text-align:center;">マリエン広場</div>
+              </div>
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1567359781514-3b964e2b04d6?w=400&h=250&fit=crop" alt="ホフブロイハウス" style="width:100%;height:130px;object-fit:cover;" loading="lazy">
+                <div style="padding:6px;background:var(--card);border:1px solid var(--line);font-size:11px;color:var(--text-muted);text-align:center;">ビアホール</div>
+              </div>
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1577462781815-8e95f58c6c84?w=400&h=250&fit=crop" alt="フラウエン教会" style="width:100%;height:130px;object-fit:cover;" loading="lazy">
+                <div style="padding:6px;background:var(--card);border:1px solid var(--line);font-size:11px;color:var(--text-muted);text-align:center;">フラウエン教会</div>
+              </div>
+              <div style="border-radius:var(--radius);overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1587731556938-38755b4803a6?w=400&h=250&fit=crop" alt="ドイツ料理" style="width:100%;height:130px;object-fit:cover;" loading="lazy">
+                <div style="padding:6px;background:var(--card);border:1px solid var(--line);font-size:11px;color:var(--text-muted);text-align:center;">ドイツ料理</div>
+              </div>
+            </div>
 
             <!-- アクセス情報 -->
             <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
@@ -2256,7 +2319,7 @@
           <div class="weather-grid">
             <article class="weather-card">
               <div class="weather-city">
-                <i class="fa-solid fa-location-dot"></i> ロンドン（イギリス）
+                <span style="font-size:20px;">🇬🇧</span> ロンドン（イギリス）
               </div>
               <div class="weather-details">
                 <div class="weather-temp">
@@ -2272,7 +2335,7 @@
             </article>
             <article class="weather-card">
               <div class="weather-city">
-                <i class="fa-solid fa-location-dot"></i> ミュンヘン（ドイツ）
+                <span style="font-size:20px;">🇩🇪</span> ミュンヘン（ドイツ）
               </div>
               <div class="weather-details">
                 <div class="weather-temp">
@@ -2375,15 +2438,15 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><i class="fa-solid fa-city"></i> <b>ロンドン</b></td>
+                  <td>🇬🇧 <b>ロンドン</b></td>
                   <td>3/30(月)・3/31(火)・4/1(水)・4/2(木)・4/3(金) <span class="muted">（計5泊目安）</span></td>
                 </tr>
                 <tr>
-                  <td><i class="fa-solid fa-futbol"></i> <b>リバプール</b></td>
+                  <td>🇬🇧 <b>リバプール</b></td>
                   <td>4/1(水) または 4/2(木) に <b>1泊へ変更可能</b>（自由調整枠）</td>
                 </tr>
                 <tr>
-                  <td><i class="fa-solid fa-beer-mug-empty"></i> <b>ミュンヘン</b></td>
+                  <td>🇩🇪 <b>ミュンヘン</b></td>
                   <td>4/4(土) <span class="muted">（計1泊）</span></td>
                 </tr>
                 <tr>
@@ -2414,10 +2477,10 @@
   </button>
 
   <script>
-    // Departure date: March 30, 2025, 09:30 JST
-    const departureDate = new Date('2025-03-30T09:30:00+09:00');
-    // Return date: April 6, 2025, 22:20 JST
-    const returnDate = new Date('2025-04-06T22:20:00+09:00');
+    // Departure date: March 30, 2026, 09:30 JST
+    const departureDate = new Date('2026-03-30T09:30:00+09:00');
+    // Return date: April 6, 2026, 22:20 JST
+    const returnDate = new Date('2026-04-06T22:20:00+09:00');
 
     // Countdown Timer
     function updateCountdown() {
