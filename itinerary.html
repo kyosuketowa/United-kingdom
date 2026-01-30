@@ -2490,85 +2490,313 @@
           <!-- 危険地域・安全情報セクション -->
           <!-- ========================================== -->
           <div id="safety" style="margin-bottom:20px;">
-            <h3 style="font-size:24px;font-weight:900;color:var(--orange);margin-bottom:20px;padding:16px;background:var(--orange-light);border-radius:var(--radius);display:flex;align-items:center;gap:12px;border:3px solid var(--orange);">
-              <i class="fa-solid fa-triangle-exclamation"></i>
-              安全情報・避けるべきエリア
+            <h3 style="font-size:24px;font-weight:900;color:var(--text);margin-bottom:20px;padding:16px;background:var(--bg-light);border-radius:var(--radius);display:flex;align-items:center;gap:12px;border:3px solid var(--line);">
+              <i class="fa-solid fa-map-location-dot" style="color:var(--blue);"></i>
+              エリア別 安全情報マップ
+              <span style="font-size:14px;font-weight:700;color:var(--text-muted);margin-left:auto;">🟢安全 🟡注意 🔴危険</span>
             </h3>
 
-            <!-- ロンドンの注意エリア -->
-            <div style="background:var(--card);border:2px solid var(--orange);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
-              <h4 style="font-size:18px;font-weight:900;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
-                <i class="fa-solid fa-city"></i> ロンドンで注意すべきエリア
-              </h4>
-              <div style="display:grid;gap:12px;">
-                <div style="padding:14px;background:var(--orange-light);border:2px solid var(--orange);border-radius:8px;">
-                  <div style="font-size:16px;font-weight:900;color:var(--orange);">夜間に避けた方がよいエリア</div>
-                  <div style="font-size:14px;color:var(--text);margin-top:8px;line-height:1.8;">
-                    <b>• ブリクストン（Brixton）南部：</b>夜遅くの一人歩きは避ける<br>
-                    <b>• ペッカム（Peckham）：</b>メインストリートから外れた路地は注意<br>
-                    <b>• トッテナム（Tottenham）：</b>サッカー観戦時以外は用事がなければ行かない<br>
-                    <b>• エレファント＆キャッスル（Elephant & Castle）：</b>駅周辺は夜間注意<br>
-                    <b>• ストラトフォード（Stratford）東部：</b>オリンピックパークは安全だが周辺は注意
+            <!-- ========== ロンドン エリアマップ ========== -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:24px;">
+              <div style="background:linear-gradient(135deg,#1e3a5f,#2563eb);padding:16px 20px;display:flex;align-items:center;gap:12px;">
+                <span style="font-size:28px;">🇬🇧</span>
+                <h4 style="font-size:20px;font-weight:900;color:#fff;margin:0;">ロンドン エリア安全マップ</h4>
+              </div>
+
+              <!-- 地図埋め込み -->
+              <div style="position:relative;">
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-0.2400%2C51.4700%2C0.0200%2C51.5500&layer=mapnik&marker=51.5074%2C-0.1278"
+                  style="width:100%;height:300px;border:none;"
+                  loading="lazy"
+                  title="ロンドン地図">
+                </iframe>
+                <div style="position:absolute;bottom:8px;right:8px;background:rgba(255,255,255,.95);padding:6px 10px;border-radius:6px;font-size:11px;color:#666;">
+                  © OpenStreetMap
+                </div>
+              </div>
+
+              <div style="padding:20px;">
+                <!-- 凡例 -->
+                <div style="display:flex;gap:16px;margin-bottom:20px;padding:12px;background:var(--bg-light);border-radius:8px;flex-wrap:wrap;">
+                  <span style="display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;">
+                    <span style="width:16px;height:16px;background:#22c55e;border-radius:50%;"></span> 安全（観光推奨）
+                  </span>
+                  <span style="display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;">
+                    <span style="width:16px;height:16px;background:#f59e0b;border-radius:50%;"></span> 注意（日中OK）
+                  </span>
+                  <span style="display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;">
+                    <span style="width:16px;height:16px;background:#ef4444;border-radius:50%;"></span> 夜間回避
+                  </span>
+                </div>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                  <!-- 安全エリア -->
+                  <div style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:3px solid #22c55e;border-radius:12px;padding:18px;">
+                    <h5 style="font-size:17px;font-weight:900;color:#15803d;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+                      <i class="fa-solid fa-shield-halved"></i> 安全なエリア（おすすめ）
+                    </h5>
+                    <div style="font-size:14px;color:#166534;line-height:2;">
+                      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                        <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:700;">中心部</span>
+                      </div>
+                      <b>• ウェストミンスター：</b>国会議事堂、ビッグベン周辺<br>
+                      <b>• サウスケンジントン：</b>博物館エリア、高級住宅街<br>
+                      <b>• コベントガーデン：</b>ショッピング・食事に最適<br>
+                      <b>• メイフェア/マリルボーン：</b>上品なエリア<br>
+                      <b>• グリニッジ：</b>観光地、昼夜とも安全<br>
+                      <b>• リッチモンド：</b>公園あり、家族向け<br>
+                      <b>• ハムステッド：</b>高級住宅街、緑が多い
+                    </div>
+                    <div style="margin-top:14px;padding:10px;background:#22c55e;border-radius:8px;">
+                      <span style="color:#fff;font-size:13px;font-weight:700;">
+                        <i class="fa-solid fa-lightbulb"></i> ホテルはこれらのエリアがおすすめ！
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- 注意・危険エリア -->
+                  <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:3px solid #f59e0b;border-radius:12px;padding:18px;">
+                    <h5 style="font-size:17px;font-weight:900;color:#b45309;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+                      <i class="fa-solid fa-triangle-exclamation"></i> 注意が必要なエリア
+                    </h5>
+                    <div style="font-size:14px;color:#92400e;line-height:2;">
+                      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                        <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:700;">夜間NG</span>
+                      </div>
+                      <b>• ブリクストン南部：</b>夜の一人歩き×<br>
+                      <b>• ペッカム：</b>路地裏は避ける<br>
+                      <b>• トッテナム：</b>試合時以外は不要<br>
+                      <b>• エレファント&キャッスル：</b>駅周辺夜間注意<br>
+                      <div style="display:flex;align-items:center;gap:8px;margin:12px 0 8px;">
+                        <span style="background:#f59e0b;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:700;">スリ注意</span>
+                      </div>
+                      <b>• オックスフォードSt：</b>混雑時注意<br>
+                      <b>• ウェストミンスター橋：</b>リュック前に<br>
+                      <b>• レスタースクエア：</b>詐欺師に注意
+                    </div>
                   </div>
                 </div>
-                <div style="padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
-                  <div style="font-size:16px;font-weight:900;color:var(--text);">観光エリアでの注意点</div>
-                  <div style="font-size:14px;color:var(--text);margin-top:8px;line-height:1.8;">
-                    <b>• ウェストミンスター橋・ロンドン橋周辺：</b>スリに注意。リュックは前に<br>
-                    <b>• オックスフォード・ストリート：</b>混雑時はスリ・置き引きに注意<br>
-                    <b>• レスター・スクエア/ピカデリー周辺：</b>詐欺（偽チケット販売等）に注意<br>
-                    <b>• ATM利用時：</b>スキミングに注意。銀行内のATMを使用
+              </div>
+            </div>
+
+            <!-- ========== リバプール エリアマップ ========== -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:24px;">
+              <div style="background:linear-gradient(135deg,#c8102e,#00b2a9);padding:16px 20px;display:flex;align-items:center;gap:12px;">
+                <span style="font-size:28px;">🇬🇧</span>
+                <h4 style="font-size:20px;font-weight:900;color:#fff;margin:0;">リバプール エリア安全マップ</h4>
+              </div>
+
+              <!-- 地図埋め込み -->
+              <div style="position:relative;">
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-3.0200%2C53.3800%2C-2.9000%2C53.4300&layer=mapnik&marker=53.4084%2C-2.9916"
+                  style="width:100%;height:280px;border:none;"
+                  loading="lazy"
+                  title="リバプール地図">
+                </iframe>
+                <div style="position:absolute;bottom:8px;right:8px;background:rgba(255,255,255,.95);padding:6px 10px;border-radius:6px;font-size:11px;color:#666;">
+                  © OpenStreetMap
+                </div>
+              </div>
+
+              <div style="padding:20px;">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                  <!-- 安全エリア -->
+                  <div style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:3px solid #22c55e;border-radius:12px;padding:18px;">
+                    <h5 style="font-size:17px;font-weight:900;color:#15803d;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+                      <i class="fa-solid fa-shield-halved"></i> 安全なエリア
+                    </h5>
+                    <div style="font-size:14px;color:#166534;line-height:2;">
+                      <b>• シティセンター：</b>メインの観光エリア<br>
+                      <b>• アルバート・ドック：</b>ビートルズストーリー周辺<br>
+                      <b>• キャバーン・クォーター：</b>昼夜とも観光客多数<br>
+                      <b>• ライムストリート駅周辺：</b>交通の要所<br>
+                      <b>• ウォーターフロント：</b>整備された観光地<br>
+                      <b>• ウールトン：</b>閑静な住宅街<br>
+                      <b>• サウスポート方面：</b>リゾート地で安全
+                    </div>
+                    <div style="margin-top:14px;padding:10px;background:#22c55e;border-radius:8px;">
+                      <span style="color:#fff;font-size:13px;font-weight:700;">
+                        <i class="fa-solid fa-music"></i> ビートルズ観光は全て安全エリア内！
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- 注意エリア -->
+                  <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:3px solid #f59e0b;border-radius:12px;padding:18px;">
+                    <h5 style="font-size:17px;font-weight:900;color:#b45309;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+                      <i class="fa-solid fa-triangle-exclamation"></i> 注意が必要なエリア
+                    </h5>
+                    <div style="font-size:14px;color:#92400e;line-height:2;">
+                      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                        <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:700;">夜間NG</span>
+                      </div>
+                      <b>• トックステス（Toxteth）：</b>夜は避ける<br>
+                      <b>• エヴァートン地区：</b>試合時以外は不要<br>
+                      <b>• ケンジントン（Liverpool）：</b>治安悪い<br>
+                      <b>• アンフィールド周辺：</b>試合日以外は注意<br>
+                      <div style="display:flex;align-items:center;gap:8px;margin:12px 0 8px;">
+                        <span style="background:#f59e0b;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:700;">週末夜</span>
+                      </div>
+                      <b>• マシュー・ストリート：</b>週末夜は酔客多い<br>
+                      <span style="font-size:13px;color:#78350f;">（昼間は問題なし）</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- アンフィールドへの注意 -->
+                <div style="margin-top:16px;padding:14px;background:linear-gradient(135deg,#c8102e,#a00d24);border-radius:10px;display:flex;align-items:center;gap:12px;">
+                  <i class="fa-solid fa-futbol" style="color:#fff;font-size:24px;"></i>
+                  <div style="color:#fff;font-size:14px;line-height:1.7;">
+                    <b>アンフィールド訪問のコツ：</b>試合日・ツアー参加時は安全。スタジアムへは電車＋徒歩で。周辺の住宅街は通過するのみに。
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- リバプールの注意エリア -->
-            <div style="background:var(--card);border:2px solid var(--orange);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
-              <h4 style="font-size:18px;font-weight:900;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
-                <i class="fa-solid fa-music"></i> リバプールで注意すべきエリア
-              </h4>
-              <div style="padding:14px;background:var(--orange-light);border:2px solid var(--orange);border-radius:8px;">
-                <div style="font-size:16px;font-weight:900;color:var(--orange);">観光エリアは概ね安全</div>
-                <div style="font-size:14px;color:var(--text);margin-top:8px;line-height:1.8;">
-                  市内中心部（キャバーン・クラブ、Albert Dock周辺）は観光客も多く安全です。<br><br>
-                  <b>• トックステス（Toxteth）：</b>夜間の一人歩きは避ける<br>
-                  <b>• エヴァートン（Everton）：</b>サッカー観戦時以外は避ける<br>
-                  <b>• ケンジントン（Kensington）：</b>リバプールのこのエリアは治安が悪い<br>
-                  <b>• 夜のマシュー・ストリート周辺：</b>週末夜は酔っ払いが多いので注意
+            <!-- ========== ミュンヘン エリアマップ ========== -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:24px;">
+              <div style="background:linear-gradient(135deg,#1e3a5f,#0066b2);padding:16px 20px;display:flex;align-items:center;gap:12px;">
+                <span style="font-size:28px;">🇩🇪</span>
+                <h4 style="font-size:20px;font-weight:900;color:#fff;margin:0;">ミュンヘン エリア安全マップ</h4>
+                <span style="background:#22c55e;color:#fff;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-left:auto;">全体的に安全</span>
+              </div>
+
+              <!-- 地図埋め込み -->
+              <div style="position:relative;">
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=11.5000%2C48.1000%2C11.6500%2C48.1700&layer=mapnik&marker=48.1351%2C11.5820"
+                  style="width:100%;height:280px;border:none;"
+                  loading="lazy"
+                  title="ミュンヘン地図">
+                </iframe>
+                <div style="position:absolute;bottom:8px;right:8px;background:rgba(255,255,255,.95);padding:6px 10px;border-radius:6px;font-size:11px;color:#666;">
+                  © OpenStreetMap
+                </div>
+              </div>
+
+              <div style="padding:20px;">
+                <!-- ミュンヘンは安全な都市というメッセージ -->
+                <div style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:3px solid #22c55e;border-radius:12px;padding:18px;margin-bottom:16px;">
+                  <h5 style="font-size:17px;font-weight:900;color:#15803d;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                    <i class="fa-solid fa-face-smile"></i> ミュンヘンは治安の良い都市です！
+                  </h5>
+                  <div style="font-size:15px;color:#166534;line-height:1.9;">
+                    ドイツの中でも特に安全な都市。観光エリアはほぼ全域で安心して歩けます。<br>
+                    日本と同じ感覚で観光を楽しめる数少ないヨーロッパの都市です。
+                  </div>
+                </div>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                  <!-- 特に安全なエリア -->
+                  <div style="background:var(--bg-light);border:2px solid #22c55e;border-radius:12px;padding:18px;">
+                    <h5 style="font-size:16px;font-weight:900;color:#15803d;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                      <i class="fa-solid fa-star"></i> 特におすすめエリア
+                    </h5>
+                    <div style="font-size:14px;color:var(--text);line-height:2;">
+                      <b>• マリエン広場周辺：</b>観光の中心地<br>
+                      <b>• シュヴァービング：</b>学生街、活気あり<br>
+                      <b>• ボーゲンハウゼン：</b>高級住宅街<br>
+                      <b>• ニンフェンブルク：</b>宮殿周辺<br>
+                      <b>• 英国庭園周辺：</b>緑豊かで安全<br>
+                      <b>• グロッケンバッハ：</b>おしゃれエリア
+                    </div>
+                  </div>
+
+                  <!-- 注意エリア（少ない） -->
+                  <div style="background:var(--bg-light);border:2px solid #f59e0b;border-radius:12px;padding:18px;">
+                    <h5 style="font-size:16px;font-weight:900;color:#b45309;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                      <i class="fa-solid fa-info-circle"></i> 念のため注意
+                    </h5>
+                    <div style="font-size:14px;color:var(--text);line-height:2;">
+                      <b>• 中央駅周辺（夜間）：</b><br>
+                      <span style="font-size:13px;color:var(--text-muted);">ホームレスや酔客がいる程度<br>普通に歩けば問題なし</span><br><br>
+                      <b>• シラーシュトラーセ：</b><br>
+                      <span style="font-size:13px;color:var(--text-muted);">歓楽街のため夜は注意</span><br><br>
+                      <b>• 混雑した観光地：</b><br>
+                      <span style="font-size:13px;color:var(--text-muted);">スリ対策は必要</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- アリアンツ・アレーナへのアクセス -->
+                <div style="margin-top:16px;padding:14px;background:linear-gradient(135deg,#dc052d,#a00d24);border-radius:10px;display:flex;align-items:center;gap:12px;">
+                  <i class="fa-solid fa-futbol" style="color:#fff;font-size:24px;"></i>
+                  <div style="color:#fff;font-size:14px;line-height:1.7;">
+                    <b>アリアンツ・アレーナ周辺：</b>スタジアムエリアは安全。U6でFröttmaning駅まで行けば、あとは人の流れについていくだけ！
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- ミュンヘンの注意エリア -->
-            <div style="background:var(--card);border:2px solid var(--orange);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
-              <h4 style="font-size:18px;font-weight:900;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
-                <i class="fa-solid fa-beer-mug-empty"></i> ミュンヘンで注意すべきエリア
-              </h4>
-              <div style="padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
-                <div style="font-size:16px;font-weight:900;color:var(--text);">比較的安全な都市</div>
-                <div style="font-size:14px;color:var(--text);margin-top:8px;line-height:1.8;">
-                  ミュンヘンはドイツの中でも治安が良い都市です。観光地は基本的に安全。<br><br>
-                  <b>• 中央駅（Hauptbahnhof）周辺：</b>夜間はホームレスや酔っ払いが多い。普通に歩けば問題なし<br>
-                  <b>• シラーシュトラーセ周辺：</b>歓楽街なので夜間は注意<br>
-                  <b>• スリ：</b>混雑した観光地（マリエン広場等）では貴重品に注意
-                </div>
-              </div>
-            </div>
-
-            <!-- 一般的な安全対策 -->
-            <div style="background:var(--card);border:2px solid var(--blue);border-radius:var(--radius);padding:20px;">
-              <h4 style="font-size:18px;font-weight:900;color:var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+            <!-- ========== 一般的な安全対策 ========== -->
+            <div style="background:var(--card);border:2px solid var(--blue);border-radius:var(--radius);padding:24px;">
+              <h4 style="font-size:18px;font-weight:900;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:10px;">
                 <i class="fa-solid fa-shield-halved"></i> 一般的な安全対策
               </h4>
-              <div style="font-size:15px;color:var(--text);line-height:2;">
-                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>パスポートはホテルの金庫に。コピーを持ち歩く<br>
-                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>現金は分散して持つ。大金を見せない<br>
-                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>リュックは人混みで前に。ファスナーは閉める<br>
-                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>スマホは歩きながら見ない（ひったくり対策）<br>
-                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>見知らぬ人からの親切な申し出は警戒<br>
-                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>夜間の一人歩きは明るい大通りを<br>
-                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>不審に感じたらすぐにその場を離れる
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+                <div style="padding:16px;background:var(--blue-light);border-radius:10px;">
+                  <div style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:10px;">
+                    <i class="fa-solid fa-wallet"></i> 貴重品管理
+                  </div>
+                  <div style="font-size:14px;color:var(--text);line-height:1.9;">
+                    • パスポートはホテル金庫に<br>
+                    • 現金は分散して持つ<br>
+                    • リュックは人混みで前に
+                  </div>
+                </div>
+                <div style="padding:16px;background:var(--blue-light);border-radius:10px;">
+                  <div style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:10px;">
+                    <i class="fa-solid fa-moon"></i> 夜間の行動
+                  </div>
+                  <div style="font-size:14px;color:var(--text);line-height:1.9;">
+                    • 明るい大通りを歩く<br>
+                    • 一人での夜歩きは避ける<br>
+                    • 不審ならすぐ離れる
+                  </div>
+                </div>
+                <div style="padding:16px;background:var(--blue-light);border-radius:10px;">
+                  <div style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:10px;">
+                    <i class="fa-solid fa-mobile-screen"></i> スマホ注意
+                  </div>
+                  <div style="font-size:14px;color:var(--text);line-height:1.9;">
+                    • 歩きスマホは×（ひったくり）<br>
+                    • カフェでテーブルに置かない<br>
+                    • 写真撮影時も周囲確認
+                  </div>
+                </div>
+                <div style="padding:16px;background:var(--blue-light);border-radius:10px;">
+                  <div style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:10px;">
+                    <i class="fa-solid fa-user-secret"></i> 詐欺対策
+                  </div>
+                  <div style="font-size:14px;color:var(--text);line-height:1.9;">
+                    • 見知らぬ人の親切は警戒<br>
+                    • 署名や募金は無視<br>
+                    • ATMは銀行内を使用
+                  </div>
+                </div>
+              </div>
+
+              <!-- 緊急連絡先 -->
+              <div style="margin-top:20px;padding:16px;background:var(--orange-light);border:2px solid var(--orange);border-radius:10px;">
+                <div style="font-size:16px;font-weight:900;color:var(--orange);margin-bottom:10px;">
+                  <i class="fa-solid fa-phone-volume"></i> 緊急連絡先
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center;">
+                  <div style="background:#fff;padding:12px;border-radius:8px;">
+                    <div style="font-size:12px;color:var(--text-muted);">🇬🇧 英国</div>
+                    <div style="font-size:24px;font-weight:900;color:var(--orange);">999</div>
+                  </div>
+                  <div style="background:#fff;padding:12px;border-radius:8px;">
+                    <div style="font-size:12px;color:var(--text-muted);">🇩🇪 ドイツ</div>
+                    <div style="font-size:24px;font-weight:900;color:var(--orange);">112</div>
+                  </div>
+                  <div style="background:#fff;padding:12px;border-radius:8px;">
+                    <div style="font-size:12px;color:var(--text-muted);">🌍 EU共通</div>
+                    <div style="font-size:24px;font-weight:900;color:var(--orange);">112</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
