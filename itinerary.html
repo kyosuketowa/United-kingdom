@@ -371,11 +371,116 @@
       padding:24px;
       margin-bottom:32px;
       overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
     }
     .route-svg{
       width:100%;
-      min-width:600px;
-      height:120px;
+      min-width:700px;
+      height:140px;
+    }
+
+    /* 観光スポット紹介セクション */
+    .spots-nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:28px;
+    }
+    .spot-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 20px;
+      border-radius:var(--radius);
+      border:2px solid var(--line);
+      background:var(--card);
+      color:var(--text);
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+      transition:all .2s;
+    }
+    .spot-btn:hover,.spot-btn:focus{
+      background:var(--blue-light);
+      border-color:var(--blue);
+      color:var(--blue);
+    }
+    .spot-btn.beatles{
+      border-color:var(--orange);
+      background:var(--orange-light);
+      color:var(--orange);
+    }
+    .spot-btn.beatles:hover{
+      background:var(--orange);
+      color:#fff;
+    }
+    .spot-btn i{font-size:20px}
+
+    .spot-card{
+      background:var(--card);
+      border:2px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      margin-bottom:24px;
+    }
+    .spot-card.beatles-special{
+      border-color:var(--orange);
+      border-width:3px;
+    }
+    .spot-card-img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      display:block;
+    }
+    .spot-card-body{
+      padding:24px;
+    }
+    .spot-card-title{
+      font-size:22px;
+      font-weight:900;
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--text);
+    }
+    .spot-card-title i{color:var(--blue)}
+    .beatles-special .spot-card-title i{color:var(--orange)}
+    .spot-card-desc{
+      font-size:16px;
+      line-height:1.9;
+      color:var(--text);
+      margin-bottom:16px;
+    }
+    .spot-card-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 14px;
+      border-radius:6px;
+      background:var(--blue-light);
+      color:var(--blue);
+      font-size:14px;
+      font-weight:700;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+    .beatles-special .spot-card-tag{
+      background:var(--orange-light);
+      color:var(--orange);
+    }
+    .beatles-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 16px;
+      border-radius:8px;
+      background:var(--orange);
+      color:#fff;
+      font-size:16px;
+      font-weight:900;
     }
     .route-city{
       font-size:14px;
@@ -817,28 +922,74 @@
     }
     footer a{color:var(--blue);text-decoration:none}
 
-    /* Responsive */
+    /* Responsive - スマホ最適化 */
     @media (max-width:860px){
       .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .info-grid{grid-template-columns:repeat(2,1fr)}
       .lodging{grid-template-columns:1fr}
       .weather-grid{grid-template-columns:1fr}
       .checklist-grid{grid-template-columns:1fr}
+      .spot-card-img{height:180px}
     }
     @media (max-width:520px){
       body{font-size:15px}
-      .wrap{padding:16px 12px 60px}
-      .grid{grid-template-columns:1fr}
-      .info-grid{grid-template-columns:1fr}
-      .heroTop{padding:24px 16px 20px}
-      .heroBody{padding:20px 16px 28px}
-      .title{font-size:22px}
-      .countdown-value{font-size:28px}
-      .toc-list{flex-direction:column}
-      .toc-list a{width:100%;justify-content:center}
-      .tDate{font-size:16px}
-      .time-display{padding:4px 10px;font-size:14px}
-      .time-display .local{font-size:16px}
+      .wrap{padding:12px 8px 60px}
+      .grid{grid-template-columns:1fr;gap:16px}
+      .info-grid{grid-template-columns:1fr;gap:16px}
+      .heroTop{padding:20px 12px 16px}
+      .heroBody{padding:16px 12px 24px}
+      .title{font-size:20px;line-height:1.5}
+      .countdown-container{padding:16px}
+      .countdown{gap:16px}
+      .countdown-value{font-size:26px}
+      .countdown-unit{font-size:12px}
+      .toc{padding:16px}
+      .toc-title{font-size:16px}
+      .toc-list{flex-direction:column;gap:8px}
+      .toc-list a{width:100%;justify-content:flex-start;padding:12px 16px;font-size:15px}
+      .sectionTitle{font-size:18px;margin:32px 0 16px}
+      .tItem summary{padding:16px}
+      .tItem .tBody{padding:16px}
+      .tDate{font-size:15px;gap:8px}
+      .tDate i{font-size:16px}
+      .tags{gap:8px}
+      .tag{font-size:12px;padding:5px 10px}
+      .time-display{padding:4px 8px;font-size:13px;margin-right:8px;flex-wrap:wrap}
+      .time-display .local{font-size:15px}
+      .time-display .jst{font-size:12px}
+      .tBody li{padding-left:20px;font-size:15px;margin:10px 0}
+      .callout{padding:16px;font-size:15px}
+      .spot-btn{padding:12px 16px;font-size:14px;width:100%}
+      .spot-btn i{font-size:18px}
+      .spot-card-img{height:160px}
+      .spot-card-body{padding:16px}
+      .spot-card-title{font-size:18px}
+      .spot-card-desc{font-size:15px}
+      .weather-card{padding:16px}
+      .weather-city{font-size:16px}
+      .weather-temp .value{font-size:28px}
+      .transport-item{padding:12px 0;gap:12px}
+      .transport-icon{width:40px;height:40px;font-size:18px}
+      .transport-info h4{font-size:16px}
+      .transport-info p{font-size:14px}
+      .checklist-item{padding:10px 12px}
+      .checklist-item label{font-size:14px;gap:8px}
+      .table th,.table td{padding:12px 10px;font-size:14px}
+      .back-to-top{width:48px;height:48px;font-size:18px;bottom:16px;right:16px}
+      .actions{gap:8px}
+      .btn{padding:10px 14px;font-size:13px}
+      .pill{padding:8px 12px;font-size:13px}
+      .meta{gap:8px}
+      .note{padding:12px;font-size:14px;line-height:1.8}
+      .card{padding:16px;min-height:auto}
+      .card .big{font-size:15px}
+      .card small{font-size:12px}
+      .info-card{padding:16px}
+      .info-card-icon{width:40px;height:40px;font-size:18px;margin-bottom:12px}
+      .info-card-value{font-size:16px}
+      .info-card-title{font-size:13px}
+      .info-card-note{font-size:13px}
+      footer{font-size:12px;flex-direction:column;text-align:center}
     }
 
     /* Print Styles - 印刷時もライトモードベース */
@@ -974,6 +1125,7 @@
             <li><a href="#day-404"><i class="fa-solid fa-plane"></i> 4/4 ドイツへ</a></li>
             <li><a href="#day-405"><i class="fa-solid fa-plane"></i> 4/5 中国へ</a></li>
             <li><a href="#day-406"><i class="fa-solid fa-home"></i> 4/6 帰国</a></li>
+            <li><a href="#spots" class="match"><i class="fa-solid fa-camera"></i> 観光スポット</a></li>
             <li><a href="#info"><i class="fa-solid fa-info-circle"></i> 基本情報</a></li>
             <li><a href="#checklist"><i class="fa-solid fa-check-square"></i> 持ち物</a></li>
           </ul>
@@ -1018,44 +1170,51 @@
             <i class="fa-solid fa-route"></i> フライトルート
           </h2>
           <div class="flight-route">
-            <svg class="route-svg" viewBox="0 0 800 120" aria-label="フライトルート：関西→ミュンヘン→ロンドン→ミュンヘン→北京→羽田→関西">
-              <!-- Outbound Route -->
-              <path class="route-line" d="M60,40 Q200,10 320,40 Q400,60 480,40" />
-              <!-- Return Route -->
-              <path class="route-line" d="M480,80 Q400,100 320,80 Q200,50 60,80" style="stroke:var(--gray);opacity:.7" />
+            <svg class="route-svg" viewBox="0 0 900 140" aria-label="フライトルート：関西→ミュンヘン→ロンドン→ミュンヘン→北京→羽田→関西">
+              <!-- Outbound Route (往路) -->
+              <path class="route-line" d="M50,50 Q180,20 300,50 Q380,70 460,50" />
+              <!-- Return Route (復路) -->
+              <path class="route-line" d="M460,90 Q530,110 600,90 Q680,70 760,90 Q820,100 860,70" style="stroke:var(--gray);opacity:.7" />
 
               <!-- Cities -->
-              <g transform="translate(40,40)">
-                <circle class="route-dot" r="8" />
-                <text class="route-city" x="0" y="-18" text-anchor="middle">関西</text>
-                <text class="route-code" x="0" y="28" text-anchor="middle">KIX</text>
+              <g transform="translate(50,50)">
+                <circle class="route-dot" r="10" style="fill:var(--blue)" />
+                <text class="route-city" x="0" y="-22" text-anchor="middle">関西</text>
+                <text class="route-code" x="0" y="30" text-anchor="middle">KIX</text>
               </g>
-              <g transform="translate(320,40)">
+              <g transform="translate(300,50)">
                 <circle class="route-dot" r="8" />
-                <text class="route-city" x="0" y="-18" text-anchor="middle">ミュンヘン</text>
+                <text class="route-city" x="0" y="-20" text-anchor="middle">ミュンヘン</text>
                 <text class="route-code" x="0" y="28" text-anchor="middle">MUC</text>
               </g>
-              <g transform="translate(480,40)">
-                <circle class="route-dot" r="8" style="fill:var(--orange)" />
-                <text class="route-city" x="0" y="-18" text-anchor="middle" style="fill:var(--orange);font-weight:900">ロンドン</text>
-                <text class="route-code" x="0" y="28" text-anchor="middle">LHR</text>
+              <g transform="translate(460,50)">
+                <circle class="route-dot" r="10" style="fill:var(--orange)" />
+                <text class="route-city" x="0" y="-22" text-anchor="middle" style="fill:var(--orange);font-weight:900">ロンドン</text>
+                <text class="route-code" x="0" y="30" text-anchor="middle">LHR</text>
               </g>
-              <g transform="translate(600,80)">
+              <g transform="translate(600,90)">
                 <circle class="route-dot" r="6" style="fill:var(--gray)" />
-                <text class="route-city" x="0" y="-14" text-anchor="middle" style="font-size:12px">北京</text>
+                <text class="route-city" x="0" y="-16" text-anchor="middle" style="font-size:12px">北京</text>
                 <text class="route-code" x="0" y="22" text-anchor="middle">PEK</text>
               </g>
-              <g transform="translate(720,80)">
+              <g transform="translate(760,90)">
                 <circle class="route-dot" r="6" style="fill:var(--gray)" />
-                <text class="route-city" x="0" y="-14" text-anchor="middle" style="font-size:12px">羽田</text>
+                <text class="route-city" x="0" y="-16" text-anchor="middle" style="font-size:12px">羽田</text>
                 <text class="route-code" x="0" y="22" text-anchor="middle">HND</text>
+              </g>
+              <g transform="translate(860,70)">
+                <circle class="route-dot" r="10" style="fill:var(--blue)" />
+                <text class="route-city" x="0" y="-22" text-anchor="middle" style="fill:var(--blue);font-weight:900">関西</text>
+                <text class="route-code" x="0" y="30" text-anchor="middle">KIX</text>
+                <text x="0" y="48" text-anchor="middle" style="font-size:11px;fill:var(--blue);font-weight:700">GOAL!</text>
               </g>
 
               <!-- Plane icons -->
-              <text x="180" y="25" class="route-plane" style="font-size:16px">✈</text>
-              <text x="400" y="50" class="route-plane" style="font-size:16px">✈</text>
-              <text x="540" y="75" style="font-size:14px;fill:var(--gray)">✈</text>
-              <text x="660" y="85" style="font-size:14px;fill:var(--gray)">✈</text>
+              <text x="160" y="30" class="route-plane" style="font-size:18px">✈️</text>
+              <text x="380" y="60" class="route-plane" style="font-size:18px">✈️</text>
+              <text x="530" y="95" style="font-size:14px;fill:var(--gray)">✈️</text>
+              <text x="680" y="85" style="font-size:14px;fill:var(--gray)">✈️</text>
+              <text x="810" y="80" style="font-size:14px;fill:var(--blue)">✈️</text>
             </svg>
           </div>
         </section>
@@ -1377,6 +1536,146 @@
               </details>
             </article>
           </div>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- 観光スポット紹介セクション -->
+        <section aria-labelledby="spots-title" id="spots">
+          <h2 class="sectionTitle" id="spots-title">
+            <i class="fa-solid fa-camera"></i> 観光スポット紹介
+          </h2>
+
+          <!-- クイックジャンプボタン -->
+          <div class="spots-nav">
+            <a href="#spot-beatles" class="spot-btn beatles">
+              <i class="fa-solid fa-music"></i> ビートルズの聖地
+            </a>
+            <a href="#spot-wembley" class="spot-btn">
+              <i class="fa-solid fa-futbol"></i> ウェンブリー
+            </a>
+            <a href="#spot-bigben" class="spot-btn">
+              <i class="fa-solid fa-landmark"></i> ビッグベン
+            </a>
+            <a href="#spot-tower" class="spot-btn">
+              <i class="fa-solid fa-bridge"></i> タワーブリッジ
+            </a>
+            <a href="#spot-abbey" class="spot-btn beatles">
+              <i class="fa-solid fa-road"></i> アビーロード
+            </a>
+            <a href="#spot-munich" class="spot-btn">
+              <i class="fa-solid fa-beer-mug-empty"></i> ミュンヘン
+            </a>
+          </div>
+
+          <!-- ビートルズの聖地・リバプール（特別強調） -->
+          <article class="spot-card beatles-special" id="spot-beatles">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop" alt="リバプールの街並み" class="spot-card-img" loading="lazy">
+            <div class="spot-card-body">
+              <h3 class="spot-card-title">
+                <i class="fa-solid fa-music"></i>
+                リバプール ― ビートルズの聖地
+                <span class="beatles-badge"><i class="fa-solid fa-star"></i> お父さん必見！</span>
+              </h3>
+              <p class="spot-card-desc">
+                🎸 <b>ビートルズファンの聖地</b>リバプール！ジョン・レノン、ポール・マッカートニー、ジョージ・ハリスン、リンゴ・スターが生まれ育った街。<br><br>
+                キャバーン・クラブ、ストロベリー・フィールズ、ペニー・レイン、ビートルズ・ストーリー博物館など、ファン必訪のスポットが集結しています。<br><br>
+                <b>ロンドンから電車で約2時間</b>で行けます。日帰りでも1泊でもOK！
+              </p>
+              <span class="spot-card-tag"><i class="fa-solid fa-music"></i> キャバーン・クラブ</span>
+              <span class="spot-card-tag"><i class="fa-solid fa-leaf"></i> ストロベリー・フィールズ</span>
+              <span class="spot-card-tag"><i class="fa-solid fa-road"></i> ペニー・レイン</span>
+              <span class="spot-card-tag"><i class="fa-solid fa-building-columns"></i> ビートルズ・ストーリー</span>
+            </div>
+          </article>
+
+          <!-- アビーロード -->
+          <article class="spot-card beatles-special" id="spot-abbey">
+            <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&h=400&fit=crop" alt="アビーロードの横断歩道" class="spot-card-img" loading="lazy">
+            <div class="spot-card-body">
+              <h3 class="spot-card-title">
+                <i class="fa-solid fa-road"></i>
+                アビーロード（ロンドン）
+              </h3>
+              <p class="spot-card-desc">
+                🎵 あの有名なジャケット写真の横断歩道！<b>ロンドン市内</b>にあるので気軽に立ち寄れます。<br><br>
+                EMIスタジオ（現アビーロード・スタジオ）の前にある横断歩道で、同じポーズで記念撮影するのが定番。<b>24時間いつでも訪問可能</b>です。
+              </p>
+              <span class="spot-card-tag"><i class="fa-solid fa-camera"></i> 記念撮影</span>
+              <span class="spot-card-tag"><i class="fa-solid fa-subway"></i> St John's Wood駅</span>
+            </div>
+          </article>
+
+          <!-- ウェンブリースタジアム -->
+          <article class="spot-card" id="spot-wembley">
+            <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&h=400&fit=crop" alt="サッカースタジアム" class="spot-card-img" loading="lazy">
+            <div class="spot-card-body">
+              <h3 class="spot-card-title">
+                <i class="fa-solid fa-futbol"></i>
+                ウェンブリースタジアム
+              </h3>
+              <p class="spot-card-desc">
+                ⚽ <b>3/31（火）はここで日本代表vsイングランド戦！</b><br><br>
+                収容人数約90,000人を誇るイングランドの聖地。ロンドン北西部に位置し、ウェンブリーパーク駅から徒歩圏内。<br><br>
+                スタジアムツアーも人気。サッカー以外にも大物アーティストのコンサートが開催される会場としても有名です。
+              </p>
+              <span class="spot-card-tag"><i class="fa-solid fa-futbol"></i> 試合観戦</span>
+              <span class="spot-card-tag"><i class="fa-solid fa-users"></i> 90,000人収容</span>
+            </div>
+          </article>
+
+          <!-- ビッグベン -->
+          <article class="spot-card" id="spot-bigben">
+            <img src="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&h=400&fit=crop" alt="ビッグベンとウェストミンスター" class="spot-card-img" loading="lazy">
+            <div class="spot-card-body">
+              <h3 class="spot-card-title">
+                <i class="fa-solid fa-landmark"></i>
+                ビッグベン ＆ ウェストミンスター宮殿
+              </h3>
+              <p class="spot-card-desc">
+                🏛️ ロンドンのシンボル！テムズ川沿いにそびえる時計塔。<br><br>
+                ウェストミンスター橋やサウスバンクからの眺めは最高。夜のライトアップも美しいです。近くにはウェストミンスター寺院もあり、一緒に観光できます。
+              </p>
+              <span class="spot-card-tag"><i class="fa-solid fa-camera"></i> 写真映え</span>
+              <span class="spot-card-tag"><i class="fa-solid fa-clock"></i> 時計塔</span>
+            </div>
+          </article>
+
+          <!-- タワーブリッジ -->
+          <article class="spot-card" id="spot-tower">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=400&fit=crop" alt="タワーブリッジ" class="spot-card-img" loading="lazy">
+            <div class="spot-card-body">
+              <h3 class="spot-card-title">
+                <i class="fa-solid fa-bridge"></i>
+                タワーブリッジ
+              </h3>
+              <p class="spot-card-desc">
+                🌉 ロンドンを代表する跳ね橋。近くにはロンドン塔もあり、歴史好きにはたまらないエリア。<br><br>
+                橋の上部（ガラス張りの通路）を歩くこともでき、テムズ川の絶景が楽しめます。夜景もおすすめ！
+              </p>
+              <span class="spot-card-tag"><i class="fa-solid fa-person-walking"></i> 橋上を歩ける</span>
+              <span class="spot-card-tag"><i class="fa-solid fa-tower-observation"></i> ロンドン塔近く</span>
+            </div>
+          </article>
+
+          <!-- ミュンヘン -->
+          <article class="spot-card" id="spot-munich">
+            <img src="https://images.unsplash.com/photo-1595867818082-083862f3d630?w=800&h=400&fit=crop" alt="ミュンヘンの街並み" class="spot-card-img" loading="lazy">
+            <div class="spot-card-body">
+              <h3 class="spot-card-title">
+                <i class="fa-solid fa-beer-mug-empty"></i>
+                ミュンヘン（ドイツ）
+              </h3>
+              <p class="spot-card-desc">
+                🍺 帰路途中に立ち寄るバイエルンの中心都市！<br><br>
+                マリエン広場、新市庁舎の仕掛け時計、ホフブロイハウス（ビアホール）など見どころ満載。本場のビールとソーセージを楽しめます。<br><br>
+                <b>4/4〜4/5に1泊</b>して、ミュンヘン観光も可能です。
+              </p>
+              <span class="spot-card-tag"><i class="fa-solid fa-beer-mug-empty"></i> ビアホール</span>
+              <span class="spot-card-tag"><i class="fa-solid fa-clock"></i> 仕掛け時計</span>
+              <span class="spot-card-tag"><i class="fa-solid fa-utensils"></i> ドイツ料理</span>
+            </div>
+          </article>
         </section>
 
         <div class="hr"></div>
