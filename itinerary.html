@@ -2503,16 +2503,58 @@
                 <h4 style="font-size:20px;font-weight:900;color:#fff;margin:0;">ロンドン エリア安全マップ</h4>
               </div>
 
-              <!-- 地図埋め込み -->
-              <div style="position:relative;">
+              <!-- Google Maps + マーカーオーバーレイ -->
+              <div style="position:relative;height:350px;overflow:hidden;">
                 <iframe
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-0.2400%2C51.4700%2C0.0200%2C51.5500&layer=mapnik&marker=51.5074%2C-0.1278"
-                  style="width:100%;height:300px;border:none;"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d79432.67339862972!2d-0.12!3d51.505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+                  style="width:100%;height:100%;border:none;"
                   loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
                   title="ロンドン地図">
                 </iframe>
-                <div style="position:absolute;bottom:8px;right:8px;background:rgba(255,255,255,.95);padding:6px 10px;border-radius:6px;font-size:11px;color:#666;">
-                  © OpenStreetMap
+
+                <!-- 安全エリアマーカー（緑） -->
+                <div style="position:absolute;top:42%;left:44%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟢 ウェストミンスター
+                  </div>
+                </div>
+                <div style="position:absolute;top:55%;left:38%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟢 サウスケンジントン
+                  </div>
+                </div>
+                <div style="position:absolute;top:38%;left:48%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟢 コベントガーデン
+                  </div>
+                </div>
+                <div style="position:absolute;top:30%;left:42%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟢 メイフェア
+                  </div>
+                </div>
+
+                <!-- 注意エリアマーカー（赤/オレンジ） -->
+                <div style="position:absolute;top:72%;left:52%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#ef4444;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🔴 ブリクストン
+                  </div>
+                </div>
+                <div style="position:absolute;top:68%;left:62%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#ef4444;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🔴 ペッカム
+                  </div>
+                </div>
+                <div style="position:absolute;top:18%;left:55%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#ef4444;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🔴 トッテナム
+                  </div>
+                </div>
+                <div style="position:absolute;top:58%;left:50%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#f59e0b;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟡 エレファント&キャッスル
+                  </div>
                 </div>
               </div>
 
@@ -2587,16 +2629,55 @@
                 <h4 style="font-size:20px;font-weight:900;color:#fff;margin:0;">リバプール エリア安全マップ</h4>
               </div>
 
-              <!-- 地図埋め込み -->
-              <div style="position:relative;">
+              <!-- Google Maps + マーカーオーバーレイ -->
+              <div style="position:relative;height:320px;overflow:hidden;">
                 <iframe
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-3.0200%2C53.3800%2C-2.9000%2C53.4300&layer=mapnik&marker=53.4084%2C-2.9916"
-                  style="width:100%;height:280px;border:none;"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d38154.56238650742!2d-2.9916!3d53.4084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1700000000001!5m2!1sja!2sjp"
+                  style="width:100%;height:100%;border:none;"
                   loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
                   title="リバプール地図">
                 </iframe>
-                <div style="position:absolute;bottom:8px;right:8px;background:rgba(255,255,255,.95);padding:6px 10px;border-radius:6px;font-size:11px;color:#666;">
-                  © OpenStreetMap
+
+                <!-- 安全エリアマーカー（緑） -->
+                <div style="position:absolute;top:45%;left:48%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟢 シティセンター
+                  </div>
+                </div>
+                <div style="position:absolute;top:55%;left:42%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟢 アルバート・ドック
+                  </div>
+                </div>
+                <div style="position:absolute;top:40%;left:52%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟢 キャバーン・クラブ
+                  </div>
+                </div>
+
+                <!-- サッカースタジアム（青） -->
+                <div style="position:absolute;top:22%;left:48%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#c8102e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    ⚽ アンフィールド
+                  </div>
+                </div>
+
+                <!-- 注意エリアマーカー（赤/オレンジ） -->
+                <div style="position:absolute;top:68%;left:55%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#ef4444;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🔴 トックステス
+                  </div>
+                </div>
+                <div style="position:absolute;top:30%;left:55%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#f59e0b;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟡 エヴァートン地区
+                  </div>
+                </div>
+                <div style="position:absolute;top:50%;left:62%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#ef4444;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🔴 ケンジントン
+                  </div>
                 </div>
               </div>
 
@@ -2663,16 +2744,45 @@
                 <span style="background:#22c55e;color:#fff;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-left:auto;">全体的に安全</span>
               </div>
 
-              <!-- 地図埋め込み -->
-              <div style="position:relative;">
+              <!-- Google Maps + マーカーオーバーレイ -->
+              <div style="position:relative;height:320px;overflow:hidden;">
                 <iframe
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=11.5000%2C48.1000%2C11.6500%2C48.1700&layer=mapnik&marker=48.1351%2C11.5820"
-                  style="width:100%;height:280px;border:none;"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d43392.77652915756!2d11.5820!3d48.1351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1700000000002!5m2!1sja!2sjp"
+                  style="width:100%;height:100%;border:none;"
                   loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
                   title="ミュンヘン地図">
                 </iframe>
-                <div style="position:absolute;bottom:8px;right:8px;background:rgba(255,255,255,.95);padding:6px 10px;border-radius:6px;font-size:11px;color:#666;">
-                  © OpenStreetMap
+
+                <!-- 安全エリアマーカー（緑）- ほぼ全域安全 -->
+                <div style="position:absolute;top:48%;left:48%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟢 マリエン広場
+                  </div>
+                </div>
+                <div style="position:absolute;top:32%;left:45%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟢 シュヴァービング
+                  </div>
+                </div>
+                <div style="position:absolute;top:40%;left:58%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟢 英国庭園
+                  </div>
+                </div>
+
+                <!-- サッカースタジアム -->
+                <div style="position:absolute;top:15%;left:55%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#dc052d;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    ⚽ アリアンツ・アレーナ
+                  </div>
+                </div>
+
+                <!-- 注意エリア（少ない） -->
+                <div style="position:absolute;top:52%;left:38%;transform:translate(-50%,-50%);pointer-events:none;">
+                  <div style="background:#f59e0b;color:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+                    🟡 中央駅（夜間注意）
+                  </div>
                 </div>
               </div>
 
