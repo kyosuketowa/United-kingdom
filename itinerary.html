@@ -1716,134 +1716,534 @@
 
           <!-- クイックジャンプボタン -->
           <div class="spots-nav">
-            <a href="#spot-beatles" class="spot-btn beatles">
-              <i class="fa-solid fa-music"></i> ビートルズの聖地
+            <a href="#city-liverpool" class="spot-btn beatles">
+              <i class="fa-solid fa-music"></i> リバプール（ビートルズ）
             </a>
-            <a href="#spot-wembley" class="spot-btn">
-              <i class="fa-solid fa-futbol"></i> ウェンブリー
+            <a href="#city-london" class="spot-btn">
+              <i class="fa-solid fa-city"></i> ロンドン
             </a>
-            <a href="#spot-bigben" class="spot-btn">
-              <i class="fa-solid fa-landmark"></i> ビッグベン
-            </a>
-            <a href="#spot-tower" class="spot-btn">
-              <i class="fa-solid fa-bridge"></i> タワーブリッジ
-            </a>
-            <a href="#spot-abbey" class="spot-btn beatles">
-              <i class="fa-solid fa-road"></i> アビーロード
-            </a>
-            <a href="#spot-munich" class="spot-btn">
+            <a href="#city-munich" class="spot-btn">
               <i class="fa-solid fa-beer-mug-empty"></i> ミュンヘン
+            </a>
+            <a href="#safety" class="spot-btn" style="border-color:var(--orange);color:var(--orange);">
+              <i class="fa-solid fa-triangle-exclamation"></i> 安全情報
             </a>
           </div>
 
-          <!-- ビートルズの聖地・リバプール（特別強調） -->
-          <article class="spot-card beatles-special" id="spot-beatles">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop" alt="リバプールの街並み" class="spot-card-img" loading="lazy">
-            <div class="spot-card-body">
-              <h3 class="spot-card-title">
-                <i class="fa-solid fa-music"></i>
-                リバプール ― ビートルズの聖地
+          <!-- ========================================== -->
+          <!-- リバプール（ビートルズの聖地）詳細セクション -->
+          <!-- ========================================== -->
+          <div id="city-liverpool" style="margin-bottom:40px;">
+            <h3 style="font-size:24px;font-weight:900;color:var(--orange);margin-bottom:20px;padding:16px;background:var(--orange-light);border-radius:var(--radius);display:flex;align-items:center;gap:12px;border:3px solid var(--orange);">
+              <i class="fa-solid fa-music"></i>
+              リバプール ― ビートルズの聖地
+              <span class="beatles-badge"><i class="fa-solid fa-star"></i> お父さん必見！</span>
+            </h3>
+
+            <!-- アクセス情報 -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-train" style="color:var(--blue);"></i> ロンドンからのアクセス
+              </h4>
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+                <div style="background:var(--blue-light);border:2px solid var(--blue);border-radius:8px;padding:14px;">
+                  <div style="font-size:14px;color:var(--blue);font-weight:900;">鉄道（おすすめ）</div>
+                  <div style="font-size:16px;color:var(--text);margin-top:6px;">ユーストン駅 → リバプール・ライム・ストリート駅</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:4px;">所要時間：約2時間15分 ／ 片道 £30-80</div>
+                </div>
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:14px;color:var(--text-muted);font-weight:900;">バス（格安）</div>
+                  <div style="font-size:16px;color:var(--text);margin-top:6px;">National Express / Megabus</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:4px;">所要時間：約4-5時間 ／ 片道 £5-20</div>
+                </div>
+              </div>
+              <div style="margin-top:12px;padding:12px;background:var(--orange-light);border:2px solid var(--orange);border-radius:8px;">
+                <span style="color:var(--orange);font-weight:700;"><i class="fa-solid fa-lightbulb"></i> おすすめ：</span>
+                <span style="color:var(--text);">日帰りなら朝一の電車で行き、夕方戻る。1泊するなら市内中心部のホテルが便利。</span>
+              </div>
+            </div>
+
+            <!-- ビートルズスポット詳細 -->
+            <div style="background:var(--orange-light);border:3px solid var(--orange);border-radius:var(--radius);padding:24px;margin-bottom:20px;">
+              <h4 style="font-size:18px;font-weight:900;color:var(--orange);margin-bottom:20px;display:flex;align-items:center;gap:10px;">
+                <i class="fa-solid fa-map-location-dot"></i> ビートルズ聖地巡礼スポット
+              </h4>
+
+              <!-- キャバーン・クラブ -->
+              <div style="background:var(--card);border:2px solid var(--orange);border-radius:8px;padding:16px;margin-bottom:16px;">
+                <div style="display:flex;align-items:flex-start;gap:16px;">
+                  <div style="width:50px;height:50px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-guitar" style="color:#fff;font-size:20px;"></i>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="font-size:18px;font-weight:900;color:var(--orange);">1. キャバーン・クラブ（The Cavern Club）</div>
+                    <div style="font-size:14px;color:var(--text-muted);margin-top:4px;"><i class="fa-solid fa-location-dot"></i> 10 Mathew Street, Liverpool L2 6RE</div>
+                    <div style="font-size:15px;color:var(--text);margin-top:8px;line-height:1.8;">
+                      ビートルズが約300回も演奏した伝説のライブハウス。現在も営業中で、昼は無料入場、夜はライブ演奏あり。地下の雰囲気は当時を再現。<br>
+                      <b style="color:var(--orange);">営業時間：</b>日-木 10:00-24:00 / 金土 10:00-02:00
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ビートルズ・ストーリー -->
+              <div style="background:var(--card);border:2px solid var(--orange);border-radius:8px;padding:16px;margin-bottom:16px;">
+                <div style="display:flex;align-items:flex-start;gap:16px;">
+                  <div style="width:50px;height:50px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-building-columns" style="color:#fff;font-size:20px;"></i>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="font-size:18px;font-weight:900;color:var(--orange);">2. ビートルズ・ストーリー（The Beatles Story）</div>
+                    <div style="font-size:14px;color:var(--text-muted);margin-top:4px;"><i class="fa-solid fa-location-dot"></i> Royal Albert Dock, Liverpool L3 4AD</div>
+                    <div style="font-size:15px;color:var(--text);margin-top:8px;line-height:1.8;">
+                      世界最大のビートルズ博物館。彼らの生い立ちから解散まで、貴重な展示品と共に体験できる。日本語オーディオガイドあり。<br>
+                      <b style="color:var(--orange);">入場料：</b>大人 £18 ／ <b>営業時間：</b>10:00-18:00（最終入場17:00）
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ストロベリー・フィールズ -->
+              <div style="background:var(--card);border:2px solid var(--orange);border-radius:8px;padding:16px;margin-bottom:16px;">
+                <div style="display:flex;align-items:flex-start;gap:16px;">
+                  <div style="width:50px;height:50px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-leaf" style="color:#fff;font-size:20px;"></i>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="font-size:18px;font-weight:900;color:var(--orange);">3. ストロベリー・フィールズ（Strawberry Field）</div>
+                    <div style="font-size:14px;color:var(--text-muted);margin-top:4px;"><i class="fa-solid fa-location-dot"></i> Beaconsfield Road, Liverpool L25 6EJ</div>
+                    <div style="font-size:15px;color:var(--text);margin-top:8px;line-height:1.8;">
+                      ジョン・レノンが少年時代に遊んだ場所。名曲「Strawberry Fields Forever」の舞台。赤い門での記念撮影が定番。2019年に一般公開開始。<br>
+                      <b style="color:var(--orange);">入場料：</b>大人 £14.95 ／ <b>アクセス：</b>市内からバスまたはタクシーで約20分
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ペニー・レイン -->
+              <div style="background:var(--card);border:2px solid var(--orange);border-radius:8px;padding:16px;margin-bottom:16px;">
+                <div style="display:flex;align-items:flex-start;gap:16px;">
+                  <div style="width:50px;height:50px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-road" style="color:#fff;font-size:20px;"></i>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="font-size:18px;font-weight:900;color:var(--orange);">4. ペニー・レイン（Penny Lane）</div>
+                    <div style="font-size:14px;color:var(--text-muted);margin-top:4px;"><i class="fa-solid fa-location-dot"></i> Penny Lane, Liverpool L18</div>
+                    <div style="font-size:15px;color:var(--text);margin-top:8px;line-height:1.8;">
+                      名曲の舞台となった実在の通り。歌詞に登場する床屋や銀行も現存。道路標識との記念撮影が人気（標識は盗難防止で高い位置に）。<br>
+                      <b style="color:var(--orange);">見どころ：</b>Penny Lane の道路標識、床屋、円形のシェルター
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- メンバーの生家 -->
+              <div style="background:var(--card);border:2px solid var(--orange);border-radius:8px;padding:16px;margin-bottom:16px;">
+                <div style="display:flex;align-items:flex-start;gap:16px;">
+                  <div style="width:50px;height:50px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-house" style="color:#fff;font-size:20px;"></i>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="font-size:18px;font-weight:900;color:var(--orange);">5. メンバーの生家（National Trust管理）</div>
+                    <div style="font-size:15px;color:var(--text);margin-top:8px;line-height:1.8;">
+                      <b>ジョン・レノンの家：</b>251 Menlove Avenue（叔母ミミの家、ジョンが育った場所）<br>
+                      <b>ポール・マッカートニーの家：</b>20 Forthlin Road（ポールが育ち、多くの曲が生まれた場所）<br>
+                      <span style="color:var(--text-muted);">※見学はNational Trustのガイドツアーのみ。要事前予約（£28）</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- マジカル・ミステリー・ツアー -->
+              <div style="background:var(--card);border:2px solid var(--blue);border-radius:8px;padding:16px;">
+                <div style="display:flex;align-items:flex-start;gap:16px;">
+                  <div style="width:50px;height:50px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-bus" style="color:#fff;font-size:20px;"></i>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="font-size:18px;font-weight:900;color:var(--blue);">おすすめ：マジカル・ミステリー・ツアー</div>
+                    <div style="font-size:15px;color:var(--text);margin-top:8px;line-height:1.8;">
+                      約2時間で主要スポットを巡るバスツアー。キャバーン・クラブ前から出発。<br>
+                      <b style="color:var(--blue);">料金：</b>大人 £22 ／ <b>所要時間：</b>約2時間 ／ <b>出発：</b>毎日複数回<br>
+                      <span style="color:var(--text-muted);">効率よく回りたい方に最適！日本語パンフレットあり。</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- リバプールグルメ -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-utensils" style="color:var(--orange);"></i> リバプールのグルメ
+              </h4>
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">スカウス（Scouse）</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:6px;">リバプール名物のシチュー。牛肉または羊肉と野菜を煮込んだ郷土料理。地元民を「スカウサー」と呼ぶ由来。</div>
+                </div>
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">フィッシュ＆チップス</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:6px;">港町リバプールの定番。Albert Dock周辺に多数のお店あり。</div>
+                </div>
+                <div style="background:var(--orange-light);border:2px solid var(--orange);border-radius:8px;padding:14px;grid-column:1/-1;">
+                  <div style="font-size:16px;font-weight:900;color:var(--orange);"><i class="fa-solid fa-star"></i> おすすめレストラン</div>
+                  <div style="font-size:14px;color:var(--text);margin-top:6px;line-height:1.7;">
+                    <b>The Baltic Social</b>（国際料理、雰囲気◎）／ <b>Maggie Fu</b>（アジア料理）／ <b>The Jacaranda</b>（ビートルズゆかりのカフェ）<br>
+                    <b>Tate Liverpool Cafe</b>（Albert Dock内、眺め抜群）
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- リバプール市内交通 -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;">
+              <h4 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-bus" style="color:var(--blue);"></i> リバプール市内の移動
+              </h4>
+              <div style="font-size:15px;color:var(--text);line-height:1.8;">
+                <b>徒歩：</b>市内中心部（キャバーン・クラブ、Albert Dock）は徒歩圏内<br>
+                <b>バス：</b>ストロベリー・フィールズ、ペニー・レインへはバス利用が便利（86番バス等）<br>
+                <b>タクシー：</b>郊外スポットへはタクシーが楽。Uberも利用可能<br>
+                <b>おすすめ：</b>効率よく回るなら「マジカル・ミステリー・ツアー」が最適
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- ロンドン詳細セクション -->
+          <!-- ========================================== -->
+          <div id="city-london" style="margin-bottom:40px;">
+            <h3 style="font-size:24px;font-weight:900;color:var(--blue);margin-bottom:20px;padding:16px;background:var(--blue-light);border-radius:var(--radius);display:flex;align-items:center;gap:12px;border:3px solid var(--blue);">
+              <i class="fa-solid fa-city"></i>
+              ロンドン ― 見どころ満載の大都市
+            </h3>
+
+            <!-- アビーロード（ビートルズスポット） -->
+            <div style="background:var(--orange-light);border:3px solid var(--orange);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:18px;font-weight:900;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+                <i class="fa-solid fa-music"></i> ロンドンのビートルズスポット
                 <span class="beatles-badge"><i class="fa-solid fa-star"></i> お父さん必見！</span>
-              </h3>
-              <p class="spot-card-desc">
-                🎸 <b>ビートルズファンの聖地</b>リバプール！ジョン・レノン、ポール・マッカートニー、ジョージ・ハリスン、リンゴ・スターが生まれ育った街。<br><br>
-                キャバーン・クラブ、ストロベリー・フィールズ、ペニー・レイン、ビートルズ・ストーリー博物館など、ファン必訪のスポットが集結しています。<br><br>
-                <b>ロンドンから電車で約2時間</b>で行けます。日帰りでも1泊でもOK！
-              </p>
-              <span class="spot-card-tag"><i class="fa-solid fa-music"></i> キャバーン・クラブ</span>
-              <span class="spot-card-tag"><i class="fa-solid fa-leaf"></i> ストロベリー・フィールズ</span>
-              <span class="spot-card-tag"><i class="fa-solid fa-road"></i> ペニー・レイン</span>
-              <span class="spot-card-tag"><i class="fa-solid fa-building-columns"></i> ビートルズ・ストーリー</span>
+              </h4>
+              <div style="background:var(--card);border:2px solid var(--orange);border-radius:8px;padding:16px;">
+                <div style="font-size:18px;font-weight:900;color:var(--orange);">アビーロード（Abbey Road）</div>
+                <div style="font-size:14px;color:var(--text-muted);margin-top:4px;"><i class="fa-solid fa-location-dot"></i> Abbey Road, London NW8 9AY</div>
+                <div style="font-size:15px;color:var(--text);margin-top:10px;line-height:1.8;">
+                  あの有名なジャケット写真の横断歩道！EMIスタジオ（現アビーロード・スタジオ）の前で、4人と同じポーズで記念撮影するのが定番。<br><br>
+                  <b style="color:var(--orange);">アクセス：</b>地下鉄 St John's Wood駅から徒歩5分<br>
+                  <b style="color:var(--orange);">ポイント：</b>24時間訪問可能。早朝が空いていておすすめ。車の往来があるので注意！<br>
+                  <b style="color:var(--orange);">周辺：</b>スタジオの壁にはファンのメッセージがびっしり。ギフトショップもあり。
+                </div>
+              </div>
             </div>
-          </article>
 
-          <!-- アビーロード -->
-          <article class="spot-card beatles-special" id="spot-abbey">
-            <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&h=400&fit=crop" alt="アビーロードの横断歩道" class="spot-card-img" loading="lazy">
-            <div class="spot-card-body">
-              <h3 class="spot-card-title">
-                <i class="fa-solid fa-road"></i>
-                アビーロード（ロンドン）
-              </h3>
-              <p class="spot-card-desc">
-                🎵 あの有名なジャケット写真の横断歩道！<b>ロンドン市内</b>にあるので気軽に立ち寄れます。<br><br>
-                EMIスタジオ（現アビーロード・スタジオ）の前にある横断歩道で、同じポーズで記念撮影するのが定番。<b>24時間いつでも訪問可能</b>です。
-              </p>
-              <span class="spot-card-tag"><i class="fa-solid fa-camera"></i> 記念撮影</span>
-              <span class="spot-card-tag"><i class="fa-solid fa-subway"></i> St John's Wood駅</span>
+            <!-- ロンドン観光スポット -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-camera" style="color:var(--blue);"></i> 主要観光スポット
+              </h4>
+              <div style="display:grid;gap:12px;">
+                <div style="display:flex;gap:12px;padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                  <div style="width:44px;height:44px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-landmark" style="color:var(--blue);font-size:18px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:var(--text);">ビッグベン＆ウェストミンスター宮殿</div>
+                    <div style="font-size:14px;color:var(--text-muted);line-height:1.6;">ロンドンのシンボル。テムズ川沿いの絶景。夜のライトアップも美しい。<br>最寄り：Westminster駅</div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:12px;padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                  <div style="width:44px;height:44px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-bridge" style="color:var(--blue);font-size:18px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:var(--text);">タワーブリッジ＆ロンドン塔</div>
+                    <div style="font-size:14px;color:var(--text-muted);line-height:1.6;">跳ね橋の上部（ガラス床）を歩ける。ロンドン塔は王室の歴史を学べる世界遺産。<br>最寄り：Tower Hill駅 ／ 入場料：タワーブリッジ £12.30、ロンドン塔 £34.80</div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:12px;padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                  <div style="width:44px;height:44px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-building-columns" style="color:var(--blue);font-size:18px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:var(--text);">大英博物館（British Museum）</div>
+                    <div style="font-size:14px;color:var(--text-muted);line-height:1.6;">ロゼッタ・ストーン、エジプトのミイラなど800万点以上のコレクション。入場無料！<br>最寄り：Holborn駅またはTottenham Court Road駅</div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:12px;padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                  <div style="width:44px;height:44px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-crown" style="color:var(--blue);font-size:18px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:var(--text);">バッキンガム宮殿</div>
+                    <div style="font-size:14px;color:var(--text-muted);line-height:1.6;">衛兵交代式は必見（11:00頃、毎日または隔日）。早めに場所取りを。<br>最寄り：Victoria駅またはGreen Park駅</div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:12px;padding:14px;background:var(--orange-light);border:2px solid var(--orange);border-radius:8px;">
+                  <div style="width:44px;height:44px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-futbol" style="color:#fff;font-size:18px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:var(--orange);">ウェンブリースタジアム（試合会場）</div>
+                    <div style="font-size:14px;color:var(--text);line-height:1.6;">3/31の日本vsイングランド戦の会場！収容9万人のイングランドの聖地。<br>最寄り：Wembley Park駅（Jubilee線/Metropolitan線）から徒歩10分</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </article>
 
-          <!-- ウェンブリースタジアム -->
-          <article class="spot-card" id="spot-wembley">
-            <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&h=400&fit=crop" alt="サッカースタジアム" class="spot-card-img" loading="lazy">
-            <div class="spot-card-body">
-              <h3 class="spot-card-title">
-                <i class="fa-solid fa-futbol"></i>
-                ウェンブリースタジアム
-              </h3>
-              <p class="spot-card-desc">
-                ⚽ <b>3/31（火）はここで日本代表vsイングランド戦！</b><br><br>
-                収容人数約90,000人を誇るイングランドの聖地。ロンドン北西部に位置し、ウェンブリーパーク駅から徒歩圏内。<br><br>
-                スタジアムツアーも人気。サッカー以外にも大物アーティストのコンサートが開催される会場としても有名です。
-              </p>
-              <span class="spot-card-tag"><i class="fa-solid fa-futbol"></i> 試合観戦</span>
-              <span class="spot-card-tag"><i class="fa-solid fa-users"></i> 90,000人収容</span>
+            <!-- ロンドングルメ -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-utensils" style="color:var(--blue);"></i> ロンドンのグルメ
+              </h4>
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">フィッシュ＆チップス</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:6px;">英国の国民食。白身魚のフライとポテト。モルトビネガーをかけて。</div>
+                </div>
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">サンデーロースト</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:6px;">日曜日の伝統料理。ローストビーフにヨークシャープディング。パブで。</div>
+                </div>
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">アフタヌーンティー</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:6px;">スコーン、サンドイッチ、ケーキと紅茶。ホテルで優雅に。要予約。</div>
+                </div>
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">イングリッシュ・ブレックファスト</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:6px;">ベーコン、卵、ソーセージ、ベイクドビーンズ。ボリューム満点！</div>
+                </div>
+              </div>
+              <div style="margin-top:12px;padding:12px;background:var(--blue-light);border:2px solid var(--blue);border-radius:8px;">
+                <span style="color:var(--blue);font-weight:700;"><i class="fa-solid fa-star"></i> おすすめ：</span>
+                <span style="color:var(--text);font-size:14px;">Borough Market（食の宝庫）、Covent Garden周辺（レストラン多数）、Soho（多国籍料理）</span>
+              </div>
             </div>
-          </article>
 
-          <!-- ビッグベン -->
-          <article class="spot-card" id="spot-bigben">
-            <img src="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&h=400&fit=crop" alt="ビッグベンとウェストミンスター" class="spot-card-img" loading="lazy">
-            <div class="spot-card-body">
-              <h3 class="spot-card-title">
-                <i class="fa-solid fa-landmark"></i>
-                ビッグベン ＆ ウェストミンスター宮殿
-              </h3>
-              <p class="spot-card-desc">
-                🏛️ ロンドンのシンボル！テムズ川沿いにそびえる時計塔。<br><br>
-                ウェストミンスター橋やサウスバンクからの眺めは最高。夜のライトアップも美しいです。近くにはウェストミンスター寺院もあり、一緒に観光できます。
-              </p>
-              <span class="spot-card-tag"><i class="fa-solid fa-camera"></i> 写真映え</span>
-              <span class="spot-card-tag"><i class="fa-solid fa-clock"></i> 時計塔</span>
+            <!-- ロンドン市内交通 -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;">
+              <h4 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-subway" style="color:var(--blue);"></i> ロンドン市内の移動
+              </h4>
+              <div style="font-size:15px;color:var(--text);line-height:1.8;">
+                <b>地下鉄（Tube）：</b>最も便利。Oysterカードまたはコンタクトレス決済で割引。<br>
+                <b>バス：</b>2階建てバスからの景色は観光にも◎。Oyster利用で£1.75。<br>
+                <b>徒歩：</b>中心部は意外とコンパクト。ウェストミンスター〜タワーブリッジは徒歩圏内。<br>
+                <b>おすすめ：</b>Oysterカードを購入（デポジット£7）またはクレジットカードのコンタクトレス決済
+              </div>
             </div>
-          </article>
+          </div>
 
-          <!-- タワーブリッジ -->
-          <article class="spot-card" id="spot-tower">
-            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=400&fit=crop" alt="タワーブリッジ" class="spot-card-img" loading="lazy">
-            <div class="spot-card-body">
-              <h3 class="spot-card-title">
-                <i class="fa-solid fa-bridge"></i>
-                タワーブリッジ
-              </h3>
-              <p class="spot-card-desc">
-                🌉 ロンドンを代表する跳ね橋。近くにはロンドン塔もあり、歴史好きにはたまらないエリア。<br><br>
-                橋の上部（ガラス張りの通路）を歩くこともでき、テムズ川の絶景が楽しめます。夜景もおすすめ！
-              </p>
-              <span class="spot-card-tag"><i class="fa-solid fa-person-walking"></i> 橋上を歩ける</span>
-              <span class="spot-card-tag"><i class="fa-solid fa-tower-observation"></i> ロンドン塔近く</span>
-            </div>
-          </article>
+          <!-- ========================================== -->
+          <!-- ミュンヘン詳細セクション -->
+          <!-- ========================================== -->
+          <div id="city-munich" style="margin-bottom:40px;">
+            <h3 style="font-size:24px;font-weight:900;color:var(--text);margin-bottom:20px;padding:16px;background:var(--gray-light);border-radius:var(--radius);display:flex;align-items:center;gap:12px;border:3px solid var(--gray);">
+              <i class="fa-solid fa-beer-mug-empty"></i>
+              ミュンヘン ― バイエルンの中心都市（1泊滞在）
+            </h3>
 
-          <!-- ミュンヘン -->
-          <article class="spot-card" id="spot-munich">
-            <img src="https://images.unsplash.com/photo-1595867818082-083862f3d630?w=800&h=400&fit=crop" alt="ミュンヘンの街並み" class="spot-card-img" loading="lazy">
-            <div class="spot-card-body">
-              <h3 class="spot-card-title">
-                <i class="fa-solid fa-beer-mug-empty"></i>
-                ミュンヘン（ドイツ）
-              </h3>
-              <p class="spot-card-desc">
-                🍺 帰路途中に立ち寄るバイエルンの中心都市！<br><br>
-                マリエン広場、新市庁舎の仕掛け時計、ホフブロイハウス（ビアホール）など見どころ満載。本場のビールとソーセージを楽しめます。<br><br>
-                <b>4/4〜4/5に1泊</b>して、ミュンヘン観光も可能です。
-              </p>
-              <span class="spot-card-tag"><i class="fa-solid fa-beer-mug-empty"></i> ビアホール</span>
-              <span class="spot-card-tag"><i class="fa-solid fa-clock"></i> 仕掛け時計</span>
-              <span class="spot-card-tag"><i class="fa-solid fa-utensils"></i> ドイツ料理</span>
+            <!-- アクセス情報 -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-plane" style="color:var(--blue);"></i> 空港から市内へのアクセス
+              </h4>
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+                <div style="background:var(--blue-light);border:2px solid var(--blue);border-radius:8px;padding:14px;">
+                  <div style="font-size:14px;color:var(--blue);font-weight:900;">Sバーン（電車）おすすめ</div>
+                  <div style="font-size:16px;color:var(--text);margin-top:6px;">S1/S8でMarienplatz（中心部）へ</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:4px;">所要時間：約40分 ／ 片道 €13.60</div>
+                </div>
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:14px;color:var(--text-muted);font-weight:900;">ルフトハンザ・エクスプレスバス</div>
+                  <div style="font-size:16px;color:var(--text);margin-top:6px;">中央駅（Hauptbahnhof）行き</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:4px;">所要時間：約45分 ／ 片道 €13</div>
+                </div>
+              </div>
             </div>
-          </article>
+
+            <!-- ミュンヘン観光スポット -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-camera" style="color:var(--blue);"></i> 主要観光スポット
+              </h4>
+              <div style="display:grid;gap:12px;">
+                <div style="display:flex;gap:12px;padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                  <div style="width:44px;height:44px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-clock" style="color:var(--blue);font-size:18px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:var(--text);">マリエン広場＆新市庁舎</div>
+                    <div style="font-size:14px;color:var(--text-muted);line-height:1.6;">ミュンヘンの中心。新市庁舎の仕掛け時計（グロッケンシュピール）は必見！<br><b>時計の上演：</b>11:00、12:00（3-10月は17:00も）<br>最寄り：Marienplatz駅</div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:12px;padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                  <div style="width:44px;height:44px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-beer-mug-empty" style="color:var(--blue);font-size:18px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:var(--text);">ホフブロイハウス（Hofbräuhaus）</div>
+                    <div style="font-size:14px;color:var(--text-muted);line-height:1.6;">世界一有名なビアホール。1589年創業。巨大なビールジョッキで乾杯！<br>住所：Platzl 9 ／ 営業：9:00-23:30 ／ Marienplatzから徒歩5分</div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:12px;padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                  <div style="width:44px;height:44px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-church" style="color:var(--blue);font-size:18px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:var(--text);">フラウエン教会（Frauenkirche）</div>
+                    <div style="font-size:14px;color:var(--text-muted);line-height:1.6;">ミュンヘンのシンボル。双子の玉ねぎ型ドームが特徴。塔に登れば絶景。<br>塔の入場：€7.50 ／ Marienplatzから徒歩3分</div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:12px;padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                  <div style="width:44px;height:44px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-tree" style="color:var(--blue);font-size:18px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:var(--text);">英国庭園（Englischer Garten）</div>
+                    <div style="font-size:14px;color:var(--text-muted);line-height:1.6;">世界最大級の都市公園。ビアガーデンもあり。川でサーフィンする人も！<br>おすすめ：中国塔のビアガーデン（7,000席！）</div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:12px;padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                  <div style="width:44px;height:44px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-store" style="color:var(--blue);font-size:18px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:var(--text);">ヴィクトアーリエンマルクト</div>
+                    <div style="font-size:14px;color:var(--text-muted);line-height:1.6;">140店舗以上が並ぶ常設市場。新鮮な食材、ソーセージ、プレッツェルなど。<br>営業：月-土 8:00-20:00頃 ／ Marienplatzから徒歩2分</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ミュンヘングルメ -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-utensils" style="color:var(--blue);"></i> ミュンヘンのグルメ
+              </h4>
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">ヴァイスヴルスト</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:6px;">白いソーセージ。甘いマスタードで。伝統的には午前中に食べる。</div>
+                </div>
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">シュヴァイネハクセ</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:6px;">豚すね肉のロースト。皮はパリパリ、中はジューシー。ビールと相性抜群。</div>
+                </div>
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">ブレッツェル</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:6px;">ドイツの定番パン。塩味でビールのお供に最適。どこでも買える。</div>
+                </div>
+                <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:14px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">ビール（地ビール）</div>
+                  <div style="font-size:14px;color:var(--text-muted);margin-top:6px;">ホフブロイ、パウラーナー、シュパーテンなど。1リットルジョッキで！</div>
+                </div>
+              </div>
+              <div style="margin-top:12px;padding:12px;background:var(--blue-light);border:2px solid var(--blue);border-radius:8px;">
+                <span style="color:var(--blue);font-weight:700;"><i class="fa-solid fa-star"></i> おすすめ：</span>
+                <span style="color:var(--text);font-size:14px;">ホフブロイハウス（定番）、Augustiner-Keller（地元民に人気）、Schneider Bräuhaus（ヴァイスビア専門）</span>
+              </div>
+            </div>
+
+            <!-- ミュンヘン市内交通 -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;">
+              <h4 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-train" style="color:var(--blue);"></i> ミュンヘン市内の移動
+              </h4>
+              <div style="font-size:15px;color:var(--text);line-height:1.8;">
+                <b>徒歩：</b>旧市街（Marienplatz周辺）は徒歩で十分回れる<br>
+                <b>Uバーン/Sバーン：</b>地下鉄と近郊電車。1日券（Tageskarte）€9.20がお得<br>
+                <b>おすすめ：</b>1泊なら旧市街中心のホテルに泊まれば徒歩でOK
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- 危険地域・安全情報セクション -->
+          <!-- ========================================== -->
+          <div id="safety" style="margin-bottom:20px;">
+            <h3 style="font-size:24px;font-weight:900;color:var(--orange);margin-bottom:20px;padding:16px;background:var(--orange-light);border-radius:var(--radius);display:flex;align-items:center;gap:12px;border:3px solid var(--orange);">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              安全情報・避けるべきエリア
+            </h3>
+
+            <!-- ロンドンの注意エリア -->
+            <div style="background:var(--card);border:2px solid var(--orange);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:18px;font-weight:900;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-city"></i> ロンドンで注意すべきエリア
+              </h4>
+              <div style="display:grid;gap:12px;">
+                <div style="padding:14px;background:var(--orange-light);border:2px solid var(--orange);border-radius:8px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--orange);">夜間に避けた方がよいエリア</div>
+                  <div style="font-size:14px;color:var(--text);margin-top:8px;line-height:1.8;">
+                    <b>• ブリクストン（Brixton）南部：</b>夜遅くの一人歩きは避ける<br>
+                    <b>• ペッカム（Peckham）：</b>メインストリートから外れた路地は注意<br>
+                    <b>• トッテナム（Tottenham）：</b>サッカー観戦時以外は用事がなければ行かない<br>
+                    <b>• エレファント＆キャッスル（Elephant & Castle）：</b>駅周辺は夜間注意<br>
+                    <b>• ストラトフォード（Stratford）東部：</b>オリンピックパークは安全だが周辺は注意
+                  </div>
+                </div>
+                <div style="padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">観光エリアでの注意点</div>
+                  <div style="font-size:14px;color:var(--text);margin-top:8px;line-height:1.8;">
+                    <b>• ウェストミンスター橋・ロンドン橋周辺：</b>スリに注意。リュックは前に<br>
+                    <b>• オックスフォード・ストリート：</b>混雑時はスリ・置き引きに注意<br>
+                    <b>• レスター・スクエア/ピカデリー周辺：</b>詐欺（偽チケット販売等）に注意<br>
+                    <b>• ATM利用時：</b>スキミングに注意。銀行内のATMを使用
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- リバプールの注意エリア -->
+            <div style="background:var(--card);border:2px solid var(--orange);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:18px;font-weight:900;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-music"></i> リバプールで注意すべきエリア
+              </h4>
+              <div style="padding:14px;background:var(--orange-light);border:2px solid var(--orange);border-radius:8px;">
+                <div style="font-size:16px;font-weight:900;color:var(--orange);">観光エリアは概ね安全</div>
+                <div style="font-size:14px;color:var(--text);margin-top:8px;line-height:1.8;">
+                  市内中心部（キャバーン・クラブ、Albert Dock周辺）は観光客も多く安全です。<br><br>
+                  <b>• トックステス（Toxteth）：</b>夜間の一人歩きは避ける<br>
+                  <b>• エヴァートン（Everton）：</b>サッカー観戦時以外は避ける<br>
+                  <b>• ケンジントン（Kensington）：</b>リバプールのこのエリアは治安が悪い<br>
+                  <b>• 夜のマシュー・ストリート周辺：</b>週末夜は酔っ払いが多いので注意
+                </div>
+              </div>
+            </div>
+
+            <!-- ミュンヘンの注意エリア -->
+            <div style="background:var(--card);border:2px solid var(--orange);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+              <h4 style="font-size:18px;font-weight:900;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-beer-mug-empty"></i> ミュンヘンで注意すべきエリア
+              </h4>
+              <div style="padding:14px;background:var(--bg-light);border:2px solid var(--line);border-radius:8px;">
+                <div style="font-size:16px;font-weight:900;color:var(--text);">比較的安全な都市</div>
+                <div style="font-size:14px;color:var(--text);margin-top:8px;line-height:1.8;">
+                  ミュンヘンはドイツの中でも治安が良い都市です。観光地は基本的に安全。<br><br>
+                  <b>• 中央駅（Hauptbahnhof）周辺：</b>夜間はホームレスや酔っ払いが多い。普通に歩けば問題なし<br>
+                  <b>• シラーシュトラーセ周辺：</b>歓楽街なので夜間は注意<br>
+                  <b>• スリ：</b>混雑した観光地（マリエン広場等）では貴重品に注意
+                </div>
+              </div>
+            </div>
+
+            <!-- 一般的な安全対策 -->
+            <div style="background:var(--card);border:2px solid var(--blue);border-radius:var(--radius);padding:20px;">
+              <h4 style="font-size:18px;font-weight:900;color:var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-shield-halved"></i> 一般的な安全対策
+              </h4>
+              <div style="font-size:15px;color:var(--text);line-height:2;">
+                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>パスポートはホテルの金庫に。コピーを持ち歩く<br>
+                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>現金は分散して持つ。大金を見せない<br>
+                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>リュックは人混みで前に。ファスナーは閉める<br>
+                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>スマホは歩きながら見ない（ひったくり対策）<br>
+                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>見知らぬ人からの親切な申し出は警戒<br>
+                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>夜間の一人歩きは明るい大通りを<br>
+                <i class="fa-solid fa-check" style="color:var(--blue);margin-right:8px;"></i>不審に感じたらすぐにその場を離れる
+              </div>
+            </div>
+          </div>
         </section>
 
         <div class="hr"></div>
