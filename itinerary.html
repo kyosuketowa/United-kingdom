@@ -990,29 +990,49 @@
       .info-card-title{font-size:13px}
       .info-card-note{font-size:13px}
       footer{font-size:12px;flex-direction:column;text-align:center}
+      /* 乗継セクション スマホ対応 */
+      #connection-title+div{grid-template-columns:1fr}
+      #connection-title+div>div:last-child{grid-column:1}
     }
 
     /* Print Styles - 印刷時もライトモードベース */
     @media print{
-      body{background:#fff;color:#1f2937}
-      .wrap{max-width:100%;margin:0;padding:0}
+      *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      body{background:#fff;color:#1f2937;font-size:12pt;line-height:1.6}
+      .wrap{max-width:100%;margin:0;padding:10mm}
       .hero{box-shadow:none;border:2px solid #e5e7eb;background:#fff}
       .hero-bg{display:none}
-      .heroTop{background:#f8fafc;border-bottom:2px solid #e5e7eb}
+      .heroTop{background:#f8fafc;border-bottom:2px solid #e5e7eb;padding:15mm 10mm}
       .pill{background:#fff;border:2px solid #e5e7eb}
-      .card,.tItem,.callout,.table,.info-card,.weather-card,.transport-list,.checklist{
+      .card,.tItem,.callout,.table,.info-card,.weather-card,.transport-list,.checklist,.spot-card,.match-details{
         background:#fff;border:2px solid #e5e7eb;box-shadow:none
       }
       .timeline:before{background:#2563eb}
       .tItem:before{background:#2563eb;box-shadow:none;border:2px solid #fff}
       .tag{background:#f8fafc;border:2px solid #e5e7eb;color:#1f2937}
-      .back-to-top,.actions,.countdown-container{display:none}
+      .back-to-top,.actions{display:none}
+      .countdown-container{border:2px solid #2563eb;background:#dbeafe}
       .tItem details{display:block}
       .tItem summary{pointer-events:none}
       .tBody{display:block!important}
-      footer{color:#4b5563}
-      .sectionTitle{page-break-after:avoid}
-      .tItem{page-break-inside:avoid}
+      footer{color:#4b5563;margin-top:10mm;padding-top:5mm}
+      .sectionTitle{page-break-after:avoid;margin-top:8mm}
+      .tItem{page-break-inside:avoid;margin-bottom:5mm}
+      .spot-card{page-break-inside:avoid}
+      .info-grid{grid-template-columns:repeat(2,1fr)}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .match-day{border-color:#ea580c!important;background:#ffedd5!important}
+      .title{font-size:18pt}
+      .note{font-size:10pt;line-height:1.8}
+      .toc{page-break-after:always}
+      .spots-nav{display:none}
+      .spot-card-img{height:120px}
+      .checklist-grid{grid-template-columns:repeat(2,1fr)}
+      .checklist-item{background:#f8fafc;border:1px solid #e5e7eb;padding:6px 10px}
+      .checklist-item label{font-size:10pt}
+      a{color:#2563eb;text-decoration:none}
+      a[href]:after{content:" (" attr(href) ")";font-size:8pt;color:#6b7280}
+      .toc-list a[href]:after,.spot-btn[href]:after,.btn[href]:after{content:none}
     }
   </style>
 </head>
@@ -1162,6 +1182,34 @@
               <div class="info-card-note">警察・消防・救急</div>
             </article>
           </div>
+
+          <!-- 大使館・重要連絡先 -->
+          <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:28px;">
+            <h3 style="font-size:16px;font-weight:900;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+              <i class="fa-solid fa-building-flag" style="color:var(--blue);"></i> 日本大使館・重要連絡先
+            </h3>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+              <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:16px;">
+                <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:6px;">在英国日本国大使館</div>
+                <div style="font-size:18px;font-weight:900;color:var(--blue);font-family:var(--mono);">+44-20-7465-6500</div>
+                <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">101-104 Piccadilly, London W1J 7JT</div>
+              </div>
+              <div style="background:var(--bg-light);border:2px solid var(--line);border-radius:8px;padding:16px;">
+                <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:6px;">在ドイツ日本国大使館</div>
+                <div style="font-size:18px;font-weight:900;color:var(--blue);font-family:var(--mono);">+49-30-210940</div>
+                <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Hiroshimastraße 6, 10785 Berlin</div>
+              </div>
+            </div>
+            <div style="margin-top:16px;padding:14px;background:var(--orange-light);border:2px solid var(--orange);border-radius:8px;">
+              <div style="font-size:14px;color:var(--orange);font-weight:700;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-triangle-exclamation"></i> UK ETA（電子渡航認証）について
+              </div>
+              <div style="font-size:14px;color:var(--text);margin-top:8px;line-height:1.7;">
+                2025年4月2日以降、日本国籍者も<b style="color:var(--orange);">UK ETA（電子渡航認証）の事前取得が必要</b>になります。<br>
+                出発前に必ず申請・取得をお忘れなく。（オンラインで申請可能、費用 £10）
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- Flight Route Map -->
@@ -1216,6 +1264,78 @@
               <text x="680" y="85" style="font-size:14px;fill:var(--gray)">✈️</text>
               <text x="810" y="80" style="font-size:14px;fill:var(--blue)">✈️</text>
             </svg>
+          </div>
+        </section>
+
+        <!-- 乗継・注意事項セクション -->
+        <section aria-labelledby="connection-title">
+          <h2 class="sectionTitle" id="connection-title">
+            <i class="fa-solid fa-clock-rotate-left"></i> 乗継時間・注意事項
+          </h2>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px;">
+            <!-- 往路：ミュンヘン乗継 -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                <div style="width:40px;height:40px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;">
+                  <i class="fa-solid fa-plane-arrival" style="color:var(--blue);font-size:18px;"></i>
+                </div>
+                <div>
+                  <div style="font-size:14px;color:var(--text-muted);font-weight:700;">往路</div>
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">ミュンヘン乗継</div>
+                </div>
+              </div>
+              <div style="background:var(--blue-light);border:2px solid var(--blue);border-radius:8px;padding:12px;text-align:center;">
+                <div style="font-size:28px;font-weight:900;color:var(--blue);">約2時間</div>
+                <div style="font-size:14px;color:var(--text-muted);font-weight:700;">十分な余裕あり</div>
+              </div>
+              <div style="margin-top:12px;font-size:14px;color:var(--text);line-height:1.7;">
+                16:40着 → 18:35発（KIX→MUC→LHR）
+              </div>
+            </div>
+
+            <!-- 復路：北京乗継 -->
+            <div style="background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                <div style="width:40px;height:40px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;">
+                  <i class="fa-solid fa-plane-arrival" style="color:var(--blue);font-size:18px;"></i>
+                </div>
+                <div>
+                  <div style="font-size:14px;color:var(--text-muted);font-weight:700;">復路</div>
+                  <div style="font-size:16px;font-weight:900;color:var(--text);">北京乗継</div>
+                </div>
+              </div>
+              <div style="background:var(--blue-light);border:2px solid var(--blue);border-radius:8px;padding:12px;text-align:center;">
+                <div style="font-size:28px;font-weight:900;color:var(--blue);">約3.5時間</div>
+                <div style="font-size:14px;color:var(--text-muted);font-weight:700;">余裕あり</div>
+              </div>
+              <div style="margin-top:12px;font-size:14px;color:var(--text);line-height:1.7;">
+                11:45着 → 15:10発（MUC→PEK→HND）
+              </div>
+            </div>
+
+            <!-- 復路：羽田乗継（注意） -->
+            <div style="background:var(--orange-light);border:3px solid var(--orange);border-radius:var(--radius);padding:20px;grid-column:1/-1;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                <div style="width:40px;height:40px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;">
+                  <i class="fa-solid fa-triangle-exclamation" style="color:#fff;font-size:18px;"></i>
+                </div>
+                <div>
+                  <div style="font-size:14px;color:var(--orange);font-weight:700;">復路・要注意</div>
+                  <div style="font-size:16px;font-weight:900;color:var(--orange);">羽田乗継（国際線→国内線）</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+                <div style="background:var(--card);border:2px solid var(--orange);border-radius:8px;padding:12px 20px;text-align:center;">
+                  <div style="font-size:28px;font-weight:900;color:var(--orange);">約1時間25分</div>
+                  <div style="font-size:14px;color:var(--orange);font-weight:700;">タイトなスケジュール</div>
+                </div>
+                <div style="flex:1;font-size:15px;color:var(--text);line-height:1.8;">
+                  <b style="color:var(--orange);">19:35着 → 21:00発</b>（HND国際→HND国内→KIX）<br>
+                  入国審査・税関・ターミナル移動があるため、<b style="color:var(--orange);">遅延なく到着することが重要</b>です。<br>
+                  <span style="color:var(--text-muted);">※万が一乗り遅れた場合は、後続便への振替対応となります</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1308,6 +1428,44 @@
                       <span class="muted">※試合時刻は「予定」。現地の確定情報に合わせて調整します。</span>
                     </li>
                   </ul>
+
+                  <!-- 試合詳細カード -->
+                  <div class="match-details" style="background:var(--orange-light);border:3px solid var(--orange);border-radius:var(--radius);padding:24px;margin-top:20px;">
+                    <h4 style="font-size:20px;font-weight:900;color:var(--orange);margin-bottom:20px;display:flex;align-items:center;gap:10px;">
+                      <i class="fa-solid fa-futbol"></i> 試合詳細
+                    </h4>
+                    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+                      <div style="background:var(--card);border:2px solid var(--line);border-radius:8px;padding:16px;">
+                        <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:6px;">対戦カード</div>
+                        <div style="font-size:18px;font-weight:900;color:var(--text);">
+                          <span style="color:var(--orange);">日本</span> vs <span style="color:var(--blue);">イングランド</span>
+                        </div>
+                      </div>
+                      <div style="background:var(--card);border:2px solid var(--line);border-radius:8px;padding:16px;">
+                        <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:6px;">キックオフ</div>
+                        <div style="font-size:18px;font-weight:900;color:var(--orange);">20:00（現地時間）</div>
+                        <div style="font-size:14px;color:var(--text-muted);">＝ 4/1(水) 04:00 JST</div>
+                      </div>
+                      <div style="background:var(--card);border:2px solid var(--line);border-radius:8px;padding:16px;">
+                        <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:6px;">会場</div>
+                        <div style="font-size:18px;font-weight:900;color:var(--text);">ウェンブリースタジアム</div>
+                        <div style="font-size:14px;color:var(--text-muted);">Wembley Stadium, London</div>
+                      </div>
+                      <div style="background:var(--card);border:2px solid var(--line);border-radius:8px;padding:16px;">
+                        <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:6px;">収容人数</div>
+                        <div style="font-size:18px;font-weight:900;color:var(--text);">約 90,000 人</div>
+                        <div style="font-size:14px;color:var(--text-muted);">イングランドの聖地</div>
+                      </div>
+                    </div>
+                    <div style="margin-top:16px;padding:16px;background:var(--card);border:2px solid var(--orange);border-radius:8px;">
+                      <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:6px;"><i class="fa-solid fa-train" style="color:var(--orange);margin-right:6px;"></i> アクセス</div>
+                      <div style="font-size:16px;color:var(--text);line-height:1.8;">
+                        <b>Wembley Park駅</b>（Jubilee線/Metropolitan線）から徒歩約10分<br>
+                        <span class="muted">※試合前後は混雑するため、余裕を持って移動してください</span>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="callout" style="border-color:var(--orange);background:var(--orange-light)">
                     <i class="fa-solid fa-star" style="color:var(--orange)"></i>
                     <b style="color:var(--orange)">メインイベント！</b>
@@ -1342,6 +1500,11 @@
                     <li>候補：<b>リバプール訪問</b>（日帰り or <b>1泊</b>も可能）</li>
                     <li class="muted">※英国滞在中は体調・天候・移動負荷に合わせて柔軟に組み替えます。</li>
                   </ul>
+                  <div class="callout" style="margin-top:16px;">
+                    <i class="fa-solid fa-comment-dots"></i>
+                    <b>お父さん・お母さんへ：</b>行きたい場所があればお知らせください。<br>
+                    <span class="muted">リバプール（ビートルズ）、コッツウォルズ、オックスフォードなど、ご希望に合わせて調整します。</span>
+                  </div>
                 </div>
               </details>
             </article>
@@ -1370,6 +1533,11 @@
                     <li>候補：リバプール継続／マンチェスター方面／ロンドン市内 等</li>
                     <li class="muted">※この日も自由に調整可能です。</li>
                   </ul>
+                  <div class="callout" style="margin-top:16px;">
+                    <i class="fa-solid fa-heart"></i>
+                    <b>ゆったり過ごす日にしても◎</b><br>
+                    <span class="muted">無理せず、カフェでお茶したり、ホテルでゆっくり休んだりする日にしても大丈夫です。</span>
+                  </div>
                 </div>
               </details>
             </article>
@@ -1829,7 +1997,7 @@
 
         <footer>
           <div>
-            <i class="fa-solid fa-user"></i> 森下恭祐（社内共有用フォーマット）／必要に応じて追記・更新します
+            <i class="fa-solid fa-user"></i> 森下恭祐 作成 ／ 最終更新：2025年3月
           </div>
           <div>
             <span id="current-time-jst"></span> JST |
@@ -1848,36 +2016,71 @@
   <script>
     // Departure date: March 30, 2025, 09:30 JST
     const departureDate = new Date('2025-03-30T09:30:00+09:00');
+    // Return date: April 6, 2025, 22:20 JST
+    const returnDate = new Date('2025-04-06T22:20:00+09:00');
 
     // Countdown Timer
     function updateCountdown() {
-      const now = new Date();
-      const diff = departureDate - now;
+      try {
+        const now = new Date();
+        const diffToDeparture = departureDate - now;
+        const diffToReturn = returnDate - now;
 
-      const statusEl = document.getElementById('countdown-status');
+        const statusEl = document.getElementById('countdown-status');
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
 
-      if (diff <= 0) {
-        document.getElementById('days').textContent = '0';
-        document.getElementById('hours').textContent = '0';
-        document.getElementById('minutes').textContent = '0';
-        document.getElementById('seconds').textContent = '0';
-        statusEl.textContent = '（旅行中または終了）';
-        return;
+        // 要素が存在するか確認
+        if (!daysEl || !hoursEl || !minutesEl || !secondsEl) {
+          console.error('Countdown elements not found');
+          return;
+        }
+
+        // 旅行終了後
+        if (diffToReturn <= 0) {
+          daysEl.textContent = '✓';
+          hoursEl.textContent = '--';
+          minutesEl.textContent = '--';
+          secondsEl.textContent = '--';
+          if (statusEl) statusEl.textContent = '（旅行完了！お疲れさまでした）';
+          return;
+        }
+
+        // 旅行中
+        if (diffToDeparture <= 0 && diffToReturn > 0) {
+          daysEl.textContent = '✈';
+          hoursEl.textContent = '--';
+          minutesEl.textContent = '--';
+          secondsEl.textContent = '--';
+          if (statusEl) statusEl.textContent = '（現在旅行中！）';
+          return;
+        }
+
+        // 出発前 - カウントダウン表示
+        const days = Math.floor(diffToDeparture / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diffToDeparture % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diffToDeparture % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diffToDeparture % (1000 * 60)) / 1000);
+
+        daysEl.textContent = days;
+        hoursEl.textContent = hours.toString().padStart(2, '0');
+        minutesEl.textContent = minutes.toString().padStart(2, '0');
+        secondsEl.textContent = seconds.toString().padStart(2, '0');
+        if (statusEl) statusEl.textContent = '';
+      } catch (e) {
+        console.error('Countdown error:', e);
       }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById('days').textContent = days;
-      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
     }
 
+    // ページ読み込み時に即座に実行
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateCountdown);
+    } else {
+      updateCountdown();
+    }
     setInterval(updateCountdown, 1000);
-    updateCountdown();
 
     // Current Time Display
     function updateCurrentTime() {
@@ -1918,7 +2121,10 @@
     const checklistItems = [
       { id: 'passport', label: 'パスポート', icon: 'fa-passport' },
       { id: 'tickets', label: '航空券（eチケット）', icon: 'fa-ticket' },
+      { id: 'uketa', label: 'UK ETA（電子渡航認証）', icon: 'fa-file-circle-check' },
       { id: 'insurance', label: '海外旅行保険証', icon: 'fa-shield-halved' },
+      { id: 'insurancecard', label: '保険会社緊急連絡カード', icon: 'fa-id-card' },
+      { id: 'sim', label: 'SIM / eSIM（海外用）', icon: 'fa-sim-card' },
       { id: 'adapter', label: '変換プラグ（BF/Cタイプ）', icon: 'fa-plug' },
       { id: 'charger', label: 'スマホ充電器', icon: 'fa-charging-station' },
       { id: 'battery', label: 'モバイルバッテリー', icon: 'fa-battery-full' },
@@ -1927,7 +2133,8 @@
       { id: 'cash', label: '現金（ポンド/ユーロ）', icon: 'fa-money-bill' },
       { id: 'cards', label: 'クレジットカード', icon: 'fa-credit-card' },
       { id: 'medicine', label: '常備薬', icon: 'fa-pills' },
-      { id: 'matchticket', label: '試合チケット', icon: 'fa-futbol' }
+      { id: 'matchticket', label: '試合チケット', icon: 'fa-futbol' },
+      { id: 'embassy', label: '大使館連絡先メモ', icon: 'fa-building-flag' }
     ];
 
     function loadChecklist() {
