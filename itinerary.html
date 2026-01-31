@@ -54,8 +54,9 @@
       font-family:var(--sans);
       color:var(--text);
       background:var(--bg);
-      font-size:17px;
-      line-height:1.9;
+      /* モバイルファースト：基本は18px */
+      font-size:18px;
+      line-height:2;
       min-height:100vh;
       max-width:100vw;
       overflow-x:hidden;
@@ -66,12 +67,12 @@
     .muted{color:var(--text-muted)}
     .mono{font-family:var(--mono)}
 
-    /* Wrapper - 余白を広く、横幅を制御 */
+    /* Wrapper - モバイルファースト */
     .wrap{
-      max-width:900px;
+      max-width:100%;
       width:100%;
       margin:0 auto;
-      padding:32px 24px 80px;
+      padding:16px 12px 80px;
       overflow-x:hidden;
     }
 
@@ -90,7 +91,7 @@
     .heroTop{
       position:relative;
       z-index:1;
-      padding:40px 32px 32px;
+      padding:24px 16px 20px;
       background:var(--bg-light);
       border-bottom:2px solid var(--line);
     }
@@ -147,10 +148,10 @@
     }
     .title{
       margin:16px 0 20px;
-      font-size:28px;
+      font-size:22px;
       font-weight:900;
       color:var(--text);
-      line-height:1.4;
+      line-height:1.5;
     }
     .title i{color:var(--blue)}
     .meta{
@@ -190,11 +191,11 @@
     .note b{color:var(--blue);font-weight:900}
     .note i{color:var(--blue);margin-right:4px}
 
-    /* Summary Grid */
+    /* Summary Grid - モバイルファースト */
     .grid{
       display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:20px;
+      grid-template-columns:1fr;
+      gap:16px;
       margin-top:28px;
     }
     .card{
@@ -231,7 +232,7 @@
     .heroBody{
       position:relative;
       z-index:1;
-      padding:32px;
+      padding:20px 16px 28px;
     }
 
     /* Table of Contents */
@@ -254,22 +255,25 @@
     .toc-title i{color:var(--blue)}
     .toc-list{
       display:flex;
-      flex-wrap:wrap;
-      gap:12px;
+      flex-direction:column;
+      gap:10px;
       list-style:none;
     }
     .toc-list a{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:10px 16px;
+      width:100%;
+      justify-content:flex-start;
+      padding:16px 18px;
       border-radius:8px;
       background:var(--card);
       border:2px solid var(--line);
       color:var(--text);
       text-decoration:none;
-      font-size:14px;
+      font-size:17px;
       font-weight:700;
+      min-height:52px;
     }
     .toc-list a:hover{
       background:var(--blue-light);
@@ -328,11 +332,11 @@
     }
     .sectionTitle i{color:var(--blue)}
 
-    /* Info Cards Grid */
+    /* Info Cards Grid - モバイルファースト */
     .info-grid{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:20px;
+      grid-template-columns:1fr;
+      gap:16px;
       margin-bottom:32px;
     }
     .info-card{
@@ -394,7 +398,7 @@
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:14px 20px;
+      padding:16px 18px;
       border-radius:var(--radius);
       border:2px solid var(--line);
       background:var(--card);
@@ -404,6 +408,8 @@
       cursor:pointer;
       text-decoration:none;
       transition:all .2s;
+      width:100%;
+      min-height:56px;
     }
     .spot-btn:hover,.spot-btn:focus{
       background:var(--blue-light);
@@ -935,90 +941,38 @@
     }
     footer a{color:var(--blue);text-decoration:none}
 
-    /* Responsive - スマホ最適化 */
-    @media (max-width:860px){
-      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .info-grid{grid-template-columns:repeat(2,1fr)}
-      .lodging{grid-template-columns:1fr}
-      .weather-grid{grid-template-columns:1fr}
-      .checklist-grid{grid-template-columns:1fr}
-      .spot-card-img{height:180px}
+    /* ===========================================
+       モバイルファースト - min-widthでデスクトップ拡張
+       =========================================== */
+
+    /* タブレット (521px以上) */
+    @media (min-width:521px){
+      .wrap{padding:24px 20px 80px}
+      .heroTop{padding:32px 24px 28px}
+      .heroBody{padding:28px 24px}
+      .title{font-size:26px}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+      .info-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+      .toc-list{flex-direction:row;flex-wrap:wrap;gap:12px}
+      .toc-list a{width:auto;padding:10px 16px;font-size:14px;min-height:auto}
+      .spot-btn{width:auto;padding:14px 20px}
+      .spot-card-img{height:200px}
+      .back-to-top span{display:inline}
     }
-    @media (max-width:520px){
-      /* 60歳向け：文字サイズを大きく、タップしやすく */
-      body{font-size:18px;line-height:2}
-      .wrap{padding:16px 12px 80px;max-width:100%;overflow-x:hidden}
-      .grid{grid-template-columns:1fr;gap:16px}
-      .info-grid{grid-template-columns:1fr;gap:16px}
-      .heroTop{padding:24px 16px 20px}
-      .heroBody{padding:20px 16px 28px}
-      .title{font-size:22px;line-height:1.5}
-      .countdown-container{padding:20px}
-      .countdown{gap:20px}
-      .countdown-value{font-size:32px}
-      .countdown-unit{font-size:14px}
-      .toc{padding:20px}
-      .toc-title{font-size:18px}
-      .toc-list{flex-direction:column;gap:10px}
-      .toc-list a{width:100%;justify-content:flex-start;padding:16px 18px;font-size:17px;min-height:52px}
-      .sectionTitle{font-size:20px;margin:36px 0 18px}
-      .tItem summary{padding:18px}
-      .tItem .tBody{padding:18px}
-      .tDate{font-size:17px;gap:10px}
-      .tDate i{font-size:18px}
-      .tags{gap:10px}
-      .tag{font-size:14px;padding:8px 14px}
-      /* 時刻バッジ - スマホでも目立つように */
-      .time-display{padding:8px 12px;font-size:15px;margin-right:10px;flex-wrap:wrap}
-      .time-display .local{font-size:17px}
-      .time-display .jst{font-size:13px}
-      .tBody li{padding-left:22px;font-size:17px;margin:12px 0;line-height:1.9}
-      .callout{padding:18px;font-size:17px}
-      .spot-btn{padding:16px 18px;font-size:16px;width:100%;min-height:56px}
-      .spot-btn i{font-size:20px}
-      .spot-card-img{height:180px}
-      .spot-card-body{padding:18px}
-      .spot-card-title{font-size:19px}
-      .spot-card-desc{font-size:16px;line-height:1.9}
-      .weather-card{padding:18px}
-      .weather-city{font-size:18px}
-      .weather-temp .value{font-size:32px}
-      .transport-item{padding:14px 0;gap:14px}
-      .transport-icon{width:44px;height:44px;font-size:20px}
-      .transport-info h4{font-size:18px}
-      .transport-info p{font-size:16px;line-height:1.8}
-      /* チェックリスト - タップしやすく */
-      .checklist-item{padding:16px;min-height:60px}
-      .checklist-item input{width:28px;height:28px}
-      .checklist-item label{font-size:17px;gap:12px;min-height:44px}
-      .table th,.table td{padding:14px 12px;font-size:16px}
-      /* 上へ戻るボタン - スマホ用 */
-      .back-to-top{padding:12px 16px;font-size:14px;bottom:16px;right:12px;border-radius:24px}
-      .back-to-top span{display:none}
-      .back-to-top i{font-size:20px}
-      .actions{gap:10px;flex-wrap:wrap}
-      .btn{padding:14px 18px;font-size:15px;min-height:48px}
-      .pill{padding:10px 14px;font-size:15px}
-      .meta{gap:10px}
-      .note{padding:16px;font-size:16px;line-height:2}
-      .card{padding:18px;min-height:auto}
-      .card .big{font-size:17px;line-height:1.6}
-      .card small{font-size:14px}
-      .info-card{padding:18px}
-      .info-card-icon{width:44px;height:44px;font-size:20px;margin-bottom:14px}
-      .info-card-value{font-size:18px}
-      .info-card-title{font-size:15px}
-      .info-card-note{font-size:15px}
-      footer{font-size:14px;flex-direction:column;text-align:center}
-      /* 乗継セクション スマホ対応 */
-      #connection-title+div{grid-template-columns:1fr}
-      #connection-title+div>div:last-child{grid-column:1}
-      /* 写真ギャラリー スマホ対応 */
-      #city-liverpool>div:nth-of-type(1){grid-template-columns:1fr!important}
-      #city-london>div:nth-of-type(1){grid-template-columns:repeat(2,1fr)!important}
-      #city-munich>div:nth-of-type(1){grid-template-columns:repeat(2,1fr)!important}
-      /* 大使館・連絡先セクション スマホ対応 */
-      #info>div:nth-of-type(2)>div:nth-of-type(1){grid-template-columns:1fr!important}
+
+    /* デスクトップ (861px以上) */
+    @media (min-width:861px){
+      body{font-size:17px;line-height:1.9}
+      .wrap{max-width:900px;padding:32px 24px 80px}
+      .heroTop{padding:40px 32px 32px}
+      .heroBody{padding:32px}
+      .title{font-size:28px;line-height:1.4}
+      .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+      .info-grid{grid-template-columns:repeat(4,1fr)}
+      .countdown-value{font-size:36px}
+      .lodging{grid-template-columns:repeat(2,1fr)}
+      .weather-grid{grid-template-columns:repeat(3,1fr)}
+      .checklist-grid{grid-template-columns:repeat(2,1fr)}
     }
 
     /* Print Styles - 印刷時もライトモードベース */
