@@ -2,11 +2,180 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url=itinerary.html">
-  <title>Redirecting to London Travel Itinerary</title>
-  <link rel="canonical" href="itinerary.html">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ロンドン渡航・旅のしおり</title>
+  <meta name="description" content="2025年3月30日〜4月6日 ロンドン渡航の旅のしおり">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="images/icon.svg">
+  <link rel="apple-touch-icon" href="images/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <p>Redirecting to <a href="itinerary.html">London Travel Itinerary</a>...</p>
+  <main class="container">
+    <!-- ヒーローセクション -->
+    <div style="text-align:center;padding:40px 0 20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--text-muted);letter-spacing:2px;margin-bottom:8px;">
+        2025.03.30 - 04.06
+      </div>
+      <h1 style="font-size:28px;font-weight:900;color:var(--text);margin-bottom:16px;">
+        <i class="fa-solid fa-plane" style="color:var(--blue);"></i>
+        ロンドン渡航・旅のしおり
+      </h1>
+      <p style="font-size:16px;color:var(--text-muted);line-height:1.8;">
+        日本 vs イングランド @ ウェンブリースタジアム<br>
+        英国・ドイツ周遊 8日間の旅
+      </p>
+    </div>
+
+    <!-- カウントダウン -->
+    <div class="countdown-container" id="countdown-section">
+      <div class="countdown-label">
+        <i class="fa-solid fa-plane-departure"></i> 出発まで
+      </div>
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <div class="countdown-value" id="days">--</div>
+          <div class="countdown-unit">日</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="hours">--</div>
+          <div class="countdown-unit">時間</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="minutes">--</div>
+          <div class="countdown-unit">分</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="seconds">--</div>
+          <div class="countdown-unit">秒</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基本情報 -->
+    <div class="card" style="margin-top:24px;">
+      <div class="grid-2">
+        <div>
+          <div style="font-size:13px;color:var(--text-muted);font-weight:700;">時差</div>
+          <div style="font-size:18px;font-weight:900;">英国 -9h / 独 -8h</div>
+        </div>
+        <div>
+          <div style="font-size:13px;color:var(--text-muted);font-weight:700;">通貨</div>
+          <div style="font-size:18px;font-weight:900;">£ ポンド / € ユーロ</div>
+        </div>
+        <div>
+          <div style="font-size:13px;color:var(--text-muted);font-weight:700;">電圧・プラグ</div>
+          <div style="font-size:18px;font-weight:900;">230V / BF・C型</div>
+        </div>
+        <div>
+          <div style="font-size:13px;color:var(--text-muted);font-weight:700;">緊急電話</div>
+          <div style="font-size:18px;font-weight:900;">英 999 / 独 112</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ナビゲーションボタン -->
+    <h2 class="page-title" style="margin-top:32px;">
+      <i class="fa-solid fa-compass"></i> メニュー
+    </h2>
+    <div class="nav-buttons">
+      <a href="flight.html" class="nav-btn">
+        <i class="fa-solid fa-plane"></i>
+        <span>フライト情報</span>
+      </a>
+      <a href="schedule.html" class="nav-btn highlight">
+        <i class="fa-solid fa-calendar-days"></i>
+        <span>日程表</span>
+      </a>
+      <a href="hotel.html" class="nav-btn">
+        <i class="fa-solid fa-hotel"></i>
+        <span>宿泊情報</span>
+      </a>
+      <a href="checklist.html" class="nav-btn">
+        <i class="fa-solid fa-check-square"></i>
+        <span>持ち物リスト</span>
+      </a>
+      <a href="emergency.html" class="nav-btn" style="grid-column:1/-1;">
+        <i class="fa-solid fa-phone"></i>
+        <span>緊急連絡先</span>
+      </a>
+    </div>
+
+    <!-- UK ETA 注意 -->
+    <div class="alert alert-warning" style="margin-top:24px;">
+      <div class="alert-title">
+        <i class="fa-solid fa-triangle-exclamation"></i> UK ETA（電子渡航認証）について
+      </div>
+      <p style="font-size:15px;line-height:1.8;">
+        2025年4月2日以降、日本国籍者も<b style="color:var(--orange);">UK ETA（電子渡航認証）の事前取得が必要</b>です。<br>
+        出発前に必ず申請・取得をお忘れなく。（オンラインで申請可能、費用 £10）
+      </p>
+      <a href="https://www.gov.uk/get-electronic-travel-authorisation" target="_blank" rel="noopener" class="btn btn-orange" style="margin-top:12px;">
+        <i class="fa-solid fa-external-link-alt"></i> UK ETA 公式サイト
+      </a>
+    </div>
+
+    <!-- 試合情報ハイライト -->
+    <div class="card" style="background:var(--orange-light);border-color:var(--orange);margin-top:24px;">
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <div style="width:60px;height:60px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;">
+          <i class="fa-solid fa-futbol" style="color:#fff;font-size:28px;"></i>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <div style="font-size:14px;color:var(--orange);font-weight:700;">3/31（月）20:00キックオフ</div>
+          <div style="font-size:22px;font-weight:900;color:var(--text);">🇯🇵 日本 vs イングランド 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+          <div style="font-size:14px;color:var(--text-muted);margin-top:4px;">
+            <i class="fa-solid fa-location-dot"></i> ウェンブリースタジアム（ロンドン）
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>ロンドン渡航・旅のしおり 2025</p>
+  </footer>
+
+  <script>
+    // カウントダウン
+    const departureDate = new Date('2025-03-30T10:30:00+09:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = departureDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown-section').innerHTML = `
+          <div style="font-size:24px;font-weight:900;color:var(--blue);">
+            <i class="fa-solid fa-plane"></i> いってらっしゃい！良い旅を！
+          </div>
+        `;
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>緊急連絡先 - ロンドン渡航</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="images/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link nav-home"><i class="fa-solid fa-home"></i></a>
+      <a href="flight.html" class="nav-link"><i class="fa-solid fa-plane"></i> フライト</a>
+      <a href="schedule.html" class="nav-link"><i class="fa-solid fa-calendar"></i> 日程</a>
+      <a href="hotel.html" class="nav-link"><i class="fa-solid fa-hotel"></i> 宿泊</a>
+      <a href="checklist.html" class="nav-link"><i class="fa-solid fa-check"></i> 持ち物</a>
+      <a href="emergency.html" class="nav-link active"><i class="fa-solid fa-phone"></i> 緊急</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">
+      <i class="fa-solid fa-phone"></i> 緊急連絡先
+    </h1>
+
+    <!-- 緊急通報番号 -->
+    <div class="card" style="background:var(--orange-light);border-color:var(--orange);border-width:3px;">
+      <h2 class="card-title" style="color:var(--orange);">
+        <i class="fa-solid fa-triangle-exclamation"></i> 緊急通報番号
+      </h2>
+      <div class="grid-2">
+        <div class="contact-card" style="background:#fff;">
+          <div class="contact-title">🇬🇧 イギリス</div>
+          <div class="contact-phone" style="font-size:32px;">999</div>
+          <div class="contact-note">警察・消防・救急（すべて共通）</div>
+        </div>
+        <div class="contact-card" style="background:#fff;">
+          <div class="contact-title">🇩🇪 ドイツ</div>
+          <div class="contact-phone" style="font-size:32px;">112</div>
+          <div class="contact-note">警察・消防・救急（すべて共通）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 日本大使館 -->
+    <div class="card">
+      <h2 class="card-title">
+        <i class="fa-solid fa-building-flag"></i> 日本大使館
+      </h2>
+      <div class="grid-2">
+        <div class="contact-card">
+          <div class="contact-title">🇬🇧 在英国日本国大使館</div>
+          <div class="contact-phone">+44-20-7465-6500</div>
+          <div class="contact-note">101-104 Piccadilly, London W1J 7JT</div>
+          <a href="tel:+442074656500" class="btn" style="margin-top:12px;width:100%;justify-content:center;">
+            <i class="fa-solid fa-phone"></i> 電話する
+          </a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-title">🇩🇪 在ドイツ日本国大使館</div>
+          <div class="contact-phone">+49-30-210940</div>
+          <div class="contact-note">Hiroshimastraße 6, 10785 Berlin</div>
+          <a href="tel:+493021094" class="btn" style="margin-top:12px;width:100%;justify-content:center;">
+            <i class="fa-solid fa-phone"></i> 電話する
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 宿泊ホテル -->
+    <div class="card">
+      <h2 class="card-title">
+        <i class="fa-solid fa-hotel"></i> 宿泊ホテル
+      </h2>
+      <div style="display:grid;gap:16px;">
+        <div class="contact-card">
+          <div class="contact-title">ルネッサンス・ヒースロー（3/30-31, 4/3-4）</div>
+          <div class="contact-phone">+44 (208) 897-6363</div>
+          <div class="contact-note">Bath Road, Hounslow, TW6 2AQ</div>
+          <a href="tel:+442088976363" class="btn" style="margin-top:12px;">
+            <i class="fa-solid fa-phone"></i> 電話する
+          </a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-title">マリオット・メイダヴェール（3/31-4/3）</div>
+          <div class="contact-phone">+44 (207) 543-6000</div>
+          <div class="contact-note">Plaza Parade, Maida Vale, NW6 5RP</div>
+          <a href="tel:+442075436000" class="btn" style="margin-top:12px;">
+            <i class="fa-solid fa-phone"></i> 電話する
+          </a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-title">デルタ・リバプール（4/1-2）</div>
+          <div class="contact-phone">+44 (151) 476-8000</div>
+          <div class="contact-note">One Queen Square, Liverpool, L1 1RH</div>
+          <a href="tel:+441514768000" class="btn" style="margin-top:12px;">
+            <i class="fa-solid fa-phone"></i> 電話する
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 航空会社 -->
+    <div class="card">
+      <h2 class="card-title">
+        <i class="fa-solid fa-plane"></i> 航空会社
+      </h2>
+      <div class="grid-2">
+        <div class="contact-card">
+          <div class="contact-title">ルフトハンザ航空</div>
+          <div class="contact-phone" style="font-size:16px;">+44-371-945-9747</div>
+          <div class="contact-note">イギリス内カスタマーサービス</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-title">ANA（全日空）</div>
+          <div class="contact-phone" style="font-size:16px;">0570-029-333</div>
+          <div class="contact-note">日本国内</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- クレジットカード紛失 -->
+    <div class="card">
+      <h2 class="card-title">
+        <i class="fa-solid fa-credit-card"></i> カード紛失・盗難
+      </h2>
+      <div class="grid-2">
+        <div class="contact-card">
+          <div class="contact-title">VISA（グローバル）</div>
+          <div class="contact-phone" style="font-size:16px;">+1-303-967-1096</div>
+          <div class="contact-note">24時間対応（コレクトコール可）</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-title">Mastercard（グローバル）</div>
+          <div class="contact-phone" style="font-size:16px;">+1-636-722-7111</div>
+          <div class="contact-note">24時間対応（コレクトコール可）</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-title">JCB（海外）</div>
+          <div class="contact-phone" style="font-size:16px;">+81-422-40-8122</div>
+          <div class="contact-note">24時間対応</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-title">AMEX（グローバル）</div>
+          <div class="contact-phone" style="font-size:16px;">+44-1273-696933</div>
+          <div class="contact-note">イギリス</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基本情報 -->
+    <div class="card">
+      <h2 class="card-title">
+        <i class="fa-solid fa-info-circle"></i> 基本情報
+      </h2>
+      <table class="info-table">
+        <tr><th>時差</th><td>英国 -9時間 / ドイツ -8時間（サマータイム）</td></tr>
+        <tr><th>通貨</th><td>英国: ポンド(£) / ドイツ: ユーロ(€)</td></tr>
+        <tr><th>電圧</th><td>230V / プラグ: 英国 BF型 / 独 C型</td></tr>
+        <tr><th>言語</th><td>英語 / ドイツ語</td></tr>
+      </table>
+    </div>
+
+    <!-- 困ったときは -->
+    <div class="alert alert-info" style="margin-top:24px;">
+      <div class="alert-title">
+        <i class="fa-solid fa-lightbulb"></i> 困ったときは
+      </div>
+      <ul style="margin:12px 0 0;padding-left:20px;font-size:15px;line-height:2;">
+        <li><b>パスポート紛失</b> → まず警察で紛失届、その後大使館へ</li>
+        <li><b>病気・ケガ</b> → ホテルフロントに相談、または999（英国）</li>
+        <li><b>盗難</b> → 警察で被害届（保険請求に必要）</li>
+        <li><b>言葉が通じない</b> → Google翻訳アプリを活用</li>
+      </ul>
+    </div>
+
+    <!-- UK ETA -->
+    <div class="alert alert-warning" style="margin-top:24px;">
+      <div class="alert-title">
+        <i class="fa-solid fa-passport"></i> UK ETA（電子渡航認証）
+      </div>
+      <p style="font-size:15px;line-height:1.8;margin:12px 0 0;">
+        2025年4月2日以降、日本国籍者もUK ETAが必要です。<br>
+        出発前に必ず申請・取得してください（費用 £10）。
+      </p>
+      <a href="https://www.gov.uk/get-electronic-travel-authorisation" target="_blank" rel="noopener" class="btn btn-orange" style="margin-top:12px;">
+        <i class="fa-solid fa-external-link-alt"></i> UK ETA 公式サイト
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html" class="btn"><i class="fa-solid fa-home"></i> トップへ戻る</a>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
