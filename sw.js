@@ -1,9 +1,18 @@
-const CACHE_NAME = 'uk-trip-v2';
+const CACHE_NAME = 'uk-trip-v3';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/itinerary.html',
+  '/flight.html',
+  '/schedule.html',
+  '/hotel.html',
+  '/checklist.html',
+  '/emergency.html',
+  '/styles.css',
   '/manifest.json',
+  '/images/icon.svg',
+  '/images/renaissance-heathrow.jpg',
+  '/images/marriott-maida-vale.jpg',
+  '/images/delta-liverpool.jpg',
   'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
 ];
@@ -81,7 +90,7 @@ self.addEventListener('fetch', event => {
           .catch(() => {
             // Return offline fallback for navigation requests
             if (event.request.mode === 'navigate') {
-              return caches.match('/itinerary.html');
+              return caches.match('/index.html');
             }
           });
       })
