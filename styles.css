@@ -573,6 +573,273 @@ body{
 .route-line{stroke:var(--blue);stroke-width:3;stroke-dasharray:8 4;fill:none}
 .route-dot{fill:var(--blue)}
 
+/* ========== スマートフォン専用 (max-width: 520px) ========== */
+@media(max-width:520px){
+  /* 基本フォントサイズを確保 */
+  body{
+    font-size:16px;
+    line-height:1.8;
+  }
+
+  /* コンテナの余白調整 */
+  .container{
+    padding:12px;
+  }
+
+  /* ヘッダーナビ - スクロール可能に */
+  .site-header{
+    padding:8px 12px;
+  }
+  .site-nav{
+    gap:6px;
+    padding-bottom:4px;
+    /* スクロールヒント用の余白 */
+    margin-right:-12px;
+    padding-right:12px;
+  }
+  .nav-link{
+    padding:12px 14px;
+    font-size:14px;
+    min-height:44px;
+    min-width:44px;
+  }
+  .nav-home{
+    margin-right:4px;
+  }
+
+  /* ページタイトル */
+  .page-title{
+    font-size:20px;
+    margin:16px 0 16px;
+    gap:8px;
+  }
+
+  /* カード */
+  .card{
+    padding:16px;
+    margin-bottom:16px;
+  }
+  .card-title{
+    font-size:16px;
+    margin-bottom:12px;
+  }
+
+  /* グリッドを1列に */
+  .grid-2,.grid-3{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  /* ボタン - タップ領域確保 */
+  .btn{
+    padding:14px 20px;
+    font-size:16px;
+    min-height:48px;
+    width:100%;
+    justify-content:center;
+  }
+
+  /* アラート */
+  .alert{
+    padding:14px 16px;
+  }
+  .alert-title{
+    font-size:15px;
+  }
+
+  /* バッジ - 最小サイズ確保 */
+  .badge{
+    font-size:12px;
+    padding:6px 10px;
+    min-height:32px;
+  }
+
+  /* テーブル - レスポンシブ対応 */
+  .info-table{
+    display:block;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .info-table th,.info-table td{
+    padding:10px 12px;
+    font-size:14px;
+    white-space:nowrap;
+  }
+  .info-table th{
+    font-size:13px;
+  }
+
+  /* フッター */
+  .site-footer{
+    padding:16px;
+    font-size:14px;
+  }
+
+  /* チェックリスト */
+  .checklist-grid{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .checklist-item{
+    padding:14px;
+    min-height:56px;
+  }
+  .checklist-item label{
+    font-size:15px;
+  }
+  .checklist-actions{
+    flex-direction:column;
+    gap:10px;
+  }
+  .checklist-btn{
+    width:100%;
+    justify-content:center;
+    min-height:48px;
+    font-size:15px;
+  }
+
+  /* カウントダウン */
+  .countdown-container{
+    padding:20px 16px;
+  }
+  .countdown-label{
+    font-size:16px;
+  }
+  .countdown{
+    gap:16px;
+  }
+  .countdown-value{
+    font-size:36px;
+  }
+  .countdown-unit{
+    font-size:13px;
+  }
+
+  /* ナビボタン（トップページ） */
+  .nav-buttons{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .nav-btn{
+    padding:20px 16px;
+    min-height:80px;
+  }
+  .nav-btn i{
+    font-size:28px;
+  }
+  .nav-btn span{
+    font-size:15px;
+  }
+
+  /* 日程カード */
+  .day-header{
+    padding:16px;
+  }
+  .day-date{
+    font-size:18px;
+  }
+  .day-tags{
+    gap:6px;
+  }
+  .day-tag{
+    font-size:12px;
+    padding:5px 10px;
+  }
+  .day-body{
+    padding:16px;
+  }
+
+  /* ホテルカード */
+  .hotel-header{
+    height:160px;
+  }
+  .hotel-overlay{
+    padding:16px;
+  }
+  .hotel-name{
+    font-size:18px;
+  }
+  .hotel-star{
+    font-size:13px;
+  }
+  .hotel-body{
+    padding:16px;
+  }
+
+  /* 連絡先カード */
+  .contact-card{
+    padding:14px;
+  }
+  .contact-title{
+    font-size:13px;
+  }
+  .contact-phone{
+    font-size:18px;
+  }
+  .contact-note{
+    font-size:12px;
+  }
+
+  /* フライトルート */
+  .flight-route{
+    padding:16px;
+    margin-bottom:16px;
+  }
+
+  /* スクロールトップボタン */
+  .back-to-top{
+    width:48px;
+    height:48px;
+    bottom:16px;
+    right:16px;
+  }
+
+  /* 小さすぎるテキストを補正 */
+  .muted{
+    font-size:14px;
+  }
+
+  /* リスト内のテキスト */
+  ul,ol{
+    font-size:15px;
+  }
+  li{
+    margin-bottom:4px;
+  }
+}
+
+/* ========== 極小画面 (max-width: 375px) ========== */
+@media(max-width:375px){
+  body{
+    font-size:15px;
+  }
+  .container{
+    padding:10px;
+  }
+  .nav-link{
+    padding:10px 12px;
+    font-size:13px;
+  }
+  .page-title{
+    font-size:18px;
+  }
+  .card{
+    padding:14px;
+  }
+  .countdown-value{
+    font-size:32px;
+  }
+  .nav-btn{
+    padding:16px 12px;
+  }
+  .hotel-header{
+    height:140px;
+  }
+  .hotel-name{
+    font-size:16px;
+  }
+}
+
 /* 印刷 */
 @media print{
   .site-header,.site-footer,.back-to-top{display:none}
