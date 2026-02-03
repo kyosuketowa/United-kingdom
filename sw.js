@@ -1,4 +1,4 @@
-const CACHE_NAME = 'uk-trip-v6';
+const CACHE_NAME = 'uk-trip-v7';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -7,6 +7,7 @@ const ASSETS_TO_CACHE = [
   '/flight.html',
   '/spots.html',
   '/info.html',
+  '/phrases.html',
   '/checklist.html',
   '/emergency.html',
   '/styles.css',
