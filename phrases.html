@@ -13,33 +13,78 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .phrase-card{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);border:1px solid var(--line);}
-    .phrase-situation{font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:8px;}
-    .phrase-situation i{margin-right:6px;}
-    .phrase-jp{font-size:16px;color:var(--text);margin-bottom:8px;}
-    .phrase-en{font-size:20px;font-weight:900;color:var(--blue);margin-bottom:4px;}
-    .phrase-de{font-size:20px;font-weight:900;color:#b45309;margin-bottom:4px;}
-    .phrase-pron{font-size:15px;color:var(--text-muted);font-style:italic;}
+    body.page-phrases{background:linear-gradient(180deg,#faf5ff 0%,#f3e8ff 100%);}
+
+    /* 言語タブ */
     .lang-tab{display:flex;gap:8px;margin-bottom:24px;overflow-x:auto;padding-bottom:8px;}
-    .lang-tab button{padding:12px 24px;border:2px solid var(--line);border-radius:50px;background:#fff;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
-    .lang-tab button.active-en{background:var(--blue);color:#fff;border-color:var(--blue);}
-    .lang-tab button.active-de{background:#f59e0b;color:#fff;border-color:#f59e0b;}
+    .lang-tab button{padding:14px 28px;border:3px solid var(--line);border-radius:50px;background:#fff;font-size:17px;font-weight:900;cursor:pointer;white-space:nowrap;transition:all 0.2s;display:flex;align-items:center;gap:8px;}
+    .lang-tab button:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+    .lang-tab button.active-en{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border-color:#1d4ed8;}
+    .lang-tab button.active-de{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-color:#d97706;}
     .lang-section{display:none;}
     .lang-section.active{display:block;}
-    .category-title{font-size:20px;font-weight:900;margin:32px 0 16px;padding:12px 16px;border-radius:12px;display:flex;align-items:center;gap:12px;}
-    .category-title i{font-size:24px;}
-    .category-en{background:linear-gradient(135deg,#eff6ff,#dbeafe);color:var(--navy);}
-    .category-de{background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;}
+
+    /* シチュエーション別カテゴリ */
+    .scene-section{margin-bottom:40px;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+    .scene-header{position:relative;height:160px;display:flex;align-items:flex-end;padding:20px;background-size:cover;background-position:center;}
+    .scene-header::before{content:'';position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,0.7));}
+    .scene-header-content{position:relative;z-index:1;color:#fff;width:100%;}
+    .scene-title{font-size:24px;font-weight:900;margin-bottom:4px;display:flex;align-items:center;gap:12px;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
+    .scene-title i{font-size:28px;}
+    .scene-subtitle{font-size:14px;opacity:0.9;}
+    .scene-body{background:#fff;padding:20px;}
+
+    /* カテゴリ別カラー */
+    .scene-greeting .scene-body{background:linear-gradient(135deg,#fefce8,#fef9c3);}
+    .scene-hotel .scene-body{background:linear-gradient(135deg,#eff6ff,#dbeafe);}
+    .scene-restaurant .scene-body{background:linear-gradient(135deg,#fef2f2,#fee2e2);}
+    .scene-transport .scene-body{background:linear-gradient(135deg,#f0fdf4,#dcfce7);}
+    .scene-shopping .scene-body{background:linear-gradient(135deg,#fdf4ff,#fae8ff);}
+    .scene-emergency .scene-body{background:linear-gradient(135deg,#fff7ed,#ffedd5);}
+    .scene-football .scene-body{background:linear-gradient(135deg,#ecfeff,#cffafe);}
+    .scene-airport .scene-body{background:linear-gradient(135deg,#f5f3ff,#ede9fe);}
+    .scene-beer .scene-body{background:linear-gradient(135deg,#fef3c7,#fde68a);}
+
+    /* フレーズカード */
+    .phrase-card{background:#fff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-left:4px solid var(--blue);}
+    .phrase-card-de{border-left-color:#f59e0b;}
+    .phrase-situation{font-size:13px;color:var(--text-muted);font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+    .phrase-jp{font-size:15px;color:var(--text);margin-bottom:8px;line-height:1.6;}
+    .phrase-main{font-size:20px;font-weight:900;margin-bottom:4px;line-height:1.4;}
+    .phrase-en{color:#2563eb;}
+    .phrase-de{color:#b45309;}
+    .phrase-pron{font-size:14px;color:#6b7280;background:#f3f4f6;padding:6px 10px;border-radius:6px;display:inline-block;}
+
+    /* グリッド */
     .phrase-grid{display:grid;gap:12px;}
-    .tip-box{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid var(--green);border-radius:12px;padding:16px;margin-top:16px;}
-    .tip-box-title{font-weight:900;color:var(--green);margin-bottom:8px;}
+    @media(min-width:640px){
+      .phrase-grid-2{grid-template-columns:repeat(2,1fr);}
+    }
+
+    /* 緊急フレーズ */
+    .phrase-card-urgent{border-left-color:#dc2626;background:#fef2f2;}
+
+    /* ヒントボックス */
+    .tip-box{background:#fff;border:2px solid var(--green);border-radius:12px;padding:16px;margin-top:20px;}
+    .tip-box-title{font-weight:900;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+    .tip-box-de{border-color:#f59e0b;}
+    .tip-box-de .tip-box-title{color:#b45309;}
+
+    /* 料理カード */
+    .food-card{background:#fff;border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+    .food-name{font-size:18px;font-weight:900;color:#b45309;margin-bottom:4px;}
+    .food-pron{font-size:14px;color:#6b7280;margin-bottom:8px;}
+    .food-desc{font-size:14px;color:var(--text);}
+
     @media(max-width:520px){
-      .phrase-en,.phrase-de{font-size:18px;}
-      .phrase-jp{font-size:15px;}
+      .scene-header{height:140px;}
+      .scene-title{font-size:20px;}
+      .phrase-main{font-size:18px;}
+      .phrase-jp{font-size:14px;}
     }
   </style>
 </head>
-<body class="page-info">
+<body class="page-phrases">
   <header class="site-header">
     <nav class="site-nav">
       <a href="index.html" class="nav-link nav-home"><i class="fa-solid fa-home"></i></a>
@@ -55,14 +100,23 @@
   </header>
 
   <main class="container">
-    <h1 class="page-title">
-      <i class="fa-solid fa-comments"></i> 旅行会話集
+    <h1 class="page-title" style="border-color:#9333ea;">
+      <i class="fa-solid fa-comments" style="color:#9333ea;"></i> 旅行会話集
     </h1>
+
+    <p style="text-align:center;font-size:16px;color:var(--text-muted);margin-bottom:24px;line-height:1.8;">
+      シチュエーション別にすぐ使えるフレーズを収録<br>
+      <b>カタカナ読み付き</b>で安心！
+    </p>
 
     <!-- 言語切り替えタブ -->
     <div class="lang-tab">
-      <button id="tab-en" class="active-en" onclick="switchLang('en')">🇬🇧 英語（イギリス）</button>
-      <button id="tab-de" onclick="switchLang('de')">🇩🇪 ドイツ語（ミュンヘン）</button>
+      <button id="tab-en" class="active-en" onclick="switchLang('en')">
+        <span style="font-size:24px;">🇬🇧</span> 英語フレーズ
+      </button>
+      <button id="tab-de" onclick="switchLang('de')">
+        <span style="font-size:24px;">🇩🇪</span> ドイツ語フレーズ
+      </button>
     </div>
 
     <!-- ======================= -->
@@ -71,262 +125,332 @@
     <div id="section-en" class="lang-section active">
 
       <!-- 基本のあいさつ -->
-      <div class="category-title category-en">
-        <i class="fa-solid fa-hand-wave"></i> 基本のあいさつ
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-sun"></i> 朝〜昼のあいさつ</div>
-          <div class="phrase-jp">こんにちは / おはようございます</div>
-          <div class="phrase-en">Hello / Good morning</div>
-          <div class="phrase-pron">ハロー / グッモーニン</div>
+      <div class="scene-section scene-greeting">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-hand-wave"></i> 基本のあいさつ</div>
+            <div class="scene-subtitle">どこでも使える必須フレーズ</div>
+          </div>
         </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-heart"></i> お礼</div>
-          <div class="phrase-jp">ありがとうございます</div>
-          <div class="phrase-en">Thank you very much</div>
-          <div class="phrase-pron">サンキュー ベリーマッチ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-face-smile"></i> 謝罪・すみません</div>
-          <div class="phrase-jp">すみません / 失礼します</div>
-          <div class="phrase-en">Excuse me / Sorry</div>
-          <div class="phrase-pron">エクスキューズミー / ソーリー</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-thumbs-up"></i> 肯定・否定</div>
-          <div class="phrase-jp">はい / いいえ</div>
-          <div class="phrase-en">Yes / No</div>
-          <div class="phrase-pron">イエス / ノー</div>
+        <div class="scene-body">
+          <div class="phrase-grid phrase-grid-2">
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-sun"></i> あいさつ</div>
+              <div class="phrase-jp">こんにちは</div>
+              <div class="phrase-main phrase-en">Hello / Good morning</div>
+              <div class="phrase-pron">ハロー / グッモーニン</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-heart"></i> お礼</div>
+              <div class="phrase-jp">ありがとうございます</div>
+              <div class="phrase-main phrase-en">Thank you very much</div>
+              <div class="phrase-pron">サンキュー ベリーマッチ</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-face-smile"></i> すみません</div>
+              <div class="phrase-jp">すみません / 失礼します</div>
+              <div class="phrase-main phrase-en">Excuse me / Sorry</div>
+              <div class="phrase-pron">エクスキューズミー / ソーリー</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-thumbs-up"></i> 肯定・否定</div>
+              <div class="phrase-jp">はい / いいえ</div>
+              <div class="phrase-main phrase-en">Yes / No</div>
+              <div class="phrase-pron">イエス / ノー</div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-box-title"><i class="fa-solid fa-lightbulb"></i> イギリス英語のワンポイント</div>
+            <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.9;">
+              <li><b>「Cheers」</b>（チアーズ）- 「ありがとう」のカジュアルな言い方</li>
+              <li><b>「Lovely」</b>（ラヴリー）- 「いいね、素敵」褒め言葉に</li>
+              <li><b>「Brilliant」</b>（ブリリアント）- 「素晴らしい！」</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- ホテル -->
-      <div class="category-title category-en">
-        <i class="fa-solid fa-hotel"></i> ホテルで
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-right-to-bracket"></i> チェックイン</div>
-          <div class="phrase-jp">チェックインをお願いします。予約は森下です。</div>
-          <div class="phrase-en">I'd like to check in. I have a reservation under Morishita.</div>
-          <div class="phrase-pron">アイドライク トゥ チェックイン。アイハブア リザベーション アンダー モリシタ</div>
+      <div class="scene-section scene-hotel">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-hotel"></i> ホテルで</div>
+            <div class="scene-subtitle">チェックイン・アウト、リクエスト</div>
+          </div>
         </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-door-open"></i> 部屋の確認</div>
-          <div class="phrase-jp">2部屋予約しています</div>
-          <div class="phrase-en">We have booked two rooms.</div>
-          <div class="phrase-pron">ウィー ハブ ブックド トゥー ルームズ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-wifi"></i> WiFi</div>
-          <div class="phrase-jp">WiFiのパスワードを教えてください</div>
-          <div class="phrase-en">What's the WiFi password?</div>
-          <div class="phrase-pron">ワッツ ザ ワイファイ パスワード？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-right-from-bracket"></i> チェックアウト</div>
-          <div class="phrase-jp">チェックアウトをお願いします</div>
-          <div class="phrase-en">I'd like to check out, please.</div>
-          <div class="phrase-pron">アイドライク トゥ チェックアウト プリーズ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-suitcase"></i> 荷物預かり</div>
-          <div class="phrase-jp">荷物を預かってもらえますか？</div>
-          <div class="phrase-en">Could you keep my luggage?</div>
-          <div class="phrase-pron">クジュー キープ マイ ラゲッジ？</div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-right-to-bracket"></i> チェックイン</div>
+              <div class="phrase-jp">チェックインをお願いします。予約は森下です。</div>
+              <div class="phrase-main phrase-en">I'd like to check in. Reservation under Morishita.</div>
+              <div class="phrase-pron">アイドライク トゥ チェックイン。リザベーション アンダー モリシタ</div>
+            </div>
+            <div class="phrase-card" style="border-left-color:#10b981;background:#f0fdf4;">
+              <div class="phrase-situation" style="color:#10b981;"><i class="fa-solid fa-star"></i> 2部屋予約の確認【重要】</div>
+              <div class="phrase-jp">2部屋予約しています</div>
+              <div class="phrase-main phrase-en" style="color:#059669;">We have booked two rooms.</div>
+              <div class="phrase-pron">ウィー ハブ ブックド トゥー ルームズ</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-wifi"></i> WiFi</div>
+              <div class="phrase-jp">WiFiのパスワードを教えてください</div>
+              <div class="phrase-main phrase-en">What's the WiFi password?</div>
+              <div class="phrase-pron">ワッツ ザ ワイファイ パスワード？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-suitcase"></i> 荷物預かり</div>
+              <div class="phrase-jp">荷物を預かってもらえますか？</div>
+              <div class="phrase-main phrase-en">Could you keep my luggage?</div>
+              <div class="phrase-pron">クジュー キープ マイ ラゲッジ？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-right-from-bracket"></i> チェックアウト</div>
+              <div class="phrase-jp">チェックアウトをお願いします</div>
+              <div class="phrase-main phrase-en">I'd like to check out, please.</div>
+              <div class="phrase-pron">アイドライク トゥ チェックアウト プリーズ</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- レストラン -->
-      <div class="category-title category-en">
-        <i class="fa-solid fa-utensils"></i> レストラン・カフェで
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-users"></i> 入店時</div>
-          <div class="phrase-jp">3名です</div>
-          <div class="phrase-en">Table for three, please.</div>
-          <div class="phrase-pron">テーブル フォー スリー プリーズ</div>
+      <div class="scene-section scene-restaurant">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-utensils"></i> レストラン・カフェで</div>
+            <div class="scene-subtitle">注文から会計まで</div>
+          </div>
         </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-book-open"></i> メニュー</div>
-          <div class="phrase-jp">メニューをください</div>
-          <div class="phrase-en">Can I have the menu, please?</div>
-          <div class="phrase-pron">キャナイ ハブ ザ メニュー プリーズ？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-hand-point-up"></i> 注文</div>
-          <div class="phrase-jp">これをください</div>
-          <div class="phrase-en">I'll have this one, please.</div>
-          <div class="phrase-pron">アイル ハブ ディスワン プリーズ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-star"></i> おすすめ</div>
-          <div class="phrase-jp">おすすめは何ですか？</div>
-          <div class="phrase-en">What do you recommend?</div>
-          <div class="phrase-pron">ワット ドゥーユー レコメンド？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-receipt"></i> 会計</div>
-          <div class="phrase-jp">お会計をお願いします</div>
-          <div class="phrase-en">Can I have the bill, please?</div>
-          <div class="phrase-pron">キャナイ ハブ ザ ビル プリーズ？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-credit-card"></i> 支払い</div>
-          <div class="phrase-jp">カードで払えますか？</div>
-          <div class="phrase-en">Can I pay by card?</div>
-          <div class="phrase-pron">キャナイ ペイ バイ カード？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-coins"></i> チップ</div>
-          <div class="phrase-jp">お釣りは結構です</div>
-          <div class="phrase-en">Keep the change.</div>
-          <div class="phrase-pron">キープ ザ チェンジ</div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-users"></i> 入店時</div>
+              <div class="phrase-jp">3名です</div>
+              <div class="phrase-main phrase-en">Table for three, please.</div>
+              <div class="phrase-pron">テーブル フォー スリー プリーズ</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-hand-point-up"></i> 注文</div>
+              <div class="phrase-jp">これをください</div>
+              <div class="phrase-main phrase-en">I'll have this one, please.</div>
+              <div class="phrase-pron">アイル ハブ ディスワン プリーズ</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-star"></i> おすすめ</div>
+              <div class="phrase-jp">おすすめは何ですか？</div>
+              <div class="phrase-main phrase-en">What do you recommend?</div>
+              <div class="phrase-pron">ワット ドゥーユー レコメンド？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-droplet"></i> 飲み物</div>
+              <div class="phrase-jp">お水をください</div>
+              <div class="phrase-main phrase-en">Can I have some water, please?</div>
+              <div class="phrase-pron">キャナイ ハブ サム ウォーター プリーズ？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-receipt"></i> 会計</div>
+              <div class="phrase-jp">お会計をお願いします</div>
+              <div class="phrase-main phrase-en">Can I have the bill, please?</div>
+              <div class="phrase-pron">キャナイ ハブ ザ ビル プリーズ？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-credit-card"></i> 支払い</div>
+              <div class="phrase-jp">カードで払えますか？</div>
+              <div class="phrase-main phrase-en">Can I pay by card?</div>
+              <div class="phrase-pron">キャナイ ペイ バイ カード？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-coins"></i> チップ</div>
+              <div class="phrase-jp">お釣りは結構です</div>
+              <div class="phrase-main phrase-en">Keep the change.</div>
+              <div class="phrase-pron">キープ ザ チェンジ</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- 交通 -->
-      <div class="category-title category-en">
-        <i class="fa-solid fa-train"></i> 交通・移動
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-map-location-dot"></i> 道を尋ねる</div>
-          <div class="phrase-jp">〇〇への行き方を教えてください</div>
-          <div class="phrase-en">How do I get to ___?</div>
-          <div class="phrase-pron">ハウ ドゥーアイ ゲット トゥ ___？</div>
+      <!-- 交通・移動 -->
+      <div class="scene-section scene-transport">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1520105072000-f44fc083e508?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-train-subway"></i> 交通・移動</div>
+            <div class="scene-subtitle">電車・タクシー・道案内</div>
+          </div>
         </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-ticket"></i> 切符</div>
-          <div class="phrase-jp">〇〇行きの切符をください</div>
-          <div class="phrase-en">One ticket to ___, please.</div>
-          <div class="phrase-pron">ワン チケット トゥ ___ プリーズ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-taxi"></i> タクシー</div>
-          <div class="phrase-jp">〇〇まで行ってください</div>
-          <div class="phrase-en">To ___, please.</div>
-          <div class="phrase-pron">トゥ ___ プリーズ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-clock"></i> 所要時間</div>
-          <div class="phrase-jp">どのくらい時間がかかりますか？</div>
-          <div class="phrase-en">How long does it take?</div>
-          <div class="phrase-pron">ハウロング ダズイット テイク？</div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-map-location-dot"></i> 道を尋ねる</div>
+              <div class="phrase-jp">〇〇への行き方を教えてください</div>
+              <div class="phrase-main phrase-en">How do I get to ___?</div>
+              <div class="phrase-pron">ハウ ドゥーアイ ゲット トゥ ___？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-ticket"></i> 切符</div>
+              <div class="phrase-jp">〇〇行きの切符をください</div>
+              <div class="phrase-main phrase-en">One ticket to ___, please.</div>
+              <div class="phrase-pron">ワン チケット トゥ ___ プリーズ</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-taxi"></i> タクシー</div>
+              <div class="phrase-jp">〇〇まで行ってください</div>
+              <div class="phrase-main phrase-en">To ___, please.</div>
+              <div class="phrase-pron">トゥ ___ プリーズ</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-clock"></i> 所要時間</div>
+              <div class="phrase-jp">どのくらい時間がかかりますか？</div>
+              <div class="phrase-main phrase-en">How long does it take?</div>
+              <div class="phrase-pron">ハウロング ダズイット テイク？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-location-crosshairs"></i> 現在地</div>
+              <div class="phrase-jp">ここはどこですか？</div>
+              <div class="phrase-main phrase-en">Where am I now?</div>
+              <div class="phrase-pron">ウェア アム アイ ナウ？</div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-box-title"><i class="fa-solid fa-lightbulb"></i> ロンドンの交通用語</div>
+            <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.9;">
+              <li><b>「Tube」</b>（チューブ）- 地下鉄のこと</li>
+              <li><b>「Queue」</b>（キュー）- 列。「Join the queue」で「列に並んで」</li>
+              <li><b>「Mind the gap」</b> - 電車とホームの隙間に注意</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- 買い物 -->
-      <div class="category-title category-en">
-        <i class="fa-solid fa-bag-shopping"></i> 買い物
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-eye"></i> 見るだけ</div>
-          <div class="phrase-jp">見ているだけです</div>
-          <div class="phrase-en">I'm just looking, thank you.</div>
-          <div class="phrase-pron">アイム ジャスト ルッキング サンキュー</div>
+      <div class="scene-section scene-shopping">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-bag-shopping"></i> 買い物</div>
+            <div class="scene-subtitle">お土産・ショッピング</div>
+          </div>
         </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-tag"></i> 値段</div>
-          <div class="phrase-jp">これはいくらですか？</div>
-          <div class="phrase-en">How much is this?</div>
-          <div class="phrase-pron">ハウマッチ イズ ディス？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-shirt"></i> サイズ</div>
-          <div class="phrase-jp">もっと大きい/小さいサイズはありますか？</div>
-          <div class="phrase-en">Do you have a bigger/smaller size?</div>
-          <div class="phrase-pron">ドゥーユーハブ ア ビガー/スモーラー サイズ？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-gift"></i> 免税</div>
-          <div class="phrase-jp">免税手続きはできますか？</div>
-          <div class="phrase-en">Can I get tax free?</div>
-          <div class="phrase-pron">キャナイ ゲット タックスフリー？</div>
-        </div>
-      </div>
-
-      <!-- 緊急・困ったとき -->
-      <div class="category-title category-en">
-        <i class="fa-solid fa-triangle-exclamation"></i> 緊急・困ったとき
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card" style="border:2px solid var(--red);background:#fef2f2;">
-          <div class="phrase-situation" style="color:var(--red);"><i class="fa-solid fa-circle-exclamation"></i> 助けを求める</div>
-          <div class="phrase-jp">助けてください！</div>
-          <div class="phrase-en">Help!</div>
-          <div class="phrase-pron">ヘルプ！</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-hospital"></i> 体調不良</div>
-          <div class="phrase-jp">気分が悪いです</div>
-          <div class="phrase-en">I don't feel well.</div>
-          <div class="phrase-pron">アイ ドント フィール ウェル</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-suitcase"></i> 紛失</div>
-          <div class="phrase-jp">パスポートをなくしました</div>
-          <div class="phrase-en">I've lost my passport.</div>
-          <div class="phrase-pron">アイブ ロスト マイ パスポート</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-language"></i> 言葉がわからない</div>
-          <div class="phrase-jp">英語があまり話せません</div>
-          <div class="phrase-en">I don't speak much English.</div>
-          <div class="phrase-pron">アイ ドント スピーク マッチ イングリッシュ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-repeat"></i> 聞き返す</div>
-          <div class="phrase-jp">もう一度言ってください</div>
-          <div class="phrase-en">Could you say that again?</div>
-          <div class="phrase-pron">クジュー セイ ザット アゲイン？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-gauge-simple-low"></i> ゆっくり</div>
-          <div class="phrase-jp">ゆっくり話してください</div>
-          <div class="phrase-en">Could you speak more slowly?</div>
-          <div class="phrase-pron">クジュー スピーク モア スローリー？</div>
+        <div class="scene-body">
+          <div class="phrase-grid phrase-grid-2">
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-eye"></i> 見るだけ</div>
+              <div class="phrase-jp">見ているだけです</div>
+              <div class="phrase-main phrase-en">I'm just looking, thank you.</div>
+              <div class="phrase-pron">アイム ジャスト ルッキング サンキュー</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-tag"></i> 値段</div>
+              <div class="phrase-jp">これはいくらですか？</div>
+              <div class="phrase-main phrase-en">How much is this?</div>
+              <div class="phrase-pron">ハウマッチ イズ ディス？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-shirt"></i> サイズ</div>
+              <div class="phrase-jp">もっと大きいサイズはありますか？</div>
+              <div class="phrase-main phrase-en">Do you have a bigger size?</div>
+              <div class="phrase-pron">ドゥーユーハブ ア ビガー サイズ？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-gift"></i> 免税</div>
+              <div class="phrase-jp">免税手続きはできますか？</div>
+              <div class="phrase-main phrase-en">Can I get tax free?</div>
+              <div class="phrase-pron">キャナイ ゲット タックスフリー？</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- サッカー観戦 -->
-      <div class="category-title category-en">
-        <i class="fa-solid fa-futbol"></i> サッカー観戦
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-ticket"></i> チケット</div>
-          <div class="phrase-jp">私の席はどこですか？</div>
-          <div class="phrase-en">Where is my seat?</div>
-          <div class="phrase-pron">ウェア イズ マイ シート？</div>
+      <div class="scene-section scene-football">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-futbol"></i> サッカー観戦</div>
+            <div class="scene-subtitle">ウェンブリースタジアムで使える！</div>
+          </div>
         </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-beer-mug-empty"></i> スタジアム</div>
-          <div class="phrase-jp">ビールはどこで買えますか？</div>
-          <div class="phrase-en">Where can I buy beer?</div>
-          <div class="phrase-pron">ウェア キャナイ バイ ビア？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-hands-clapping"></i> 応援</div>
-          <div class="phrase-jp">がんばれ！いいぞ！</div>
-          <div class="phrase-en">Come on! / Well done!</div>
-          <div class="phrase-pron">カモン！/ ウェルダン！</div>
+        <div class="scene-body">
+          <div class="phrase-grid phrase-grid-2">
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-ticket"></i> 席を探す</div>
+              <div class="phrase-jp">私の席はどこですか？</div>
+              <div class="phrase-main phrase-en">Where is my seat?</div>
+              <div class="phrase-pron">ウェア イズ マイ シート？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-beer-mug-empty"></i> 飲み物</div>
+              <div class="phrase-jp">ビールはどこで買えますか？</div>
+              <div class="phrase-main phrase-en">Where can I buy beer?</div>
+              <div class="phrase-pron">ウェア キャナイ バイ ビア？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-restroom"></i> トイレ</div>
+              <div class="phrase-jp">トイレはどこですか？</div>
+              <div class="phrase-main phrase-en">Where's the loo?</div>
+              <div class="phrase-pron">ウェアズ ザ ルー？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-hands-clapping"></i> 応援</div>
+              <div class="phrase-jp">がんばれ！いいぞ！</div>
+              <div class="phrase-main phrase-en">Come on! / Well done!</div>
+              <div class="phrase-pron">カモン！/ ウェルダン！</div>
+            </div>
+          </div>
+          <div class="alert alert-info" style="margin-top:16px;">
+            <i class="fa-solid fa-info-circle"></i> <b>ウェンブリー豆知識：</b>イギリスでは「トイレ」は「Loo」（ルー）と言います。「Toilet」より上品な表現です。
+          </div>
         </div>
       </div>
 
-      <div class="tip-box">
-        <div class="tip-box-title"><i class="fa-solid fa-lightbulb"></i> イギリス英語のワンポイント</div>
-        <ul style="margin:8px 0 0;padding-left:20px;font-size:15px;line-height:1.8;">
-          <li><b>「Cheers」</b> - 「ありがとう」のカジュアルな言い方。よく使います</li>
-          <li><b>「Lovely」</b> - 「いいね、素敵」の意味。褒め言葉</li>
-          <li><b>「Brilliant」</b> - 「素晴らしい」。アメリカ英語の「Great」に相当</li>
-          <li><b>「Queue」</b> - 「列」のこと。「Join the queue」で「列に並んで」</li>
-          <li><b>「Loo」</b> - トイレのこと。「Where's the loo?」</li>
-        </ul>
+      <!-- 緊急・困ったとき -->
+      <div class="scene-section scene-emergency">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-triangle-exclamation"></i> 緊急・困ったとき</div>
+            <div class="scene-subtitle">トラブル対応フレーズ</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card phrase-card-urgent">
+              <div class="phrase-situation" style="color:#dc2626;"><i class="fa-solid fa-circle-exclamation"></i> 助けを求める</div>
+              <div class="phrase-jp">助けてください！</div>
+              <div class="phrase-main phrase-en" style="color:#dc2626;">Help!</div>
+              <div class="phrase-pron">ヘルプ！</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-hospital"></i> 体調不良</div>
+              <div class="phrase-jp">気分が悪いです</div>
+              <div class="phrase-main phrase-en">I don't feel well.</div>
+              <div class="phrase-pron">アイ ドント フィール ウェル</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-passport"></i> 紛失</div>
+              <div class="phrase-jp">パスポートをなくしました</div>
+              <div class="phrase-main phrase-en">I've lost my passport.</div>
+              <div class="phrase-pron">アイブ ロスト マイ パスポート</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-language"></i> 言葉がわからない</div>
+              <div class="phrase-jp">英語があまり話せません</div>
+              <div class="phrase-main phrase-en">I don't speak much English.</div>
+              <div class="phrase-pron">アイ ドント スピーク マッチ イングリッシュ</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-repeat"></i> 聞き返す</div>
+              <div class="phrase-jp">もう一度言ってください</div>
+              <div class="phrase-main phrase-en">Could you say that again?</div>
+              <div class="phrase-pron">クジュー セイ ザット アゲイン？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-situation"><i class="fa-solid fa-gauge-simple-low"></i> ゆっくり</div>
+              <div class="phrase-jp">ゆっくり話してください</div>
+              <div class="phrase-main phrase-en">Could you speak more slowly?</div>
+              <div class="phrase-pron">クジュー スピーク モア スローリー？</div>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
 
     <!-- ======================= -->
@@ -337,227 +461,263 @@
       <div class="alert alert-info" style="margin-bottom:24px;">
         <div class="alert-title"><i class="fa-solid fa-info-circle"></i> ミュンヘンでの言語について</div>
         <p style="margin:8px 0 0;font-size:16px;line-height:1.8;">
-          ミュンヘン空港や主要観光地では英語が通じることが多いですが、<br>
-          地元のレストランや小さなお店ではドイツ語が必要な場面もあります。<br>
-          簡単なドイツ語を覚えておくと、現地の方に喜ばれます！
+          ミュンヘン空港や主要観光地では<b>英語が通じる</b>ことが多いです。<br>
+          ただし地元のお店では簡単なドイツ語が喜ばれます！
         </p>
       </div>
 
       <!-- 基本のあいさつ -->
-      <div class="category-title category-de">
-        <i class="fa-solid fa-hand-wave"></i> 基本のあいさつ
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-sun"></i> あいさつ</div>
-          <div class="phrase-jp">こんにちは</div>
-          <div class="phrase-de">Guten Tag / Grüß Gott</div>
-          <div class="phrase-pron">グーテン ターク / グリュース ゴット（バイエルン地方）</div>
+      <div class="scene-section scene-greeting">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-hand-wave"></i> 基本のあいさつ</div>
+            <div class="scene-subtitle">ミュンヘンで使える基本フレーズ</div>
+          </div>
         </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-heart"></i> お礼</div>
-          <div class="phrase-jp">ありがとうございます</div>
-          <div class="phrase-de">Danke schön</div>
-          <div class="phrase-pron">ダンケ シェーン</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-face-smile"></i> すみません</div>
-          <div class="phrase-jp">すみません</div>
-          <div class="phrase-de">Entschuldigung</div>
-          <div class="phrase-pron">エントシュルディグング</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-thumbs-up"></i> 肯定・否定</div>
-          <div class="phrase-jp">はい / いいえ</div>
-          <div class="phrase-de">Ja / Nein</div>
-          <div class="phrase-pron">ヤー / ナイン</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-door-open"></i> 別れ</div>
-          <div class="phrase-jp">さようなら</div>
-          <div class="phrase-de">Auf Wiedersehen / Tschüss</div>
-          <div class="phrase-pron">アウフ ヴィーダーゼーエン / チュース（カジュアル）</div>
+        <div class="scene-body">
+          <div class="phrase-grid phrase-grid-2">
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-sun"></i> あいさつ</div>
+              <div class="phrase-jp">こんにちは</div>
+              <div class="phrase-main phrase-de">Grüß Gott!</div>
+              <div class="phrase-pron">グリュース ゴット！（バイエルン風）</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-heart"></i> お礼</div>
+              <div class="phrase-jp">ありがとうございます</div>
+              <div class="phrase-main phrase-de">Danke schön!</div>
+              <div class="phrase-pron">ダンケ シェーン！</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-face-smile"></i> すみません</div>
+              <div class="phrase-jp">すみません</div>
+              <div class="phrase-main phrase-de">Entschuldigung</div>
+              <div class="phrase-pron">エントシュルディグング</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-thumbs-up"></i> はい・いいえ</div>
+              <div class="phrase-jp">はい / いいえ</div>
+              <div class="phrase-main phrase-de">Ja / Nein</div>
+              <div class="phrase-pron">ヤー / ナイン</div>
+            </div>
+          </div>
+          <div class="tip-box tip-box-de">
+            <div class="tip-box-title"><i class="fa-solid fa-lightbulb"></i> ドイツ語のコツ</div>
+            <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.9;">
+              <li><b>「Bitte」</b>（ビッテ）- 「お願いします」「どうぞ」万能ワード！</li>
+              <li>ミュンヘンでは「Guten Tag」より「Grüß Gott」が一般的</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- 空港・乗り継ぎ -->
-      <div class="category-title category-de">
-        <i class="fa-solid fa-plane"></i> 空港・乗り継ぎ
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-arrows-rotate"></i> 乗り継ぎ</div>
-          <div class="phrase-jp">ロンドン行きの乗り継ぎはどこですか？</div>
-          <div class="phrase-de">Wo ist der Anschlussflug nach London?</div>
-          <div class="phrase-pron">ヴォー イスト デア アンシュルスフルーク ナッハ ロンドン？</div>
+      <div class="scene-section scene-airport">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-plane"></i> 空港・乗り継ぎ</div>
+            <div class="scene-subtitle">ミュンヘン空港での乗り継ぎに</div>
+          </div>
         </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-passport"></i> 入国審査</div>
-          <div class="phrase-jp">乗り継ぎで来ました</div>
-          <div class="phrase-de">Ich bin auf der Durchreise.</div>
-          <div class="phrase-pron">イッヒ ビン アウフ デア ドゥルヒライゼ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-signs-post"></i> ゲート</div>
-          <div class="phrase-jp">ゲート〇〇はどこですか？</div>
-          <div class="phrase-de">Wo ist Gate ___?</div>
-          <div class="phrase-pron">ヴォー イスト ゲート ___？</div>
-        </div>
-      </div>
-
-      <!-- レストラン・ビアホール -->
-      <div class="category-title category-de">
-        <i class="fa-solid fa-beer-mug-empty"></i> レストラン・ビアホール
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-users"></i> 入店</div>
-          <div class="phrase-jp">3名です</div>
-          <div class="phrase-de">Einen Tisch für drei, bitte.</div>
-          <div class="phrase-pron">アイネン ティッシュ フュア ドライ ビッテ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-book-open"></i> メニュー</div>
-          <div class="phrase-jp">メニューをください</div>
-          <div class="phrase-de">Die Speisekarte, bitte.</div>
-          <div class="phrase-pron">ディー シュパイゼカルテ ビッテ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-beer-mug-empty"></i> ビール</div>
-          <div class="phrase-jp">ビールを1杯ください</div>
-          <div class="phrase-de">Ein Bier, bitte.</div>
-          <div class="phrase-pron">アイン ビア ビッテ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-drumstick-bite"></i> 料理</div>
-          <div class="phrase-jp">これをください</div>
-          <div class="phrase-de">Das, bitte. / Ich nehme das.</div>
-          <div class="phrase-pron">ダス ビッテ / イッヒ ネーメ ダス</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-star"></i> おすすめ</div>
-          <div class="phrase-jp">おすすめは何ですか？</div>
-          <div class="phrase-de">Was empfehlen Sie?</div>
-          <div class="phrase-pron">ヴァス エンプフェーレン ジー？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-receipt"></i> 会計</div>
-          <div class="phrase-jp">お会計をお願いします</div>
-          <div class="phrase-de">Die Rechnung, bitte.</div>
-          <div class="phrase-pron">ディー レヒヌング ビッテ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-coins"></i> チップ（端数切り上げ）</div>
-          <div class="phrase-jp">（合計17.50€の場合）20ユーロでお願いします</div>
-          <div class="phrase-de">Zwanzig Euro, bitte.</div>
-          <div class="phrase-pron">ツヴァンツィヒ オイロ ビッテ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-face-grin-hearts"></i> 美味しい</div>
-          <div class="phrase-jp">とても美味しかったです</div>
-          <div class="phrase-de">Es war sehr lecker!</div>
-          <div class="phrase-pron">エス ヴァー ゼーア レッカー！</div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card phrase-card-de" style="border-left-color:#7c3aed;background:#f5f3ff;">
+              <div class="phrase-situation" style="color:#7c3aed;"><i class="fa-solid fa-star"></i> 最重要フレーズ</div>
+              <div class="phrase-jp">ロンドン行きの乗り継ぎはどこですか？</div>
+              <div class="phrase-main phrase-de" style="color:#7c3aed;">Wo ist der Anschlussflug nach London?</div>
+              <div class="phrase-pron">ヴォー イスト デア アンシュルスフルーク ナッハ ロンドン？</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-passport"></i> 入国審査</div>
+              <div class="phrase-jp">乗り継ぎで来ました</div>
+              <div class="phrase-main phrase-de">Ich bin auf der Durchreise.</div>
+              <div class="phrase-pron">イッヒ ビン アウフ デア ドゥルヒライゼ</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-signs-post"></i> ゲート</div>
+              <div class="phrase-jp">ゲート○○はどこですか？</div>
+              <div class="phrase-main phrase-de">Wo ist Gate ___?</div>
+              <div class="phrase-pron">ヴォー イスト ゲート ___？</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-language"></i> 英語で</div>
+              <div class="phrase-jp">英語を話せますか？</div>
+              <div class="phrase-main phrase-de">Sprechen Sie Englisch?</div>
+              <div class="phrase-pron">シュプレッヒェン ジー エングリッシュ？</div>
+            </div>
+          </div>
+          <div class="alert alert-success" style="margin-top:16px;">
+            <i class="fa-solid fa-check-circle"></i> <b>安心ポイント：</b>ミュンヘン空港は英語の案内が充実。困ったら「Sprechen Sie Englisch?」で英語対応してもらえます。
+          </div>
         </div>
       </div>
 
-      <!-- 乾杯 -->
-      <div class="category-title category-de">
-        <i class="fa-solid fa-champagne-glasses"></i> 乾杯
+      <!-- ビアホール -->
+      <div class="scene-section scene-beer">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-beer-mug-empty"></i> ビアホール・レストラン</div>
+            <div class="scene-subtitle">ミュンヘン名物を楽しもう！</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-users"></i> 入店</div>
+              <div class="phrase-jp">3名です</div>
+              <div class="phrase-main phrase-de">Einen Tisch für drei, bitte.</div>
+              <div class="phrase-pron">アイネン ティッシュ フュア ドライ ビッテ</div>
+            </div>
+            <div class="phrase-card phrase-card-de" style="border-left-color:#f59e0b;background:#fffbeb;">
+              <div class="phrase-situation" style="color:#b45309;"><i class="fa-solid fa-beer-mug-empty"></i> ビール注文【必須】</div>
+              <div class="phrase-jp">ビールを1杯ください</div>
+              <div class="phrase-main phrase-de" style="color:#b45309;">Ein Bier, bitte!</div>
+              <div class="phrase-pron">アイン ビア ビッテ！</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-hand-point-up"></i> 注文</div>
+              <div class="phrase-jp">これをください</div>
+              <div class="phrase-main phrase-de">Das, bitte.</div>
+              <div class="phrase-pron">ダス ビッテ</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-receipt"></i> 会計</div>
+              <div class="phrase-jp">お会計をお願いします</div>
+              <div class="phrase-main phrase-de">Die Rechnung, bitte.</div>
+              <div class="phrase-pron">ディー レヒヌング ビッテ</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-coins"></i> チップ（端数切り上げ）</div>
+              <div class="phrase-jp">（17.50€の場合）20ユーロでお願いします</div>
+              <div class="phrase-main phrase-de">Zwanzig Euro, bitte.</div>
+              <div class="phrase-pron">ツヴァンツィヒ オイロ ビッテ</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-face-grin-hearts"></i> 美味しい！</div>
+              <div class="phrase-jp">とても美味しかったです</div>
+              <div class="phrase-main phrase-de">Es war sehr lecker!</div>
+              <div class="phrase-pron">エス ヴァー ゼーア レッカー！</div>
+            </div>
+          </div>
+
+          <!-- 乾杯 -->
+          <div style="text-align:center;margin:24px 0;padding:20px;background:#fff;border-radius:16px;border:3px solid #f59e0b;">
+            <div style="font-size:48px;margin-bottom:8px;">🍺</div>
+            <div style="font-size:14px;color:var(--text-muted);margin-bottom:4px;">乾杯！</div>
+            <div style="font-size:36px;font-weight:900;color:#b45309;">Prost!</div>
+            <div style="font-size:18px;color:#6b7280;margin-top:4px;">プロースト！</div>
+          </div>
+
+          <!-- ミュンヘン名物料理 -->
+          <h3 style="font-size:18px;font-weight:900;margin:24px 0 16px;color:#b45309;">
+            <i class="fa-solid fa-utensils"></i> ミュンヘン名物料理
+          </h3>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+            <div class="food-card">
+              <div class="food-name">Weißwurst</div>
+              <div class="food-pron">ヴァイスヴルスト</div>
+              <div class="food-desc">白ソーセージ<br>（朝食の定番）</div>
+            </div>
+            <div class="food-card">
+              <div class="food-name">Schweinshaxe</div>
+              <div class="food-pron">シュヴァインスハクセ</div>
+              <div class="food-desc">豚すね肉ロースト<br>（大迫力！）</div>
+            </div>
+            <div class="food-card">
+              <div class="food-name">Bretzel</div>
+              <div class="food-pron">ブレッツェル</div>
+              <div class="food-desc">プレッツェル<br>（ビールのお供）</div>
+            </div>
+            <div class="food-card">
+              <div class="food-name">Apfelstrudel</div>
+              <div class="food-pron">アプフェルシュトゥルーデル</div>
+              <div class="food-desc">アップルパイ風<br>（デザートに）</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="phrase-grid">
-        <div class="phrase-card" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:2px solid #f59e0b;">
-          <div class="phrase-situation" style="color:#b45309;"><i class="fa-solid fa-champagne-glasses"></i> 乾杯！</div>
-          <div class="phrase-jp">乾杯！</div>
-          <div class="phrase-de">Prost!</div>
-          <div class="phrase-pron">プロースト！</div>
+
+      <!-- 緊急 -->
+      <div class="scene-section scene-emergency">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-triangle-exclamation"></i> 緊急・困ったとき</div>
+            <div class="scene-subtitle">トラブル対応フレーズ</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card phrase-card-de phrase-card-urgent">
+              <div class="phrase-situation" style="color:#dc2626;"><i class="fa-solid fa-circle-exclamation"></i> 助けを求める</div>
+              <div class="phrase-jp">助けて！</div>
+              <div class="phrase-main phrase-de" style="color:#dc2626;">Hilfe!</div>
+              <div class="phrase-pron">ヒルフェ！</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-circle-question"></i> わからない</div>
+              <div class="phrase-jp">わかりません</div>
+              <div class="phrase-main phrase-de">Ich verstehe nicht.</div>
+              <div class="phrase-pron">イッヒ フェアシュテーエ ニヒト</div>
+            </div>
+            <div class="phrase-card phrase-card-de">
+              <div class="phrase-situation"><i class="fa-solid fa-gauge-simple-low"></i> ゆっくり</div>
+              <div class="phrase-jp">ゆっくり話してください</div>
+              <div class="phrase-main phrase-de">Langsamer, bitte.</div>
+              <div class="phrase-pron">ラングザーマー ビッテ</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- 数字 -->
-      <div class="category-title category-de">
-        <i class="fa-solid fa-hashtag"></i> 数字（注文で使う）
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card">
-          <div class="phrase-jp">1 / 2 / 3</div>
-          <div class="phrase-de">eins / zwei / drei</div>
-          <div class="phrase-pron">アインス / ツヴァイ / ドライ</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-jp">10 / 20 / 50</div>
-          <div class="phrase-de">zehn / zwanzig / fünfzig</div>
-          <div class="phrase-pron">ツェーン / ツヴァンツィヒ / フュンフツィヒ</div>
-        </div>
-      </div>
-
-      <!-- 緊急・困ったとき -->
-      <div class="category-title category-de">
-        <i class="fa-solid fa-triangle-exclamation"></i> 緊急・困ったとき
-      </div>
-      <div class="phrase-grid">
-        <div class="phrase-card" style="border:2px solid var(--red);background:#fef2f2;">
-          <div class="phrase-situation" style="color:var(--red);"><i class="fa-solid fa-circle-exclamation"></i> 助けを求める</div>
-          <div class="phrase-jp">助けて！</div>
-          <div class="phrase-de">Hilfe!</div>
-          <div class="phrase-pron">ヒルフェ！</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-language"></i> 英語で</div>
-          <div class="phrase-jp">英語を話せますか？</div>
-          <div class="phrase-de">Sprechen Sie Englisch?</div>
-          <div class="phrase-pron">シュプレッヒェン ジー エングリッシュ？</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-circle-question"></i> わからない</div>
-          <div class="phrase-jp">わかりません</div>
-          <div class="phrase-de">Ich verstehe nicht.</div>
-          <div class="phrase-pron">イッヒ フェアシュテーエ ニヒト</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-situation"><i class="fa-solid fa-gauge-simple-low"></i> ゆっくり</div>
-          <div class="phrase-jp">ゆっくり話してください</div>
-          <div class="phrase-de">Langsamer, bitte.</div>
-          <div class="phrase-pron">ラングザーマー ビッテ</div>
-        </div>
-      </div>
-
-      <div class="tip-box" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-color:#f59e0b;">
-        <div class="tip-box-title" style="color:#b45309;"><i class="fa-solid fa-lightbulb"></i> ドイツ語のワンポイント</div>
-        <ul style="margin:8px 0 0;padding-left:20px;font-size:15px;line-height:1.8;">
-          <li><b>「Bitte」（ビッテ）</b> - 「お願いします」「どうぞ」万能ワード</li>
-          <li><b>バイエルン方言</b> - ミュンヘンでは「Grüß Gott」（グリュース ゴット）が一般的</li>
-          <li><b>ビールの注文</b> - 「1リットル」は「Eine Maß」（アイネ マス）</li>
-          <li><b>チップ</b> - 支払い時に端数を切り上げて金額を言う（17.50€→「20ユーロで」）</li>
-          <li><b>トイレ</b> - 有料が多い。「Toilette」（トワレッテ）または「WC」（ヴェーツェー）</li>
-        </ul>
-      </div>
-
-      <!-- ミュンヘンの名物料理 -->
       <div class="card" style="margin-top:24px;">
-        <h2 class="card-title" style="color:#b45309;"><i class="fa-solid fa-utensils" style="color:#b45309;"></i> ミュンヘンの名物料理</h2>
-        <div class="phrase-grid" style="margin-top:16px;">
-          <div class="phrase-card">
-            <div class="phrase-de" style="font-size:18px;">Weißwurst</div>
-            <div class="phrase-pron">ヴァイスヴルスト</div>
-            <div class="phrase-jp" style="margin-top:8px;">白ソーセージ（朝食に食べる伝統料理）</div>
+        <h2 class="card-title" style="color:#b45309;"><i class="fa-solid fa-hashtag" style="color:#b45309;"></i> 数字（注文・会計で使う）</h2>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:16px;text-align:center;">
+          <div style="background:#fef3c7;padding:12px;border-radius:8px;">
+            <div style="font-weight:900;color:#b45309;">1</div>
+            <div style="font-size:14px;">eins</div>
+            <div style="font-size:12px;color:#6b7280;">アインス</div>
           </div>
-          <div class="phrase-card">
-            <div class="phrase-de" style="font-size:18px;">Schweinshaxe</div>
-            <div class="phrase-pron">シュヴァインスハクセ</div>
-            <div class="phrase-jp" style="margin-top:8px;">豚すね肉のロースト（ボリューム満点！）</div>
+          <div style="background:#fef3c7;padding:12px;border-radius:8px;">
+            <div style="font-weight:900;color:#b45309;">2</div>
+            <div style="font-size:14px;">zwei</div>
+            <div style="font-size:12px;color:#6b7280;">ツヴァイ</div>
           </div>
-          <div class="phrase-card">
-            <div class="phrase-de" style="font-size:18px;">Bretzel</div>
-            <div class="phrase-pron">ブレッツェル</div>
-            <div class="phrase-jp" style="margin-top:8px;">プレッツェル（ビールのお供に最適）</div>
+          <div style="background:#fef3c7;padding:12px;border-radius:8px;">
+            <div style="font-weight:900;color:#b45309;">3</div>
+            <div style="font-size:14px;">drei</div>
+            <div style="font-size:12px;color:#6b7280;">ドライ</div>
           </div>
-          <div class="phrase-card">
-            <div class="phrase-de" style="font-size:18px;">Apfelstrudel</div>
-            <div class="phrase-pron">アプフェルシュトゥルーデル</div>
-            <div class="phrase-jp" style="margin-top:8px;">アップルパイ風デザート</div>
+          <div style="background:#fef3c7;padding:12px;border-radius:8px;">
+            <div style="font-weight:900;color:#b45309;">5</div>
+            <div style="font-size:14px;">fünf</div>
+            <div style="font-size:12px;color:#6b7280;">フュンフ</div>
+          </div>
+          <div style="background:#fef3c7;padding:12px;border-radius:8px;">
+            <div style="font-weight:900;color:#b45309;">10</div>
+            <div style="font-size:14px;">zehn</div>
+            <div style="font-size:12px;color:#6b7280;">ツェーン</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px;text-align:center;">
+          <div style="background:#fde68a;padding:12px;border-radius:8px;">
+            <div style="font-weight:900;color:#b45309;">20</div>
+            <div style="font-size:14px;">zwanzig</div>
+            <div style="font-size:12px;color:#6b7280;">ツヴァンツィヒ</div>
+          </div>
+          <div style="background:#fde68a;padding:12px;border-radius:8px;">
+            <div style="font-weight:900;color:#b45309;">50</div>
+            <div style="font-size:14px;">fünfzig</div>
+            <div style="font-size:12px;color:#6b7280;">フュンフツィヒ</div>
+          </div>
+          <div style="background:#fde68a;padding:12px;border-radius:8px;">
+            <div style="font-weight:900;color:#b45309;">100</div>
+            <div style="font-size:14px;">hundert</div>
+            <div style="font-size:12px;color:#6b7280;">フンダート</div>
           </div>
         </div>
       </div>
+
     </div>
   </main>
 
@@ -567,15 +727,10 @@
 
   <script>
     function switchLang(lang) {
-      // タブの状態を更新
       document.getElementById('tab-en').className = lang === 'en' ? 'active-en' : '';
       document.getElementById('tab-de').className = lang === 'de' ? 'active-de' : '';
-
-      // セクションの表示切り替え
       document.getElementById('section-en').className = 'lang-section' + (lang === 'en' ? ' active' : '');
       document.getElementById('section-de').className = 'lang-section' + (lang === 'de' ? ' active' : '');
-
-      // スクロールをトップへ
       window.scrollTo(0, 0);
     }
 
