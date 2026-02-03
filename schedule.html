@@ -12,28 +12,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .day-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-    .day-nav a{padding:10px 16px;border-radius:8px;background:var(--bg-light);border:2px solid var(--line);color:var(--text);text-decoration:none;font-weight:700;font-size:14px}
-    .day-nav a:hover{border-color:var(--blue);background:var(--blue-light)}
-    .day-nav a.match{background:var(--orange-light);border-color:var(--orange);color:var(--orange)}
-    .schedule-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
-    .schedule-item:last-child{border-bottom:none}
-    .schedule-time{min-width:80px;font-weight:900;color:var(--blue);font-size:18px}
-    .schedule-content{flex:1}
-    .schedule-content b{color:var(--text)}
-    .hotel-mini{background:var(--blue-light);border:2px solid var(--blue);border-radius:8px;padding:12px;margin-top:16px;display:flex;gap:12px;align-items:center}
-    .hotel-mini img{width:60px;height:40px;object-fit:cover;border-radius:4px}
-    .hotel-mini.beatles{background:linear-gradient(135deg,rgba(200,16,46,0.1),rgba(245,158,11,0.15));border-color:#f59e0b}
-  </style>
 </head>
-<body>
+<body class="page-schedule">
   <header class="site-header">
     <nav class="site-nav">
       <a href="index.html" class="nav-link nav-home"><i class="fa-solid fa-home"></i></a>
-      <a href="flight.html" class="nav-link"><i class="fa-solid fa-plane"></i> フライト</a>
       <a href="schedule.html" class="nav-link active"><i class="fa-solid fa-calendar"></i> 日程</a>
       <a href="hotel.html" class="nav-link"><i class="fa-solid fa-hotel"></i> 宿泊</a>
+      <a href="flight.html" class="nav-link"><i class="fa-solid fa-plane"></i> フライト</a>
+      <a href="spots.html" class="nav-link"><i class="fa-solid fa-camera"></i> 観光</a>
+      <a href="info.html" class="nav-link"><i class="fa-solid fa-info-circle"></i> 基本情報</a>
       <a href="checklist.html" class="nav-link"><i class="fa-solid fa-check"></i> 持ち物</a>
       <a href="emergency.html" class="nav-link"><i class="fa-solid fa-phone"></i> 緊急</a>
     </nav>
@@ -56,281 +44,298 @@
       <a href="#day-406">4/6</a>
     </div>
 
-    <!-- 3/30 -->
-    <section class="card" id="day-330">
-      <h2 class="card-title">
-        <i class="fa-solid fa-plane"></i> 3/30（日）移動日
-      </h2>
-      <div class="day-tags" style="margin-bottom:16px;">
-        <span class="day-tag"><i class="fa-solid fa-plane"></i> フライト</span>
-        <span class="day-tag">KIX → MUC → LHR</span>
-        <span class="day-tag warn"><i class="fa-solid fa-bed"></i> ヒースロー泊</span>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">10:30</div>
-        <div class="schedule-content"><b>関西国際空港 出発</b><br><span class="muted">LH741 ルフトハンザ航空</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">16:40</div>
-        <div class="schedule-content"><b>ミュンヘン空港 到着</b><br><span class="muted">乗り継ぎ約2時間</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">18:35</div>
-        <div class="schedule-content"><b>ミュンヘン空港 出発</b><br><span class="muted">LH2478</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">19:35</div>
-        <div class="schedule-content"><b>ロンドン・ヒースロー 到着</b></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">20:30</div>
-        <div class="schedule-content"><b>🏨 ホテルチェックイン</b></div>
-      </div>
-      <div class="hotel-mini">
-        <img src="images/renaissance-heathrow.jpg" alt="Hotel">
-        <div>
-          <div style="font-weight:700;font-size:14px;">ルネッサンス・ヒースロー</div>
-          <div style="font-size:12px;color:var(--text-muted);">確認番号: 99912227 / 99912229</div>
+    <!-- タイムライン -->
+    <div class="timeline">
+      <!-- 3/30 -->
+      <section class="day-card" id="day-330">
+        <div class="day-header">
+          <div class="day-date"><i class="fa-solid fa-plane" style="color:var(--blue);margin-right:8px;"></i> 3/30（日）移動日</div>
+          <div class="day-tags">
+            <span class="day-tag"><i class="fa-solid fa-plane"></i> フライト</span>
+            <span class="day-tag">KIX → MUC → LHR</span>
+            <span class="day-tag warn"><i class="fa-solid fa-bed"></i> ヒースロー泊</span>
+          </div>
         </div>
-      </div>
-    </section>
+        <div class="day-body">
+          <div class="schedule-item">
+            <div class="schedule-time">10:30</div>
+            <div class="schedule-content"><b>関西国際空港 出発</b><br><span class="muted">LH741 ルフトハンザ航空</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">16:40</div>
+            <div class="schedule-content"><b>ミュンヘン空港 到着</b><br><span class="muted">乗り継ぎ約2時間</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">18:35</div>
+            <div class="schedule-content"><b>ミュンヘン空港 出発</b><br><span class="muted">LH2478</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">19:35</div>
+            <div class="schedule-content"><b>ロンドン・ヒースロー 到着</b></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">20:30</div>
+            <div class="schedule-content"><b>🏨 ホテルチェックイン</b></div>
+          </div>
+          <div class="hotel-mini">
+            <img src="images/renaissance-heathrow.jpg" alt="Hotel">
+            <div>
+              <div style="font-weight:700;font-size:16px;">ルネッサンス・ヒースロー</div>
+              <div style="font-size:14px;color:var(--text-muted);">確認番号: 99912227 / 99912229</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- 3/31 試合日 -->
-    <section class="card" id="day-331" style="background:var(--orange-light);border-color:var(--orange);border-width:3px;">
-      <h2 class="card-title" style="color:var(--orange);">
-        <i class="fa-solid fa-futbol"></i> 3/31（月）試合日！
-      </h2>
-      <div class="day-tags" style="margin-bottom:16px;">
-        <span class="day-tag" style="background:var(--orange);color:#fff;"><i class="fa-solid fa-star"></i> メインイベント</span>
-        <span class="day-tag warn"><i class="fa-solid fa-bed"></i> メイダヴェール泊</span>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">10:00</div>
-        <div class="schedule-content"><b>🏨 ヒースロー チェックアウト</b><br><span class="muted">メイダヴェールへ移動</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">12:00</div>
-        <div class="schedule-content"><b>🏨 メイダヴェール チェックイン</b><br><span class="muted">荷物預け可能</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">午後</div>
-        <div class="schedule-content"><b>ロンドン観光（軽め）</b><br><span class="muted">体力温存して試合に備える</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time" style="color:var(--orange);">20:00</div>
-        <div class="schedule-content">
-          <b style="color:var(--orange);font-size:18px;">⚽ 日本 vs イングランド</b><br>
-          <span class="muted">ウェンブリースタジアム / Jubilee線 Wembley Park駅 徒歩10分</span>
+      <!-- 3/31 試合日 -->
+      <section class="day-card match-day" id="day-331">
+        <div class="day-header">
+          <div class="day-date"><i class="fa-solid fa-futbol" style="color:var(--orange);margin-right:8px;"></i> 3/31（月）試合日！</div>
+          <div class="day-tags">
+            <span class="day-tag" style="background:var(--orange);color:#fff;"><i class="fa-solid fa-star"></i> メインイベント</span>
+            <span class="day-tag warn"><i class="fa-solid fa-bed"></i> メイダヴェール泊</span>
+          </div>
         </div>
-      </div>
-      <div class="hotel-mini" style="background:linear-gradient(135deg,#f3e8ff,#ede9fe);border-color:#7c3aed;">
-        <img src="images/marriott-maida-vale.jpg" alt="Hotel">
-        <div>
-          <div style="font-weight:700;font-size:14px;">マリオット・メイダヴェール</div>
-          <div style="font-size:12px;color:var(--text-muted);">確認番号: 74865580 / 74865585</div>
+        <div class="day-body">
+          <div class="schedule-item">
+            <div class="schedule-time">10:00</div>
+            <div class="schedule-content"><b>🏨 ヒースロー チェックアウト</b><br><span class="muted">メイダヴェールへ移動</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:00</div>
+            <div class="schedule-content"><b>🏨 メイダヴェール チェックイン</b><br><span class="muted">荷物預け可能</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">午後</div>
+            <div class="schedule-content"><b>ロンドン観光（軽め）</b><br><span class="muted">体力温存して試合に備える</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time" style="color:var(--orange);font-size:20px;">20:00</div>
+            <div class="schedule-content">
+              <b style="color:var(--orange);font-size:18px;">⚽ 日本 vs イングランド</b><br>
+              <span class="muted">ウェンブリースタジアム / Jubilee線 Wembley Park駅 徒歩10分</span>
+            </div>
+          </div>
+          <div class="hotel-mini" style="background:linear-gradient(135deg,#f3e8ff,#ede9fe);border-color:#7c3aed;">
+            <img src="images/marriott-maida-vale.jpg" alt="Hotel">
+            <div>
+              <div style="font-weight:700;font-size:16px;">マリオット・メイダヴェール</div>
+              <div style="font-size:14px;color:var(--text-muted);">確認番号: 74865580 / 74865585</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 4/1 -->
-    <section class="card" id="day-401">
-      <h2 class="card-title">
-        <i class="fa-solid fa-guitar"></i> 4/1（火）リバプール
-      </h2>
-      <div class="day-tags" style="margin-bottom:16px;">
-        <span class="day-tag" style="background:#f59e0b;color:#fff;"><i class="fa-solid fa-music"></i> ビートルズ</span>
-        <span class="day-tag warn"><i class="fa-solid fa-bed"></i> リバプール泊</span>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">08:00</div>
-        <div class="schedule-content"><b>🚃 ロンドン Euston駅 出発</b><br><span class="muted">Avanti West Coast</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">10:15</div>
-        <div class="schedule-content"><b>🚃 リバプール Lime Street駅 到着</b></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">11:00</div>
-        <div class="schedule-content"><b>🏨 デルタ・ホテル チェックイン</b><br><span class="muted">荷物預け</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">午後</div>
-        <div class="schedule-content">
-          <b>🎸 ビートルズ聖地巡礼</b>
-          <ul style="margin:8px 0 0;font-size:14px;color:var(--text-muted);">
-            <li>キャバーン・クラブ（徒歩5分）</li>
-            <li>ビートルズ・ストーリー（徒歩15分）</li>
-            <li>アルバート・ドック散策</li>
-          </ul>
+      <!-- 4/1 -->
+      <section class="day-card" id="day-401">
+        <div class="day-header">
+          <div class="day-date"><i class="fa-solid fa-guitar" style="color:#f59e0b;margin-right:8px;"></i> 4/1（火）リバプール</div>
+          <div class="day-tags">
+            <span class="day-tag" style="background:#f59e0b;color:#fff;"><i class="fa-solid fa-music"></i> ビートルズ</span>
+            <span class="day-tag warn"><i class="fa-solid fa-bed"></i> リバプール泊</span>
+          </div>
         </div>
-      </div>
-      <div class="hotel-mini beatles">
-        <img src="images/delta-liverpool.jpg" alt="Hotel">
-        <div>
-          <div style="font-weight:700;font-size:14px;">🎸 デルタ・ホテル・リバプール</div>
-          <div style="font-size:12px;color:var(--text-muted);">確認番号: 99944121 / 99944129</div>
+        <div class="day-body">
+          <div class="schedule-item">
+            <div class="schedule-time">08:00</div>
+            <div class="schedule-content"><b>🚃 ロンドン Euston駅 出発</b><br><span class="muted">Avanti West Coast</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:15</div>
+            <div class="schedule-content"><b>🚃 リバプール Lime Street駅 到着</b></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:00</div>
+            <div class="schedule-content"><b>🏨 デルタ・ホテル チェックイン</b><br><span class="muted">荷物預け</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">午後</div>
+            <div class="schedule-content">
+              <b>🎸 ビートルズ聖地巡礼</b>
+              <ul style="margin:8px 0 0;font-size:16px;color:var(--text-muted);padding-left:20px;">
+                <li>キャバーン・クラブ（徒歩5分）</li>
+                <li>ビートルズ・ストーリー（徒歩15分）</li>
+                <li>アルバート・ドック散策</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hotel-mini beatles">
+            <img src="images/delta-liverpool.jpg" alt="Hotel">
+            <div>
+              <div style="font-weight:700;font-size:16px;">🎸 デルタ・ホテル・リバプール</div>
+              <div style="font-size:14px;color:var(--text-muted);">確認番号: 99944121 / 99944129</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 4/2 -->
-    <section class="card" id="day-402">
-      <h2 class="card-title">
-        <i class="fa-solid fa-train"></i> 4/2（水）リバプール → ロンドン
-      </h2>
-      <div class="day-tags" style="margin-bottom:16px;">
-        <span class="day-tag"><i class="fa-solid fa-train"></i> 移動日</span>
-        <span class="day-tag warn"><i class="fa-solid fa-bed"></i> メイダヴェール泊</span>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">10:00</div>
-        <div class="schedule-content"><b>🏨 リバプール チェックアウト</b></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">11:00</div>
-        <div class="schedule-content"><b>🚃 リバプール Lime Street駅 出発</b></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">13:15</div>
-        <div class="schedule-content"><b>🚃 ロンドン Euston駅 到着</b></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">午後</div>
-        <div class="schedule-content">
-          <b>ロンドン観光（ゆったり）</b>
-          <ul style="margin:8px 0 0;font-size:14px;color:var(--text-muted);">
-            <li>大英博物館</li>
-            <li>コベントガーデン</li>
-            <li>アフタヌーンティー</li>
-          </ul>
+      <!-- 4/2 -->
+      <section class="day-card" id="day-402">
+        <div class="day-header">
+          <div class="day-date"><i class="fa-solid fa-train" style="color:var(--blue);margin-right:8px;"></i> 4/2（水）リバプール → ロンドン</div>
+          <div class="day-tags">
+            <span class="day-tag"><i class="fa-solid fa-train"></i> 移動日</span>
+            <span class="day-tag warn"><i class="fa-solid fa-bed"></i> メイダヴェール泊</span>
+          </div>
         </div>
-      </div>
-      <div class="hotel-mini" style="background:linear-gradient(135deg,#f3e8ff,#ede9fe);border-color:#7c3aed;">
-        <img src="images/marriott-maida-vale.jpg" alt="Hotel">
-        <div>
-          <div style="font-weight:700;font-size:14px;">マリオット・メイダヴェール</div>
-          <div style="font-size:12px;color:var(--text-muted);">確認番号: 74865580 / 74865585</div>
+        <div class="day-body">
+          <div class="schedule-item">
+            <div class="schedule-time">10:00</div>
+            <div class="schedule-content"><b>🏨 リバプール チェックアウト</b></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:00</div>
+            <div class="schedule-content"><b>🚃 リバプール Lime Street駅 出発</b></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">13:15</div>
+            <div class="schedule-content"><b>🚃 ロンドン Euston駅 到着</b></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">午後</div>
+            <div class="schedule-content">
+              <b>ロンドン観光（ゆったり）</b>
+              <ul style="margin:8px 0 0;font-size:16px;color:var(--text-muted);padding-left:20px;">
+                <li>大英博物館</li>
+                <li>コベントガーデン</li>
+                <li>アフタヌーンティー</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hotel-mini" style="background:linear-gradient(135deg,#f3e8ff,#ede9fe);border-color:#7c3aed;">
+            <img src="images/marriott-maida-vale.jpg" alt="Hotel">
+            <div>
+              <div style="font-weight:700;font-size:16px;">マリオット・メイダヴェール</div>
+              <div style="font-size:14px;color:var(--text-muted);">確認番号: 74865580 / 74865585</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 4/3 -->
-    <section class="card" id="day-403">
-      <h2 class="card-title">
-        <i class="fa-solid fa-moon"></i> 4/3（木）英国最終日
-      </h2>
-      <div class="day-tags" style="margin-bottom:16px;">
-        <span class="day-tag warn"><i class="fa-solid fa-clock"></i> 翌朝早朝便</span>
-        <span class="day-tag warn"><i class="fa-solid fa-bed"></i> ヒースロー泊</span>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">10:00</div>
-        <div class="schedule-content"><b>🏨 メイダヴェール チェックアウト</b></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">午前〜午後</div>
-        <div class="schedule-content">
-          <b>ロンドン最後の散策</b>
-          <ul style="margin:8px 0 0;font-size:14px;color:var(--text-muted);">
-            <li>お土産購入</li>
-            <li>見残したスポット</li>
-          </ul>
+      <!-- 4/3 -->
+      <section class="day-card" id="day-403">
+        <div class="day-header">
+          <div class="day-date"><i class="fa-solid fa-moon" style="color:var(--blue);margin-right:8px;"></i> 4/3（木）英国最終日</div>
+          <div class="day-tags">
+            <span class="day-tag warn"><i class="fa-solid fa-clock"></i> 翌朝早朝便</span>
+            <span class="day-tag warn"><i class="fa-solid fa-bed"></i> ヒースロー泊</span>
+          </div>
         </div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">17:00</div>
-        <div class="schedule-content"><b>🏨 ヒースロー チェックイン</b><br><span class="muted">翌朝便に備えて早め就寝</span></div>
-      </div>
-      <div class="alert alert-warning" style="margin-top:16px;">
-        <div class="alert-title"><i class="fa-solid fa-triangle-exclamation"></i> 翌朝 06:30 発！</div>
-        <p style="margin:0;font-size:14px;">早朝便のため早めにホテルへ。空港まで無料シャトル10分。</p>
-      </div>
-      <div class="hotel-mini">
-        <img src="images/renaissance-heathrow.jpg" alt="Hotel">
-        <div>
-          <div style="font-weight:700;font-size:14px;">ルネッサンス・ヒースロー</div>
-          <div style="font-size:12px;color:var(--text-muted);">確認番号: 99962865 / 99962868</div>
+        <div class="day-body">
+          <div class="schedule-item">
+            <div class="schedule-time">10:00</div>
+            <div class="schedule-content"><b>🏨 メイダヴェール チェックアウト</b></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">午前〜午後</div>
+            <div class="schedule-content">
+              <b>ロンドン最後の散策</b>
+              <ul style="margin:8px 0 0;font-size:16px;color:var(--text-muted);padding-left:20px;">
+                <li>お土産購入</li>
+                <li>見残したスポット</li>
+              </ul>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">17:00</div>
+            <div class="schedule-content"><b>🏨 ヒースロー チェックイン</b><br><span class="muted">翌朝便に備えて早め就寝</span></div>
+          </div>
+          <div class="alert alert-warning" style="margin-top:16px;">
+            <div class="alert-title"><i class="fa-solid fa-triangle-exclamation"></i> 翌朝 06:30 発！</div>
+            <p style="margin:0;font-size:16px;">早朝便のため早めにホテルへ。空港まで無料シャトル10分。</p>
+          </div>
+          <div class="hotel-mini">
+            <img src="images/renaissance-heathrow.jpg" alt="Hotel">
+            <div>
+              <div style="font-weight:700;font-size:16px;">ルネッサンス・ヒースロー</div>
+              <div style="font-size:14px;color:var(--text-muted);">確認番号: 99962865 / 99962868</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 4/4 -->
-    <section class="card" id="day-404">
-      <h2 class="card-title">
-        <i class="fa-solid fa-plane"></i> 4/4（金）帰国便（1日目）
-      </h2>
-      <div class="day-tags" style="margin-bottom:16px;">
-        <span class="day-tag"><i class="fa-solid fa-plane"></i> フライト</span>
-        <span class="day-tag">LHR → MUC</span>
-        <span class="day-tag warn"><i class="fa-solid fa-bed"></i> 機内泊</span>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">05:00</div>
-        <div class="schedule-content"><b>🏨 ホテル出発</b><br><span class="muted">空港シャトル利用</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">06:30</div>
-        <div class="schedule-content"><b>✈️ ロンドン・ヒースロー 出発</b><br><span class="muted">LH2479</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">09:25</div>
-        <div class="schedule-content"><b>ミュンヘン空港 到着</b><br><span class="muted">乗り継ぎ約3時間</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">12:25</div>
-        <div class="schedule-content"><b>✈️ ミュンヘン空港 出発</b><br><span class="muted">CA962 中国国際航空</span></div>
-      </div>
-    </section>
+      <!-- 4/4 -->
+      <section class="day-card" id="day-404">
+        <div class="day-header">
+          <div class="day-date"><i class="fa-solid fa-plane" style="color:var(--blue);margin-right:8px;"></i> 4/4（金）帰国便（1日目）</div>
+          <div class="day-tags">
+            <span class="day-tag"><i class="fa-solid fa-plane"></i> フライト</span>
+            <span class="day-tag">LHR → MUC</span>
+            <span class="day-tag warn"><i class="fa-solid fa-bed"></i> 機内泊</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="schedule-item">
+            <div class="schedule-time">05:00</div>
+            <div class="schedule-content"><b>🏨 ホテル出発</b><br><span class="muted">空港シャトル利用</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">06:30</div>
+            <div class="schedule-content"><b>✈️ ロンドン・ヒースロー 出発</b><br><span class="muted">LH2479</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">09:25</div>
+            <div class="schedule-content"><b>ミュンヘン空港 到着</b><br><span class="muted">乗り継ぎ約3時間</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:25</div>
+            <div class="schedule-content"><b>✈️ ミュンヘン空港 出発</b><br><span class="muted">CA962 中国国際航空</span></div>
+          </div>
+        </div>
+      </section>
 
-    <!-- 4/5 -->
-    <section class="card" id="day-405">
-      <h2 class="card-title">
-        <i class="fa-solid fa-plane-arrival"></i> 4/5（土）帰国便（2日目）
-      </h2>
-      <div class="day-tags" style="margin-bottom:16px;">
-        <span class="day-tag"><i class="fa-solid fa-plane"></i> フライト</span>
-        <span class="day-tag">PEK → HND → KIX</span>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">05:45</div>
-        <div class="schedule-content"><b>北京首都空港 到着</b><br><span class="muted">乗り継ぎ約3.5時間</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">09:15</div>
-        <div class="schedule-content"><b>✈️ 北京 出発</b><br><span class="muted">CA181</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">13:35</div>
-        <div class="schedule-content"><b>羽田空港 到着</b><br><span class="muted">入国審査・税関</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">15:00</div>
-        <div class="schedule-content"><b>✈️ 羽田 出発</b><br><span class="muted">NH99 ANA</span></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">16:15</div>
-        <div class="schedule-content"><b>🎉 関西国際空港 到着！</b><br><span class="muted">お疲れさまでした！</span></div>
-      </div>
-      <div class="alert alert-warning" style="margin-top:16px;">
-        <div class="alert-title"><i class="fa-solid fa-triangle-exclamation"></i> 羽田乗継 約1時間25分</div>
-        <p style="margin:0;font-size:14px;">タイトなスケジュール。入国審査・税関・ターミナル移動があります。</p>
-      </div>
-    </section>
+      <!-- 4/5 -->
+      <section class="day-card" id="day-405">
+        <div class="day-header">
+          <div class="day-date"><i class="fa-solid fa-plane-arrival" style="color:var(--blue);margin-right:8px;"></i> 4/5（土）帰国便（2日目）</div>
+          <div class="day-tags">
+            <span class="day-tag"><i class="fa-solid fa-plane"></i> フライト</span>
+            <span class="day-tag">PEK → HND → KIX</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="schedule-item">
+            <div class="schedule-time">05:45</div>
+            <div class="schedule-content"><b>北京首都空港 到着</b><br><span class="muted">乗り継ぎ約3.5時間</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">09:15</div>
+            <div class="schedule-content"><b>✈️ 北京 出発</b><br><span class="muted">CA181</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">13:35</div>
+            <div class="schedule-content"><b>羽田空港 到着</b><br><span class="muted">入国審査・税関</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">15:00</div>
+            <div class="schedule-content"><b>✈️ 羽田 出発</b><br><span class="muted">NH99 ANA</span></div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">16:15</div>
+            <div class="schedule-content"><b>🎉 関西国際空港 到着！</b><br><span class="muted">お疲れさまでした！</span></div>
+          </div>
+          <div class="alert alert-warning" style="margin-top:16px;">
+            <div class="alert-title"><i class="fa-solid fa-triangle-exclamation"></i> 羽田乗継 約1時間25分</div>
+            <p style="margin:0;font-size:16px;">タイトなスケジュール。入国審査・税関・ターミナル移動があります。</p>
+          </div>
+        </div>
+      </section>
 
-    <!-- 4/6 -->
-    <section class="card" id="day-406">
-      <h2 class="card-title">
-        <i class="fa-solid fa-home"></i> 4/6（日）帰国
-      </h2>
-      <div class="day-tags" style="margin-bottom:16px;">
-        <span class="day-tag" style="background:#22c55e;color:#fff;"><i class="fa-solid fa-check"></i> 旅程終了</span>
-      </div>
-      <div style="text-align:center;padding:40px 20px;">
-        <div style="font-size:48px;margin-bottom:16px;">🎉</div>
-        <div style="font-size:20px;font-weight:900;color:var(--text);">お疲れさまでした！</div>
-        <div style="font-size:16px;color:var(--text-muted);margin-top:8px;">素敵な旅の思い出になりますように</div>
-      </div>
-    </section>
+      <!-- 4/6 -->
+      <section class="day-card" id="day-406">
+        <div class="day-header">
+          <div class="day-date"><i class="fa-solid fa-home" style="color:var(--green);margin-right:8px;"></i> 4/6（日）帰国</div>
+          <div class="day-tags">
+            <span class="day-tag" style="background:var(--green);color:#fff;"><i class="fa-solid fa-check"></i> 旅程終了</span>
+          </div>
+        </div>
+        <div class="day-body" style="text-align:center;padding:48px 24px;">
+          <div style="font-size:56px;margin-bottom:16px;">🎉</div>
+          <div style="font-size:22px;font-weight:900;color:var(--text);">お疲れさまでした！</div>
+          <div style="font-size:16px;color:var(--text-muted);margin-top:8px;">素敵な旅の思い出になりますように</div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -342,7 +347,6 @@
   </button>
 
   <script>
-    // スクロールトップボタン
     const backToTopBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
@@ -354,8 +358,6 @@
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
-    // Service Worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js');
     }

@@ -1,10 +1,12 @@
-const CACHE_NAME = 'uk-trip-v5';
+const CACHE_NAME = 'uk-trip-v6';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/flight.html',
   '/schedule.html',
   '/hotel.html',
+  '/flight.html',
+  '/spots.html',
+  '/info.html',
   '/checklist.html',
   '/emergency.html',
   '/styles.css',
@@ -13,6 +15,17 @@ const ASSETS_TO_CACHE = [
   '/images/renaissance-heathrow.jpg',
   '/images/marriott-maida-vale.jpg',
   '/images/delta-liverpool.jpg',
+  '/images/cavern-club.webp',
+  '/images/beatles-story.jpg',
+  '/images/penny-lane.jpg',
+  '/images/strawberry-fields.jpg',
+  '/images/wembley-stadium.jpg',
+  '/images/abbey-road.webp',
+  '/images/big-ben.jpg',
+  '/images/tower-bridge.jpg',
+  '/images/fish-and-chips.jpg',
+  '/images/sunday-roast.jpg',
+  '/images/munich.jpg',
   'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
 ];

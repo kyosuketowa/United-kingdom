@@ -18,7 +18,7 @@
 <body>
   <main class="container">
     <!-- ヒーローセクション -->
-    <div style="text-align:center;padding:40px 0 20px;">
+    <div style="text-align:center;padding:40px 0 24px;">
       <div style="font-size:14px;font-weight:700;color:var(--text-muted);letter-spacing:2px;margin-bottom:8px;">
         2025.03.30 - 04.06
       </div>
@@ -57,44 +57,57 @@
       </div>
     </div>
 
-    <!-- 基本情報 -->
+    <!-- 旅行サマリー -->
     <div class="card" style="margin-top:24px;">
+      <h2 class="card-title">
+        <i class="fa-solid fa-suitcase"></i> 旅行概要
+      </h2>
       <div class="grid-2">
         <div>
-          <div style="font-size:13px;color:var(--text-muted);font-weight:700;">時差</div>
-          <div style="font-size:18px;font-weight:900;">英国 -9h / 独 -8h</div>
+          <div style="font-size:14px;color:var(--text-muted);font-weight:700;">日程</div>
+          <div style="font-size:18px;font-weight:900;">2025年3月30日〜4月6日</div>
+          <div style="font-size:14px;color:var(--text-muted);margin-top:4px;">7泊8日</div>
         </div>
         <div>
-          <div style="font-size:13px;color:var(--text-muted);font-weight:700;">通貨</div>
-          <div style="font-size:18px;font-weight:900;">£ ポンド / € ユーロ</div>
+          <div style="font-size:14px;color:var(--text-muted);font-weight:700;">行き先</div>
+          <div style="font-size:18px;font-weight:900;">🇬🇧 イギリス / 🇩🇪 ドイツ</div>
+          <div style="font-size:14px;color:var(--text-muted);margin-top:4px;">ロンドン・リバプール・ミュンヘン</div>
         </div>
         <div>
-          <div style="font-size:13px;color:var(--text-muted);font-weight:700;">電圧・プラグ</div>
-          <div style="font-size:18px;font-weight:900;">230V / BF・C型</div>
+          <div style="font-size:14px;color:var(--text-muted);font-weight:700;">人数</div>
+          <div style="font-size:18px;font-weight:900;">2名</div>
         </div>
         <div>
-          <div style="font-size:13px;color:var(--text-muted);font-weight:700;">緊急電話</div>
-          <div style="font-size:18px;font-weight:900;">英 999 / 独 112</div>
+          <div style="font-size:14px;color:var(--text-muted);font-weight:700;">航路</div>
+          <div style="font-size:18px;font-weight:900;">KIX ✈ MUC ✈ LHR</div>
         </div>
       </div>
     </div>
 
-    <!-- ナビゲーションボタン -->
+    <!-- ナビゲーションカード -->
     <h2 class="page-title" style="margin-top:32px;">
       <i class="fa-solid fa-compass"></i> メニュー
     </h2>
     <div class="nav-buttons">
-      <a href="flight.html" class="nav-btn">
-        <i class="fa-solid fa-plane"></i>
-        <span>フライト情報</span>
-      </a>
       <a href="schedule.html" class="nav-btn highlight">
         <i class="fa-solid fa-calendar-days"></i>
         <span>日程表</span>
       </a>
-      <a href="hotel.html" class="nav-btn">
+      <a href="hotel.html" class="nav-btn highlight">
         <i class="fa-solid fa-hotel"></i>
         <span>宿泊情報</span>
+      </a>
+      <a href="flight.html" class="nav-btn">
+        <i class="fa-solid fa-plane"></i>
+        <span>フライト情報</span>
+      </a>
+      <a href="spots.html" class="nav-btn">
+        <i class="fa-solid fa-camera"></i>
+        <span>観光スポット</span>
+      </a>
+      <a href="info.html" class="nav-btn">
+        <i class="fa-solid fa-info-circle"></i>
+        <span>基本情報</span>
       </a>
       <a href="checklist.html" class="nav-btn">
         <i class="fa-solid fa-check-square"></i>
@@ -111,7 +124,7 @@
       <div class="alert-title">
         <i class="fa-solid fa-triangle-exclamation"></i> UK ETA（電子渡航認証）について
       </div>
-      <p style="font-size:15px;line-height:1.8;">
+      <p style="font-size:16px;line-height:1.8;">
         2025年4月2日以降、日本国籍者も<b style="color:var(--orange);">UK ETA（電子渡航認証）の事前取得が必要</b>です。<br>
         出発前に必ず申請・取得をお忘れなく。（オンラインで申請可能、費用 £10）
       </p>
@@ -123,7 +136,7 @@
     <!-- 試合情報ハイライト -->
     <div class="card" style="background:var(--orange-light);border-color:var(--orange);margin-top:24px;">
       <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-        <div style="width:60px;height:60px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;">
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;">
           <i class="fa-solid fa-futbol" style="color:#fff;font-size:28px;"></i>
         </div>
         <div style="flex:1;min-width:200px;">
@@ -132,6 +145,28 @@
           <div style="font-size:14px;color:var(--text-muted);margin-top:4px;">
             <i class="fa-solid fa-location-dot"></i> ウェンブリースタジアム（ロンドン）
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- クイック情報 -->
+    <div class="card" style="margin-top:24px;">
+      <div class="grid-2">
+        <div>
+          <div style="font-size:14px;color:var(--text-muted);font-weight:700;">時差</div>
+          <div style="font-size:18px;font-weight:900;">英国 -9h / 独 -8h</div>
+        </div>
+        <div>
+          <div style="font-size:14px;color:var(--text-muted);font-weight:700;">通貨</div>
+          <div style="font-size:18px;font-weight:900;">£ ポンド / € ユーロ</div>
+        </div>
+        <div>
+          <div style="font-size:14px;color:var(--text-muted);font-weight:700;">電圧・プラグ</div>
+          <div style="font-size:18px;font-weight:900;">230V / BF・C型</div>
+        </div>
+        <div>
+          <div style="font-size:14px;color:var(--text-muted);font-weight:700;">緊急電話</div>
+          <div style="font-size:18px;font-weight:900;">英 999 / 独 112</div>
         </div>
       </div>
     </div>
