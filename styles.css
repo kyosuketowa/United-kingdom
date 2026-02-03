@@ -1,4 +1,4 @@
-/* UK Trip - 共通スタイル */
+/* UK Trip - 共通スタイル（改良版） */
 :root{
   --bg:#ffffff;
   --bg-light:#f8fafc;
@@ -10,8 +10,13 @@
   --blue-light:#dbeafe;
   --orange:#ea580c;
   --orange-light:#ffedd5;
+  --green:#16a34a;
+  --green-light:#dcfce7;
   --gray:#6b7280;
   --gray-light:#f3f4f6;
+  --navy:#1e3a5f;
+  --beige:#faf8f5;
+  --yellow-light:#fffbeb;
   --shadow: 0 4px 20px rgba(0,0,0,.08);
   --radius:12px;
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -24,45 +29,56 @@ body{
   color:var(--text);
   background:var(--bg);
   font-size:18px;
-  line-height:2;
+  line-height:1.8;
   min-height:100vh;
 }
 .muted{color:var(--text-muted)}
 .mono{font-family:var(--mono)}
 
-/* 共通ヘッダーナビ */
+/* ========== ページ別背景色 ========== */
+body.page-schedule{background:#ffffff}
+body.page-hotel{background:var(--beige)}
+body.page-spots{background:#f5f7fa}
+body.page-info{background:#f0f7ff}
+body.page-checklist{background:#ffffff}
+body.page-emergency{background:var(--yellow-light)}
+
+/* ========== 共通ヘッダーナビ ========== */
 .site-header{
   position:sticky;
   top:0;
   z-index:100;
   background:var(--bg);
   border-bottom:2px solid var(--line);
-  padding:12px 16px;
+  padding:10px 16px;
 }
 .site-nav{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:6px;
   max-width:1200px;
   margin:0 auto;
   overflow-x:auto;
   -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding-bottom:4px;
 }
 .site-nav::-webkit-scrollbar{display:none}
 .nav-link{
   display:inline-flex;
   align-items:center;
   gap:6px;
-  padding:10px 14px;
+  padding:12px 16px;
   border-radius:8px;
   background:var(--bg-light);
   border:2px solid var(--line);
   color:var(--text);
   text-decoration:none;
-  font-size:14px;
+  font-size:16px;
   font-weight:700;
   white-space:nowrap;
   transition:all .2s;
+  min-height:48px;
 }
 .nav-link:hover{
   background:var(--blue-light);
@@ -87,7 +103,7 @@ body{
   background:#1d4ed8;
 }
 
-/* ページタイトル */
+/* ========== ページタイトル ========== */
 .page-title{
   font-size:24px;
   font-weight:900;
@@ -101,20 +117,21 @@ body{
 }
 .page-title i{color:var(--blue)}
 
-/* コンテナ */
+/* ========== コンテナ ========== */
 .container{
   max-width:900px;
   margin:0 auto;
-  padding:16px;
+  padding:20px;
 }
 
-/* カード */
+/* ========== カード ========== */
 .card{
   background:var(--card);
   border:2px solid var(--line);
   border-radius:var(--radius);
-  padding:20px;
-  margin-bottom:20px;
+  padding:24px;
+  margin-bottom:24px;
+  min-width:280px;
 }
 .card-title{
   font-size:18px;
@@ -127,7 +144,7 @@ body{
 }
 .card-title i{color:var(--blue)}
 
-/* グリッド */
+/* ========== グリッド ========== */
 .grid-2{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -138,14 +155,17 @@ body{
   grid-template-columns:repeat(3,1fr);
   gap:16px;
 }
-@media(max-width:600px){
-  .grid-2,.grid-3{grid-template-columns:1fr}
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
 }
 
-/* ボタン */
+/* ========== ボタン ========== */
 .btn{
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   gap:8px;
   padding:14px 24px;
   border-radius:8px;
@@ -157,6 +177,7 @@ body{
   cursor:pointer;
   text-decoration:none;
   transition:all .2s;
+  min-height:48px;
 }
 .btn:hover{
   background:var(--blue-light);
@@ -175,12 +196,19 @@ body{
 .btn-orange:hover{
   background:var(--orange-light);
 }
+.btn-green{
+  border-color:var(--green);
+  color:var(--green);
+}
+.btn-green:hover{
+  background:var(--green-light);
+}
 
-/* アラート */
+/* ========== アラート ========== */
 .alert{
-  padding:16px 20px;
+  padding:20px 24px;
   border-radius:var(--radius);
-  margin-bottom:20px;
+  margin-bottom:24px;
 }
 .alert-info{
   background:var(--blue-light);
@@ -190,6 +218,11 @@ body{
 .alert-warning{
   background:var(--orange-light);
   border:3px solid var(--orange);
+  color:var(--text);
+}
+.alert-success{
+  background:var(--green-light);
+  border:2px solid var(--green);
   color:var(--text);
 }
 .alert-title{
@@ -202,31 +235,34 @@ body{
 }
 .alert-info .alert-title{color:var(--blue)}
 .alert-warning .alert-title{color:var(--orange)}
+.alert-success .alert-title{color:var(--green)}
 
-/* バッジ */
+/* ========== バッジ ========== */
 .badge{
   display:inline-flex;
   align-items:center;
   gap:6px;
-  padding:6px 12px;
+  padding:8px 14px;
   border-radius:6px;
-  font-size:13px;
+  font-size:14px;
   font-weight:700;
+  min-height:32px;
 }
 .badge-blue{background:var(--blue);color:#fff}
 .badge-orange{background:var(--orange);color:#fff}
-.badge-green{background:#22c55e;color:#fff}
+.badge-green{background:var(--green);color:#fff}
 .badge-gray{background:var(--gray);color:#fff}
 
-/* テーブル */
+/* ========== テーブル ========== */
 .info-table{
   width:100%;
   border-collapse:collapse;
 }
 .info-table th,.info-table td{
-  padding:12px 16px;
+  padding:14px 18px;
   text-align:left;
   border-bottom:1px solid var(--line);
+  font-size:16px;
 }
 .info-table th{
   background:var(--bg-light);
@@ -234,28 +270,25 @@ body{
   font-size:14px;
   color:var(--text-muted);
 }
-.info-table td{
-  font-size:16px;
-}
 
-/* フッター */
+/* ========== フッター ========== */
 .site-footer{
   margin-top:40px;
-  padding:20px;
+  padding:24px;
   background:var(--bg-light);
   border-top:2px solid var(--line);
   text-align:center;
-  font-size:14px;
+  font-size:16px;
   color:var(--text-muted);
 }
 
-/* スクロールトップ */
+/* ========== スクロールトップ ========== */
 .back-to-top{
   position:fixed;
-  bottom:20px;
-  right:20px;
-  width:50px;
-  height:50px;
+  bottom:24px;
+  right:24px;
+  width:56px;
+  height:56px;
   border-radius:50%;
   background:var(--blue);
   color:#fff;
@@ -269,44 +302,46 @@ body{
   opacity:0;
   visibility:hidden;
   transition:all .3s;
+  z-index:99;
 }
 .back-to-top.visible{
   opacity:1;
   visibility:visible;
 }
 
-/* チェックリスト */
+/* ========== チェックリスト ========== */
 .checklist-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
   gap:12px;
 }
 .checklist-item{
   display:flex;
   align-items:center;
-  gap:12px;
-  padding:16px;
+  gap:14px;
+  padding:18px;
   background:var(--bg-light);
   border:2px solid var(--line);
   border-radius:8px;
   cursor:pointer;
   transition:all .2s;
+  min-height:60px;
 }
 .checklist-item:hover{
   border-color:var(--blue);
 }
 .checklist-item.checked{
-  background:var(--blue-light);
-  border-color:var(--blue);
+  background:var(--green-light);
+  border-color:var(--green);
 }
 .checklist-item.checked label{
   text-decoration:line-through;
   color:var(--text-muted);
 }
 .checklist-item input[type="checkbox"]{
-  width:24px;
-  height:24px;
-  accent-color:var(--blue);
+  width:28px;
+  height:28px;
+  accent-color:var(--green);
   cursor:pointer;
 }
 .checklist-item label{
@@ -325,30 +360,33 @@ body{
   display:flex;
   gap:12px;
   margin-top:20px;
+  flex-wrap:wrap;
 }
 .checklist-btn{
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   gap:8px;
-  padding:12px 20px;
+  padding:14px 20px;
   border-radius:8px;
   border:2px solid var(--line);
   background:var(--card);
   color:var(--text);
-  font-size:14px;
+  font-size:16px;
   font-weight:700;
   cursor:pointer;
+  min-height:48px;
 }
 .checklist-btn:hover{
   background:var(--bg-light);
   border-color:var(--blue);
 }
 
-/* カウントダウン */
+/* ========== カウントダウン ========== */
 .countdown-container{
   background:var(--blue-light);
   border-radius:var(--radius);
-  padding:24px;
+  padding:28px;
   border:2px solid var(--blue);
   text-align:center;
 }
@@ -372,13 +410,13 @@ body{
   line-height:1;
 }
 .countdown-unit{
-  font-size:14px;
+  font-size:16px;
   font-weight:700;
   color:var(--text-muted);
-  margin-top:4px;
+  margin-top:6px;
 }
 
-/* ナビボタン（トップページ用） */
+/* ========== ナビボタン（トップページ用） ========== */
 .nav-buttons{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -390,17 +428,19 @@ body{
   flex-direction:column;
   align-items:center;
   gap:12px;
-  padding:24px 16px;
+  padding:28px 20px;
   background:var(--card);
   border:2px solid var(--line);
   border-radius:var(--radius);
   text-decoration:none;
   color:var(--text);
   transition:all .2s;
+  min-height:100px;
 }
 .nav-btn:hover{
   border-color:var(--blue);
   background:var(--blue-light);
+  transform:translateY(-2px);
 }
 .nav-btn i{
   font-size:32px;
@@ -415,16 +455,21 @@ body{
   background:var(--orange-light);
 }
 .nav-btn.highlight i{color:var(--orange)}
+.nav-btn.highlight:hover{
+  background:var(--orange);
+  color:#fff;
+}
+.nav-btn.highlight:hover i{color:#fff}
 
-/* タイムライン */
+/* ========== 日程タイムライン ========== */
 .timeline{
   position:relative;
-  padding-left:28px;
+  padding-left:32px;
 }
 .timeline:before{
   content:"";
   position:absolute;
-  left:10px;top:12px;bottom:12px;
+  left:12px;top:16px;bottom:16px;
   width:4px;
   background:var(--blue);
   border-radius:99px;
@@ -440,8 +485,8 @@ body{
 .day-card:before{
   content:"";
   position:absolute;
-  left:-28px;top:28px;
-  width:16px;height:16px;
+  left:-32px;top:32px;
+  width:18px;height:18px;
   border-radius:999px;
   background:var(--blue);
   border:3px solid var(--card);
@@ -458,7 +503,6 @@ body{
 .day-header{
   padding:20px 24px;
   border-bottom:2px solid var(--line);
-  cursor:pointer;
 }
 .day-date{
   font-size:20px;
@@ -469,15 +513,15 @@ body{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
-  margin-top:10px;
+  margin-top:12px;
 }
 .day-tag{
   display:inline-flex;
   align-items:center;
   gap:6px;
-  padding:6px 12px;
+  padding:8px 14px;
   border-radius:6px;
-  font-size:13px;
+  font-size:14px;
   font-weight:700;
   background:var(--blue-light);
   color:var(--blue);
@@ -490,7 +534,24 @@ body{
   padding:24px;
 }
 
-/* ホテルカード */
+/* ========== スケジュールアイテム ========== */
+.schedule-item{
+  display:flex;
+  gap:16px;
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+}
+.schedule-item:last-child{border-bottom:none}
+.schedule-time{
+  min-width:80px;
+  font-weight:900;
+  color:var(--blue);
+  font-size:18px;
+}
+.schedule-content{flex:1;font-size:16px}
+.schedule-content b{color:var(--text)}
+
+/* ========== ホテルカード ========== */
 .hotel-card{
   background:var(--card);
   border:2px solid var(--line);
@@ -514,7 +575,7 @@ body{
   left:0;
   right:0;
   padding:20px;
-  background:linear-gradient(transparent,rgba(0,0,0,0.7));
+  background:linear-gradient(transparent,rgba(0,0,0,0.75));
 }
 .hotel-name{
   color:#fff;
@@ -527,34 +588,56 @@ body{
   font-size:14px;
   margin-top:8px;
 }
-.hotel-body{padding:20px}
+.hotel-body{padding:24px}
 
-/* 連絡先カード */
+/* ========== ホテルミニ ========== */
+.hotel-mini{
+  background:var(--blue-light);
+  border:2px solid var(--blue);
+  border-radius:8px;
+  padding:14px;
+  margin-top:16px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.hotel-mini img{
+  width:70px;
+  height:50px;
+  object-fit:cover;
+  border-radius:6px;
+}
+.hotel-mini.beatles{
+  background:linear-gradient(135deg,rgba(200,16,46,0.1),rgba(245,158,11,0.15));
+  border-color:#f59e0b;
+}
+
+/* ========== 連絡先カード ========== */
 .contact-card{
   background:var(--bg-light);
   border:2px solid var(--line);
   border-radius:8px;
-  padding:16px;
+  padding:18px;
 }
 .contact-title{
   font-size:14px;
   color:var(--text-muted);
   font-weight:700;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
 .contact-phone{
-  font-size:20px;
+  font-size:22px;
   font-weight:900;
   color:var(--blue);
   font-family:var(--mono);
 }
 .contact-note{
-  font-size:13px;
+  font-size:14px;
   color:var(--text-muted);
-  margin-top:4px;
+  margin-top:6px;
 }
 
-/* フライトルート */
+/* ========== フライトルート ========== */
 .flight-route{
   background:var(--bg-light);
   border:2px solid var(--line);
@@ -573,35 +656,179 @@ body{
 .route-line{stroke:var(--blue);stroke-width:3;stroke-dasharray:8 4;fill:none}
 .route-dot{fill:var(--blue)}
 
+/* ========== 日付ナビ ========== */
+.day-nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:24px;
+}
+.day-nav a{
+  padding:12px 18px;
+  border-radius:8px;
+  background:var(--bg-light);
+  border:2px solid var(--line);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:700;
+  font-size:16px;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+}
+.day-nav a:hover{
+  border-color:var(--blue);
+  background:var(--blue-light);
+}
+.day-nav a.match{
+  background:var(--orange-light);
+  border-color:var(--orange);
+  color:var(--orange);
+}
+
+/* ========== スポットカード ========== */
+.spot-card{
+  background:var(--card);
+  border:2px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin-bottom:24px;
+}
+.spot-card.beatles{
+  border-color:var(--orange);
+  border-width:3px;
+}
+.spot-card-img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  display:block;
+}
+.spot-card-body{
+  padding:24px;
+}
+.spot-card-title{
+  font-size:20px;
+  font-weight:900;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--text);
+}
+.spot-card-title i{color:var(--blue)}
+.spot-card.beatles .spot-card-title i{color:var(--orange)}
+.spot-card-desc{
+  font-size:16px;
+  line-height:1.9;
+  color:var(--text);
+  margin-bottom:16px;
+}
+.spot-card-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 14px;
+  border-radius:6px;
+  background:var(--blue-light);
+  color:var(--blue);
+  font-size:14px;
+  font-weight:700;
+  margin-right:8px;
+  margin-bottom:8px;
+}
+.spot-card.beatles .spot-card-tag{
+  background:var(--orange-light);
+  color:var(--orange);
+}
+
+/* ========== 情報カード ========== */
+.info-card{
+  background:var(--card);
+  border:2px solid var(--line);
+  border-radius:var(--radius);
+  padding:20px;
+  min-width:280px;
+}
+.info-card-icon{
+  width:52px;height:52px;
+  border-radius:var(--radius);
+  background:var(--blue-light);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+  font-size:22px;
+  color:var(--blue);
+}
+.info-card-title{
+  font-size:14px;
+  color:var(--text-muted);
+  font-weight:800;
+  margin-bottom:6px;
+}
+.info-card-value{
+  font-size:18px;
+  font-weight:900;
+  color:var(--text);
+}
+.info-card-note{
+  font-size:14px;
+  color:var(--text-muted);
+  margin-top:8px;
+}
+
+/* ========== 安全マップ ========== */
+.safety-zone{
+  padding:16px;
+  border-radius:8px;
+  margin-bottom:12px;
+}
+.safety-zone.safe{
+  background:var(--green-light);
+  border:2px solid var(--green);
+}
+.safety-zone.caution{
+  background:var(--yellow-light);
+  border:2px solid #f59e0b;
+}
+.safety-zone.danger{
+  background:var(--orange-light);
+  border:2px solid var(--orange);
+}
+.safety-zone-title{
+  font-size:16px;
+  font-weight:900;
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.safety-zone.safe .safety-zone-title{color:var(--green)}
+.safety-zone.caution .safety-zone-title{color:#b45309}
+.safety-zone.danger .safety-zone-title{color:var(--orange)}
+
 /* ========== スマートフォン専用 (max-width: 520px) ========== */
 @media(max-width:520px){
-  /* 基本フォントサイズを確保 */
   body{
     font-size:16px;
     line-height:1.8;
   }
-
-  /* コンテナの余白調整 */
   .container{
-    padding:12px;
+    padding:16px;
   }
 
-  /* ヘッダーナビ - スクロール可能に */
+  /* ヘッダーナビ */
   .site-header{
     padding:8px 12px;
   }
   .site-nav{
     gap:6px;
-    padding-bottom:4px;
-    /* スクロールヒント用の余白 */
     margin-right:-12px;
     padding-right:12px;
   }
   .nav-link{
-    padding:12px 14px;
+    padding:10px 14px;
     font-size:14px;
     min-height:44px;
-    min-width:44px;
   }
   .nav-home{
     margin-right:4px;
@@ -610,239 +837,312 @@ body{
   /* ページタイトル */
   .page-title{
     font-size:20px;
-    margin:16px 0 16px;
-    gap:8px;
+    margin:20px 0 16px;
+    gap:10px;
   }
 
   /* カード */
   .card{
-    padding:16px;
-    margin-bottom:16px;
+    padding:20px;
+    margin-bottom:20px;
+    min-width:0;
   }
   .card-title{
     font-size:16px;
-    margin-bottom:12px;
+    margin-bottom:14px;
   }
 
   /* グリッドを1列に */
-  .grid-2,.grid-3{
+  .grid-2,.grid-3,.grid-4{
     grid-template-columns:1fr;
-    gap:12px;
+    gap:14px;
   }
 
-  /* ボタン - タップ領域確保 */
+  /* ボタン */
   .btn{
     padding:14px 20px;
     font-size:16px;
     min-height:48px;
     width:100%;
-    justify-content:center;
   }
 
   /* アラート */
   .alert{
-    padding:14px 16px;
+    padding:18px 20px;
   }
   .alert-title{
-    font-size:15px;
+    font-size:16px;
   }
 
-  /* バッジ - 最小サイズ確保 */
+  /* バッジ */
   .badge{
-    font-size:12px;
-    padding:6px 10px;
-    min-height:32px;
+    font-size:14px;
+    padding:8px 12px;
+    min-height:36px;
   }
 
-  /* テーブル - レスポンシブ対応 */
+  /* テーブル */
   .info-table{
     display:block;
     overflow-x:auto;
     -webkit-overflow-scrolling:touch;
   }
   .info-table th,.info-table td{
-    padding:10px 12px;
+    padding:12px 14px;
     font-size:14px;
     white-space:nowrap;
-  }
-  .info-table th{
-    font-size:13px;
-  }
-
-  /* フッター */
-  .site-footer{
-    padding:16px;
-    font-size:14px;
   }
 
   /* チェックリスト */
   .checklist-grid{
     grid-template-columns:1fr;
-    gap:10px;
+    gap:12px;
   }
   .checklist-item{
-    padding:14px;
-    min-height:56px;
+    padding:16px;
+    min-height:60px;
   }
   .checklist-item label{
-    font-size:15px;
+    font-size:16px;
   }
   .checklist-actions{
     flex-direction:column;
-    gap:10px;
+    gap:12px;
   }
   .checklist-btn{
     width:100%;
-    justify-content:center;
     min-height:48px;
-    font-size:15px;
   }
 
   /* カウントダウン */
   .countdown-container{
-    padding:20px 16px;
+    padding:24px 20px;
   }
   .countdown-label{
     font-size:16px;
   }
   .countdown{
-    gap:16px;
+    gap:20px;
   }
   .countdown-value{
-    font-size:36px;
+    font-size:40px;
   }
   .countdown-unit{
-    font-size:13px;
+    font-size:14px;
   }
 
-  /* ナビボタン（トップページ） */
+  /* ナビボタン */
   .nav-buttons{
     grid-template-columns:1fr;
-    gap:12px;
+    gap:14px;
   }
   .nav-btn{
-    padding:20px 16px;
-    min-height:80px;
+    padding:24px 20px;
+    min-height:90px;
   }
   .nav-btn i{
     font-size:28px;
   }
   .nav-btn span{
-    font-size:15px;
+    font-size:16px;
   }
 
   /* 日程カード */
   .day-header{
-    padding:16px;
+    padding:18px 20px;
   }
   .day-date{
     font-size:18px;
   }
   .day-tags{
-    gap:6px;
+    gap:8px;
   }
   .day-tag{
-    font-size:12px;
-    padding:5px 10px;
+    font-size:13px;
+    padding:6px 12px;
   }
   .day-body{
-    padding:16px;
+    padding:20px;
+  }
+
+  /* スケジュールアイテム */
+  .schedule-item{
+    flex-direction:column;
+    gap:8px;
+    padding:14px 0;
+  }
+  .schedule-time{
+    min-width:auto;
+    font-size:16px;
+  }
+  .schedule-content{
+    font-size:16px;
   }
 
   /* ホテルカード */
   .hotel-header{
-    height:160px;
+    height:180px;
   }
   .hotel-overlay{
-    padding:16px;
+    padding:18px;
   }
   .hotel-name{
     font-size:18px;
   }
   .hotel-star{
-    font-size:13px;
+    font-size:14px;
   }
   .hotel-body{
+    padding:20px;
+  }
+
+  /* ホテルミニ */
+  .hotel-mini{
+    flex-direction:column;
+    text-align:center;
     padding:16px;
+  }
+  .hotel-mini img{
+    width:100%;
+    height:120px;
+    border-radius:8px;
   }
 
   /* 連絡先カード */
   .contact-card{
-    padding:14px;
+    padding:16px;
   }
   .contact-title{
-    font-size:13px;
+    font-size:14px;
   }
   .contact-phone{
-    font-size:18px;
+    font-size:20px;
   }
   .contact-note{
-    font-size:12px;
+    font-size:14px;
   }
 
   /* フライトルート */
   .flight-route{
     padding:16px;
-    margin-bottom:16px;
+    margin-bottom:20px;
   }
 
-  /* スクロールトップボタン */
+  /* 日付ナビ */
+  .day-nav{
+    gap:8px;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    padding-bottom:8px;
+  }
+  .day-nav a{
+    padding:10px 14px;
+    font-size:14px;
+    min-height:44px;
+    flex-shrink:0;
+  }
+
+  /* スポットカード */
+  .spot-card-img{
+    height:180px;
+  }
+  .spot-card-body{
+    padding:20px;
+  }
+  .spot-card-title{
+    font-size:18px;
+  }
+  .spot-card-desc{
+    font-size:16px;
+  }
+
+  /* 情報カード */
+  .info-card{
+    padding:18px;
+    min-width:0;
+  }
+  .info-card-icon{
+    width:48px;height:48px;
+    font-size:20px;
+  }
+  .info-card-value{
+    font-size:16px;
+  }
+
+  /* スクロールトップ */
   .back-to-top{
-    width:48px;
-    height:48px;
-    bottom:16px;
-    right:16px;
+    width:52px;
+    height:52px;
+    bottom:20px;
+    right:20px;
   }
 
-  /* 小さすぎるテキストを補正 */
-  .muted{
+  /* フッター */
+  .site-footer{
+    padding:20px;
     font-size:14px;
   }
 
-  /* リスト内のテキスト */
+  /* リスト */
   ul,ol{
-    font-size:15px;
+    font-size:16px;
   }
   li{
-    margin-bottom:4px;
+    margin-bottom:6px;
   }
 }
 
 /* ========== 極小画面 (max-width: 375px) ========== */
 @media(max-width:375px){
   body{
-    font-size:15px;
+    font-size:16px;
   }
   .container{
-    padding:10px;
+    padding:12px;
   }
   .nav-link{
-    padding:10px 12px;
+    padding:8px 12px;
     font-size:13px;
   }
   .page-title{
     font-size:18px;
   }
   .card{
-    padding:14px;
+    padding:16px;
   }
   .countdown-value{
-    font-size:32px;
+    font-size:36px;
   }
   .nav-btn{
-    padding:16px 12px;
+    padding:20px 16px;
   }
   .hotel-header{
-    height:140px;
+    height:160px;
   }
   .hotel-name{
     font-size:16px;
   }
+  .schedule-time{
+    font-size:15px;
+  }
+  .spot-card-img{
+    height:150px;
+  }
 }
 
-/* 印刷 */
+/* ========== 印刷スタイル ========== */
 @media print{
   .site-header,.site-footer,.back-to-top{display:none}
-  body{font-size:12pt}
-  .container{max-width:100%}
+  body{font-size:12pt;background:#fff!important}
+  .container{max-width:100%;padding:10mm}
+  .card,.hotel-card,.spot-card,.info-card,.contact-card{
+    background:#fff;border:1px solid #ddd;box-shadow:none;
+    page-break-inside:avoid;
+  }
+  .grid-2,.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
+  .nav-buttons{grid-template-columns:repeat(2,1fr)}
+  .checklist-grid{grid-template-columns:repeat(2,1fr)}
+  a{color:var(--blue);text-decoration:none}
+  a[href]:after{content:" (" attr(href) ")";font-size:9pt;color:#666}
+  .btn[href]:after,.nav-link[href]:after{content:none}
 }

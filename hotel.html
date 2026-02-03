@@ -13,25 +13,28 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-hotel">
   <header class="site-header">
     <nav class="site-nav">
       <a href="index.html" class="nav-link nav-home"><i class="fa-solid fa-home"></i></a>
-      <a href="flight.html" class="nav-link"><i class="fa-solid fa-plane"></i> フライト</a>
       <a href="schedule.html" class="nav-link"><i class="fa-solid fa-calendar"></i> 日程</a>
       <a href="hotel.html" class="nav-link active"><i class="fa-solid fa-hotel"></i> 宿泊</a>
+      <a href="flight.html" class="nav-link"><i class="fa-solid fa-plane"></i> フライト</a>
+      <a href="spots.html" class="nav-link"><i class="fa-solid fa-camera"></i> 観光</a>
+      <a href="info.html" class="nav-link"><i class="fa-solid fa-info-circle"></i> 基本情報</a>
       <a href="checklist.html" class="nav-link"><i class="fa-solid fa-check"></i> 持ち物</a>
       <a href="emergency.html" class="nav-link"><i class="fa-solid fa-phone"></i> 緊急</a>
     </nav>
   </header>
 
   <main class="container">
-    <h1 class="page-title">
-      <i class="fa-solid fa-hotel"></i> 宿泊情報
+    <h1 class="page-title" style="border-color:var(--navy);">
+      <i class="fa-solid fa-hotel" style="color:var(--navy);"></i> 宿泊情報
     </h1>
 
     <!-- サマリー -->
     <div class="card" style="margin-bottom:32px;">
+      <h2 class="card-title" style="color:var(--navy);"><i class="fa-solid fa-list" style="color:var(--navy);"></i> 宿泊日程一覧</h2>
       <table class="info-table">
         <tr><th>宿泊日</th><th>ホテル</th><th>場所</th></tr>
         <tr><td>3/30-31</td><td>ルネッサンス・ヒースロー</td><td>ロンドン（空港近く）</td></tr>
@@ -51,71 +54,61 @@
         </div>
       </div>
       <div class="hotel-body">
-        <!-- 宿泊日程 -->
         <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
           <span class="badge badge-blue"><i class="fa-solid fa-calendar"></i> 3/30→31 1泊目</span>
           <span class="badge badge-orange"><i class="fa-solid fa-calendar"></i> 4/3→4 帰国前泊</span>
         </div>
-
-        <!-- 基本情報 -->
         <div class="grid-2" style="margin-bottom:20px;">
           <div>
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
               <i class="fa-solid fa-location-dot"></i> 住所
             </div>
-            <div style="font-size:15px;">Bath Road, Hounslow, TW6 2AQ, UK</div>
+            <div style="font-size:16px;">Bath Road, Hounslow, TW6 2AQ, UK</div>
           </div>
           <div>
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
               <i class="fa-solid fa-phone"></i> 電話
             </div>
-            <div style="font-size:15px;font-family:var(--mono);">+44 (208) 897-6363</div>
+            <div style="font-size:16px;font-family:var(--mono);">+44 (208) 897-6363</div>
           </div>
         </div>
-
-        <!-- チェックイン/アウト -->
         <div class="grid-2" style="margin-bottom:20px;">
           <div class="alert alert-info" style="margin:0;">
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-to-bracket"></i> チェックイン</div>
-            <div style="font-size:20px;font-weight:900;color:var(--blue);">15:00〜</div>
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-to-bracket"></i> チェックイン</div>
+            <div style="font-size:22px;font-weight:900;color:var(--blue);">15:00〜</div>
           </div>
           <div class="alert alert-info" style="margin:0;">
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-from-bracket"></i> チェックアウト</div>
-            <div style="font-size:20px;font-weight:900;color:var(--blue);">〜12:00</div>
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-from-bracket"></i> チェックアウト</div>
+            <div style="font-size:22px;font-weight:900;color:var(--blue);">〜12:00</div>
           </div>
         </div>
-
-        <!-- 予約確認番号 -->
         <div class="alert alert-info">
           <div class="alert-title"><i class="fa-solid fa-ticket"></i> 予約確認番号</div>
           <div class="grid-2" style="gap:12px;">
             <div>
-              <div style="font-size:12px;color:var(--text-muted);">3/30-31 部屋1</div>
-              <div style="font-size:18px;font-weight:900;font-family:var(--mono);">99912227</div>
+              <div style="font-size:14px;color:var(--text-muted);">3/30-31 部屋1</div>
+              <div style="font-size:20px;font-weight:900;font-family:var(--mono);">99912227</div>
             </div>
             <div>
-              <div style="font-size:12px;color:var(--text-muted);">3/30-31 部屋2</div>
-              <div style="font-size:18px;font-weight:900;font-family:var(--mono);">99912229</div>
+              <div style="font-size:14px;color:var(--text-muted);">3/30-31 部屋2</div>
+              <div style="font-size:20px;font-weight:900;font-family:var(--mono);">99912229</div>
             </div>
             <div>
-              <div style="font-size:12px;color:var(--text-muted);">4/3-4 部屋1</div>
-              <div style="font-size:18px;font-weight:900;font-family:var(--mono);">99962865</div>
+              <div style="font-size:14px;color:var(--text-muted);">4/3-4 部屋1</div>
+              <div style="font-size:20px;font-weight:900;font-family:var(--mono);">99962865</div>
             </div>
             <div>
-              <div style="font-size:12px;color:var(--text-muted);">4/3-4 部屋2</div>
-              <div style="font-size:18px;font-weight:900;font-family:var(--mono);">99962868</div>
+              <div style="font-size:14px;color:var(--text-muted);">4/3-4 部屋2</div>
+              <div style="font-size:20px;font-weight:900;font-family:var(--mono);">99962868</div>
             </div>
           </div>
         </div>
-
-        <!-- アクセス -->
         <div style="margin-top:20px;padding:16px;background:var(--bg-light);border-radius:8px;">
           <div style="font-weight:700;margin-bottom:8px;"><i class="fa-solid fa-plane" style="color:var(--blue);"></i> アクセス</div>
-          <p style="margin:0;font-size:15px;">ヒースロー空港ターミナル5まで無料シャトルバス約10分（24時間運行）</p>
+          <p style="margin:0;font-size:16px;">ヒースロー空港ターミナル5まで無料シャトルバス約10分（24時間運行）</p>
         </div>
-
-        <a href="https://www.marriott.com/en-us/hotels/lhrbr-renaissance-london-heathrow-hotel/overview/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:20px;">
-          <i class="fa-solid fa-external-link-alt"></i> 公式サイト
+        <a href="https://maps.google.com/?q=Renaissance+London+Heathrow+Hotel" target="_blank" rel="noopener" class="btn" style="margin-top:20px;">
+          <i class="fa-solid fa-map"></i> 地図で見る
         </a>
       </div>
     </div>
@@ -130,63 +123,53 @@
         </div>
       </div>
       <div class="hotel-body">
-        <!-- 宿泊日程 -->
         <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
           <span class="badge badge-blue"><i class="fa-solid fa-calendar"></i> 3/31→4/3 3泊</span>
           <span class="badge badge-green"><i class="fa-solid fa-star"></i> ロンドン観光の拠点</span>
         </div>
-
-        <!-- 基本情報 -->
         <div class="grid-2" style="margin-bottom:20px;">
           <div>
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
               <i class="fa-solid fa-location-dot"></i> 住所
             </div>
-            <div style="font-size:15px;">Plaza Parade, Maida Vale, London, NW6 5RP, UK</div>
+            <div style="font-size:16px;">Plaza Parade, Maida Vale, London, NW6 5RP, UK</div>
           </div>
           <div>
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
               <i class="fa-solid fa-phone"></i> 電話
             </div>
-            <div style="font-size:15px;font-family:var(--mono);">+44 (207) 543-6000</div>
+            <div style="font-size:16px;font-family:var(--mono);">+44 (207) 543-6000</div>
           </div>
         </div>
-
-        <!-- チェックイン/アウト -->
         <div class="grid-2" style="margin-bottom:20px;">
           <div class="alert alert-info" style="margin:0;">
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-to-bracket"></i> チェックイン</div>
-            <div style="font-size:20px;font-weight:900;color:var(--blue);">15:00〜</div>
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-to-bracket"></i> チェックイン</div>
+            <div style="font-size:22px;font-weight:900;color:var(--blue);">15:00〜</div>
           </div>
           <div class="alert alert-info" style="margin:0;">
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-from-bracket"></i> チェックアウト</div>
-            <div style="font-size:20px;font-weight:900;color:var(--blue);">〜12:00</div>
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-from-bracket"></i> チェックアウト</div>
+            <div style="font-size:22px;font-weight:900;color:var(--blue);">〜12:00</div>
           </div>
         </div>
-
-        <!-- 予約確認番号 -->
         <div class="alert alert-info">
           <div class="alert-title"><i class="fa-solid fa-ticket"></i> 予約確認番号</div>
           <div class="grid-2" style="gap:12px;">
             <div>
-              <div style="font-size:12px;color:var(--text-muted);">部屋1</div>
-              <div style="font-size:18px;font-weight:900;font-family:var(--mono);">74865580</div>
+              <div style="font-size:14px;color:var(--text-muted);">部屋1</div>
+              <div style="font-size:20px;font-weight:900;font-family:var(--mono);">74865580</div>
             </div>
             <div>
-              <div style="font-size:12px;color:var(--text-muted);">部屋2</div>
-              <div style="font-size:18px;font-weight:900;font-family:var(--mono);">74865585</div>
+              <div style="font-size:14px;color:var(--text-muted);">部屋2</div>
+              <div style="font-size:20px;font-weight:900;font-family:var(--mono);">74865585</div>
             </div>
           </div>
         </div>
-
-        <!-- アクセス -->
         <div style="margin-top:20px;padding:16px;background:var(--orange-light);border:2px solid var(--orange);border-radius:8px;">
           <div style="font-weight:700;margin-bottom:8px;color:var(--orange);"><i class="fa-solid fa-futbol"></i> ウェンブリーへのアクセス</div>
-          <p style="margin:0;font-size:15px;">地下鉄Jubilee線でWembley Park駅まで約15分！試合観戦に便利なロケーション。</p>
+          <p style="margin:0;font-size:16px;">地下鉄Jubilee線でWembley Park駅まで約15分！試合観戦に便利なロケーション。</p>
         </div>
-
-        <a href="https://www.marriott.com/en-us/hotels/lonmv-london-marriott-hotel-maida-vale/overview/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:20px;">
-          <i class="fa-solid fa-external-link-alt"></i> 公式サイト
+        <a href="https://maps.google.com/?q=London+Marriott+Hotel+Maida+Vale" target="_blank" rel="noopener" class="btn" style="margin-top:20px;">
+          <i class="fa-solid fa-map"></i> 地図で見る
         </a>
       </div>
     </div>
@@ -201,67 +184,57 @@
         </div>
       </div>
       <div class="hotel-body">
-        <!-- 宿泊日程 -->
         <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
           <span class="badge" style="background:#f59e0b;color:#fff;"><i class="fa-solid fa-calendar"></i> 4/1→2 1泊</span>
           <span class="badge" style="background:#c8102e;color:#fff;"><i class="fa-solid fa-guitar"></i> ビートルズの聖地！</span>
         </div>
-
-        <!-- 基本情報 -->
         <div class="grid-2" style="margin-bottom:20px;">
           <div>
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
               <i class="fa-solid fa-location-dot"></i> 住所
             </div>
-            <div style="font-size:15px;">One Queen Square, Liverpool, L1 1RH, UK</div>
+            <div style="font-size:16px;">One Queen Square, Liverpool, L1 1RH, UK</div>
           </div>
           <div>
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;margin-bottom:4px;">
               <i class="fa-solid fa-phone"></i> 電話
             </div>
-            <div style="font-size:15px;font-family:var(--mono);">+44 (151) 476-8000</div>
+            <div style="font-size:16px;font-family:var(--mono);">+44 (151) 476-8000</div>
           </div>
         </div>
-
-        <!-- チェックイン/アウト -->
         <div class="grid-2" style="margin-bottom:20px;">
           <div class="alert alert-info" style="margin:0;">
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-to-bracket"></i> チェックイン</div>
-            <div style="font-size:20px;font-weight:900;color:var(--blue);">15:00〜</div>
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-to-bracket"></i> チェックイン</div>
+            <div style="font-size:22px;font-weight:900;color:var(--blue);">15:00〜</div>
           </div>
           <div class="alert alert-info" style="margin:0;">
-            <div style="font-size:13px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-from-bracket"></i> チェックアウト</div>
-            <div style="font-size:20px;font-weight:900;color:var(--blue);">〜12:00</div>
+            <div style="font-size:14px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-right-from-bracket"></i> チェックアウト</div>
+            <div style="font-size:22px;font-weight:900;color:var(--blue);">〜12:00</div>
           </div>
         </div>
-
-        <!-- 予約確認番号 -->
         <div class="alert" style="background:linear-gradient(135deg,rgba(200,16,46,0.1),rgba(245,158,11,0.15));border:2px solid #f59e0b;">
           <div class="alert-title" style="color:#c8102e;"><i class="fa-solid fa-ticket"></i> 予約確認番号</div>
           <div class="grid-2" style="gap:12px;">
             <div>
-              <div style="font-size:12px;color:var(--text-muted);">部屋1</div>
-              <div style="font-size:18px;font-weight:900;font-family:var(--mono);">99944121</div>
+              <div style="font-size:14px;color:var(--text-muted);">部屋1</div>
+              <div style="font-size:20px;font-weight:900;font-family:var(--mono);">99944121</div>
             </div>
             <div>
-              <div style="font-size:12px;color:var(--text-muted);">部屋2</div>
-              <div style="font-size:18px;font-weight:900;font-family:var(--mono);">99944129</div>
+              <div style="font-size:14px;color:var(--text-muted);">部屋2</div>
+              <div style="font-size:20px;font-weight:900;font-family:var(--mono);">99944129</div>
             </div>
           </div>
         </div>
-
-        <!-- ビートルズスポット -->
         <div style="margin-top:20px;padding:16px;background:linear-gradient(135deg,rgba(200,16,46,0.1),rgba(245,158,11,0.15));border:2px solid #f59e0b;border-radius:8px;">
           <div style="font-weight:700;margin-bottom:12px;color:#c8102e;"><i class="fa-solid fa-guitar"></i> 近くのビートルズスポット</div>
-          <ul style="margin:0;padding-left:20px;font-size:15px;line-height:2;">
+          <ul style="margin:0;padding-left:20px;font-size:16px;line-height:2;">
             <li><b>キャバーン・クラブ</b> - 徒歩約5分</li>
             <li><b>ビートルズ・ストーリー</b> - 徒歩約15分</li>
             <li><b>アルバート・ドック</b> - 徒歩約15分</li>
           </ul>
         </div>
-
-        <a href="https://www.marriott.com/en-us/hotels/lplde-delta-hotels-liverpool-city-centre/overview/" target="_blank" rel="noopener" class="btn" style="margin-top:20px;border-color:#c8102e;color:#c8102e;">
-          <i class="fa-solid fa-external-link-alt"></i> 公式サイト
+        <a href="https://maps.google.com/?q=Delta+Hotels+Liverpool+City+Centre" target="_blank" rel="noopener" class="btn" style="margin-top:20px;border-color:#c8102e;color:#c8102e;">
+          <i class="fa-solid fa-map"></i> 地図で見る
         </a>
       </div>
     </div>
