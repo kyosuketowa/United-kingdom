@@ -76,11 +76,47 @@
     .food-pron{font-size:14px;color:#6b7280;margin-bottom:8px;}
     .food-desc{font-size:14px;color:var(--text);}
 
+    /* 追加シーンカラー */
+    .scene-immigration .scene-body{background:linear-gradient(135deg,#f5f3ff,#ede9fe);}
+    .scene-london .scene-body{background:linear-gradient(135deg,#eff6ff,#dbeafe);}
+    .scene-taxi .scene-body{background:linear-gradient(135deg,#fefce8,#fef9c3);}
+    .scene-liverpool .scene-body{background:linear-gradient(135deg,#fef2f2,#fce4ec);}
+    .scene-beatles .scene-body{background:linear-gradient(135deg,#f0f4e8,#e8ecd8);}
+    .scene-pub .scene-body{background:linear-gradient(135deg,#fef3c7,#fde68a);}
+    .scene-family .scene-body{background:linear-gradient(135deg,#f0fdf4,#dcfce7);}
+
+    /* スタッフ・返答カード */
+    .phrase-card-staff{border-left-color:#e67e22;background:#fff9f0;}
+    .phrase-card-reply{border-left-color:#10b981;background:#f0fdf4;margin-left:12px;}
+    .phrase-card-reply .phrase-main{color:#059669;}
+
+    /* UK英語ノート */
+    .uk-note{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:#c8102e;font-weight:700;margin-top:4px;}
+
+    /* 場面区切り */
+    .sub-scene{display:flex;align-items:center;gap:8px;margin:20px 0 10px;font-size:15px;font-weight:900;color:#6b7280;}
+    .sub-scene::after{content:'';flex:1;height:1px;background:#d1d5db;}
+
+    /* クイックナビ */
+    .quick-nav{display:flex;gap:6px;overflow-x:auto;padding:12px 0;margin-bottom:20px;-webkit-overflow-scrolling:touch;}
+    .quick-nav::-webkit-scrollbar{display:none;}
+    .quick-nav a{display:inline-block;padding:8px 14px;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;color:var(--text);background:#fff;border:2px solid var(--line);white-space:nowrap;transition:all 0.2s;}
+    .quick-nav a:hover,.quick-nav a:active{background:var(--blue);color:#fff;border-color:var(--blue);}
+
+    /* ラベル */
+    .phrase-label{display:inline-block;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;padding:3px 8px;border-radius:50px;margin-bottom:6px;}
+    .phrase-label-staff{background:#ffedd5;color:#c2410c;}
+    .phrase-label-reply{background:#dcfce7;color:#166534;}
+
+    /* 英語サブテキスト */
+    .phrase-alt{font-size:14px;color:#6b7280;margin-top:2px;}
+
     @media(max-width:520px){
       .scene-header{height:140px;}
       .scene-title{font-size:20px;}
       .phrase-main{font-size:18px;}
       .phrase-jp{font-size:14px;}
+      .quick-nav a{padding:7px 12px;font-size:12px;}
     }
   </style>
 </head>
@@ -120,10 +156,180 @@
       </button>
     </div>
 
+    <!-- クイックナビ -->
+    <div class="quick-nav" id="quick-nav-en">
+      <a href="#sec-immigration">🛂 入国</a>
+      <a href="#sec-train">🚆 鉄道</a>
+      <a href="#sec-london">🏙️ ロンドン</a>
+      <a href="#sec-taxi">🚕 タクシー</a>
+      <a href="#sec-wembley">⚽ ウェンブリー</a>
+      <a href="#sec-liverpool">🎸 リバプール</a>
+      <a href="#sec-beatles">🎵 ビートルズ</a>
+      <a href="#sec-pub">🍺 パブ</a>
+      <a href="#sec-hotel-en">🏨 ホテル</a>
+      <a href="#sec-family">👨‍👩‍👦 両親と一緒</a>
+      <a href="#sec-emergency-en">🆘 困った時</a>
+    </div>
+
     <!-- ======================= -->
     <!-- 英語セクション -->
     <!-- ======================= -->
     <div id="section-en" class="lang-section active">
+
+      <!-- ======================= -->
+      <!-- 🛂 入国審査 -->
+      <!-- ======================= -->
+      <div id="sec-immigration" class="scene-section scene-immigration">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-passport"></i> 入国審査</div>
+            <div class="scene-subtitle">Immigration at Heathrow</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">審査官</span>
+              <div class="phrase-jp">渡航の目的は？</div>
+              <div class="phrase-main phrase-en">What's the purpose of your visit?</div>
+            </div>
+            <div class="phrase-card phrase-card-reply">
+              <span class="phrase-label phrase-label-reply">返答</span>
+              <div class="phrase-jp">観光です</div>
+              <div class="phrase-main phrase-en" style="color:#059669;">Sightseeing. / I'm here on holiday.</div>
+              <div class="uk-note">🇬🇧 "vacation" ではなく "holiday" がUK英語</div>
+            </div>
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">審査官</span>
+              <div class="phrase-jp">何日間滞在しますか？</div>
+              <div class="phrase-main phrase-en">How long are you staying?</div>
+            </div>
+            <div class="phrase-card phrase-card-reply">
+              <span class="phrase-label phrase-label-reply">返答</span>
+              <div class="phrase-jp">約1週間です。ロンドンとリバプールを訪れます</div>
+              <div class="phrase-main phrase-en" style="color:#059669;">About a week. We're visiting London and Liverpool.</div>
+            </div>
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">審査官</span>
+              <div class="phrase-jp">どこに泊まりますか？</div>
+              <div class="phrase-main phrase-en">Where are you staying?</div>
+            </div>
+            <div class="phrase-card phrase-card-reply">
+              <span class="phrase-label phrase-label-reply">返答</span>
+              <div class="phrase-jp">ロンドンの◯◯ホテルです</div>
+              <div class="phrase-main phrase-en" style="color:#059669;">At [hotel name] in London.</div>
+            </div>
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">審査官</span>
+              <div class="phrase-jp">一緒に旅行している方は？</div>
+              <div class="phrase-main phrase-en">Who are you travelling with?</div>
+            </div>
+            <div class="phrase-card phrase-card-reply">
+              <span class="phrase-label phrase-label-reply">返答</span>
+              <div class="phrase-jp">両親です。家族旅行です</div>
+              <div class="phrase-main phrase-en" style="color:#059669;">My parents. It's a family trip.</div>
+            </div>
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">審査官</span>
+              <div class="phrase-jp">帰りの便はいつですか？</div>
+              <div class="phrase-main phrase-en">When is your return flight?</div>
+            </div>
+            <div class="phrase-card phrase-card-reply">
+              <span class="phrase-label phrase-label-reply">返答</span>
+              <div class="phrase-jp">4月6日です</div>
+              <div class="phrase-main phrase-en" style="color:#059669;">On the 6th of April.</div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-box-title"><i class="fa-solid fa-lightbulb"></i> 入国審査のコツ</div>
+            <p style="margin:0;font-size:15px;line-height:1.9;">短く・はっきり・笑顔で。聞かれたことだけ答える。<br>ETAの控え・ホテル予約確認書をスマホに用意。<br>ご両親の分もKyosukeさんがまとめて説明すればスムーズ。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================= -->
+      <!-- 🚆 鉄道・地下鉄 -->
+      <!-- ======================= -->
+      <div id="sec-train" class="scene-section scene-transport">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1520105072000-f44fc083e508?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-train"></i> 鉄道・地下鉄</div>
+            <div class="scene-subtitle">Avanti West Coast / London Underground</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="sub-scene">🚇 ロンドン地下鉄 (Tube)</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">◯◯駅へはどの路線ですか？</div>
+              <div class="phrase-main phrase-en">Which line do I take for ◯◯ station?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">乗り換えはどこですか？</div>
+              <div class="phrase-main phrase-en">Where do I change?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">この電車は◯◯に止まりますか？</div>
+              <div class="phrase-main phrase-en">Does this train stop at ◯◯?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">次の駅はどこですか？</div>
+              <div class="phrase-main phrase-en">What's the next stop?</div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-box-title"><i class="fa-solid fa-lightbulb"></i> ロンドン地下鉄メモ</div>
+            <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.9;">
+              <li><b>Tube</b> = 地下鉄（"subway" はアメリカ英語）</li>
+              <li><b>Mind the gap</b> = 足元にご注意</li>
+              <li><b>Way out</b> = 出口（"exit" より一般的）</li>
+              <li><b>Contactless</b> = タッチ決済でそのまま乗れる</li>
+            </ul>
+          </div>
+
+          <div class="sub-scene">🚄 ロンドン → リバプール</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">リバプール行きの電車はどのホームですか？</div>
+              <div class="phrase-main phrase-en">Which platform for the Liverpool train?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">この席は予約されていますか？</div>
+              <div class="phrase-main phrase-en">Is this seat reserved?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">私たちの予約席はどこですか？</div>
+              <div class="phrase-main phrase-en">Where are our reserved seats?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">荷物を棚に上げるのを手伝ってもらえますか？</div>
+              <div class="phrase-main phrase-en">Could you help me put my bag on the rack?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">食堂車はありますか？</div>
+              <div class="phrase-main phrase-en">Is there a buffet car on this train?</div>
+            </div>
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">車掌</span>
+              <div class="phrase-jp">切符を拝見します</div>
+              <div class="phrase-main phrase-en">Tickets, please.</div>
+            </div>
+            <div class="phrase-card phrase-card-reply">
+              <span class="phrase-label phrase-label-reply">返答</span>
+              <div class="phrase-jp">スマホに入っています</div>
+              <div class="phrase-main phrase-en" style="color:#059669;">Here you go. It's on my phone.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">リバプールまであとどのくらいですか？</div>
+              <div class="phrase-main phrase-en">How long until Liverpool Lime Street?</div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-box-title"><i class="fa-solid fa-lightbulb"></i> Avanti West Coast メモ</div>
+            <p style="margin:0;font-size:15px;line-height:1.9;">London Euston → Liverpool Lime Street（約2時間15分）<br><b>Standard / First Class</b> = 普通車 / 1等車<br>座席上の小さな予約表示を確認。表示なし＝自由席。<br><b>Platform</b> = ホーム（発車15〜20分前に電光掲示板で発表）</p>
+          </div>
+        </div>
+      </div>
 
       <!-- 基本のあいさつ -->
       <div class="scene-section scene-greeting">
@@ -172,7 +378,7 @@
       </div>
 
       <!-- ホテル -->
-      <div class="scene-section scene-hotel">
+      <div id="sec-hotel-en" class="scene-section scene-hotel">
         <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80');">
           <div class="scene-header-content">
             <div class="scene-title"><i class="fa-solid fa-hotel"></i> ホテルで</div>
@@ -362,7 +568,7 @@
       </div>
 
       <!-- サッカー観戦 -->
-      <div class="scene-section scene-football">
+      <div id="sec-wembley" class="scene-section scene-football">
         <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&q=80');">
           <div class="scene-header-content">
             <div class="scene-title"><i class="fa-solid fa-futbol"></i> サッカー観戦</div>
@@ -409,7 +615,7 @@
       </div>
 
       <!-- 緊急・困ったとき -->
-      <div class="scene-section scene-emergency">
+      <div id="sec-emergency-en" class="scene-section scene-emergency">
         <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&q=80');">
           <div class="scene-header-content">
             <div class="scene-title"><i class="fa-solid fa-triangle-exclamation"></i> 緊急・困ったとき</div>
@@ -453,6 +659,474 @@
               <div class="phrase-jp">ゆっくり話してください</div>
               <div class="phrase-main phrase-en">Could you speak more slowly?</div>
               <div class="phrase-pron">クジュー スピーク モア スローリー？</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================= -->
+      <!-- 🏙️ ロンドン観光 -->
+      <!-- ======================= -->
+      <div id="sec-london" class="scene-section scene-london">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-landmark"></i> ロンドン観光</div>
+            <div class="scene-subtitle">Sightseeing in London</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">アビーロードの横断歩道はどこですか？</div>
+              <div class="phrase-main phrase-en">How do I get to the Abbey Road crossing?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">横断歩道で写真を撮ってもらえますか？</div>
+              <div class="phrase-main phrase-en">Could you take a photo of us on the crossing?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">入場料はいくらですか？</div>
+              <div class="phrase-main phrase-en">How much is the admission?</div>
+              <div class="phrase-alt">Is it free to enter?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">シニア割引はありますか？</div>
+              <div class="phrase-main phrase-en">Is there a senior discount?</div>
+              <div class="phrase-alt">Do you have a concession rate?</div>
+              <div class="uk-note">🇬🇧 "concession" = シニア・学生の割引料金</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">3名分のチケットをお願いします（大人1名・シニア2名）</div>
+              <div class="phrase-main phrase-en">Three tickets, please. One adult and two seniors.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">日本語の音声ガイドはありますか？</div>
+              <div class="phrase-main phrase-en">Do you have an audio guide in Japanese?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">荷物を預けられますか？</div>
+              <div class="phrase-main phrase-en">Is there a cloakroom? Can we leave our bags?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">おすすめの見どころは？</div>
+              <div class="phrase-main phrase-en">What should we not miss?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">閉館は何時ですか？</div>
+              <div class="phrase-main phrase-en">What time do you close?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ギフトショップはどこですか？</div>
+              <div class="phrase-main phrase-en">Where's the gift shop?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================= -->
+      <!-- 🚕 タクシー・ロンドン移動 -->
+      <!-- ======================= -->
+      <div id="sec-taxi" class="scene-section scene-taxi">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1549778399-f94fd24d4697?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-taxi"></i> タクシー・ロンドン移動</div>
+            <div class="scene-subtitle">Getting Around London by Taxi &amp; Uber</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="sub-scene">🖐️ タクシーを拾う・呼ぶ</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">タクシー乗り場はどこですか？</div>
+              <div class="phrase-main phrase-en">Where is the taxi rank?</div>
+              <div class="uk-note">🇬🇧 "taxi stand" ではなく "taxi rank" がUK英語</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">タクシーを呼んでもらえますか？</div>
+              <div class="phrase-main phrase-en">Could you call a taxi for us, please?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">近くにタクシーはいますか？</div>
+              <div class="phrase-main phrase-en">Are there any taxis nearby?</div>
+            </div>
+          </div>
+
+          <div class="sub-scene">📍 行き先を伝える</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">◯◯までお願いします</div>
+              <div class="phrase-main phrase-en">To ◯◯, please.</div>
+              <div class="phrase-alt">Could you take us to ◯◯, please?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">この住所までお願いします（スマホを見せて）</div>
+              <div class="phrase-main phrase-en">Could you take us to this address, please?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">バッキンガム宮殿までお願いします</div>
+              <div class="phrase-main phrase-en">To Buckingham Palace, please.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">大英博物館までお願いします</div>
+              <div class="phrase-main phrase-en">To the British Museum, please.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ウェンブリー・スタジアムまでお願いします</div>
+              <div class="phrase-main phrase-en">To Wembley Stadium, please.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ユーストン駅までお願いします</div>
+              <div class="phrase-main phrase-en">To Euston Station, please.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ヒースロー空港までお願いします</div>
+              <div class="phrase-main phrase-en">To Heathrow Airport, please.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ホテルに戻りたいのですが</div>
+              <div class="phrase-main phrase-en">Could you take us back to our hotel? Here's the address.</div>
+            </div>
+          </div>
+
+          <div class="sub-scene">💬 乗車中の会話</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">ここまでどのくらいかかりますか？</div>
+              <div class="phrase-main phrase-en">How long will it take to get there?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">料金はだいたいいくらになりますか？</div>
+              <div class="phrase-main phrase-en">How much will it be roughly?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">3人乗れますか？</div>
+              <div class="phrase-main phrase-en">Can you take three passengers?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">トランクに荷物を入れてもいいですか？</div>
+              <div class="phrase-main phrase-en">Can we put our bags in the boot?</div>
+              <div class="uk-note">🇬🇧 "trunk" ではなく "boot" がUK英語</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">途中で◯◯に寄ってもらえますか？</div>
+              <div class="phrase-main phrase-en">Could we stop at ◯◯ on the way?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ここで降ろしてもらえますか？</div>
+              <div class="phrase-main phrase-en">Could you drop us off here, please?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">あの角で降ろしてもらえますか？</div>
+              <div class="phrase-main phrase-en">Could you drop us off at that corner, please?</div>
+            </div>
+          </div>
+
+          <div class="sub-scene">💳 支払い</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">カードで払えますか？</div>
+              <div class="phrase-main phrase-en">Can I pay by card?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">いくらですか？</div>
+              <div class="phrase-main phrase-en">How much is it?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">お釣りはいいです</div>
+              <div class="phrase-main phrase-en">Keep the change.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">レシートをもらえますか？</div>
+              <div class="phrase-main phrase-en">Could I have a receipt, please?</div>
+            </div>
+          </div>
+
+          <div class="sub-scene">🔁 次の移動を相談</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">ここから◯◯へはどう行くのがいいですか？</div>
+              <div class="phrase-main phrase-en">What's the best way to get to ◯◯ from here?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">歩いて行ける距離ですか？</div>
+              <div class="phrase-main phrase-en">Is it within walking distance?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">タクシーとTubeどっちが早いですか？</div>
+              <div class="phrase-main phrase-en">Is it quicker to take a taxi or the Tube?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">最寄りの地下鉄の駅はどこですか？</div>
+              <div class="phrase-main phrase-en">Where is the nearest Tube station?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">Uberの方が安いですか？</div>
+              <div class="phrase-main phrase-en">Would an Uber be cheaper?</div>
+            </div>
+          </div>
+
+          <div class="tip-box">
+            <div class="tip-box-title"><i class="fa-solid fa-lightbulb"></i> ロンドンのタクシー事情</div>
+            <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.9;">
+              <li><b>Black Cab</b> = 正規のロンドンタクシー。メーター制。手を挙げて止められる。カード払いOK。</li>
+              <li><b>Uber</b> = アプリで呼べて料金が事前に分かる。3人なら UberX でOK。</li>
+              <li><b>チップ</b> = 端数を切り上げる程度でOK（10%が目安だが義務ではない）</li>
+              <li><b>注意</b> = 声をかけてくる無認可タクシーには絶対に乗らないこと。</li>
+            </ul>
+          </div>
+          <div class="tip-box" style="margin-top:12px;">
+            <div class="tip-box-title"><i class="fa-solid fa-route"></i> 観光スポット間の移動のコツ</div>
+            <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.9;">
+              <li>スマホに<b>ホテルの住所</b>と<b>各スポットの住所</b>をメモ → 見せるだけで伝わる</li>
+              <li>ラッシュアワー（8-9時/17-19時）は渋滞 → Tubeが確実</li>
+              <li><b>短距離</b>（2km以内）→ 歩くかTube</li>
+              <li><b>中距離</b>（2-8km）→ タクシーかUber</li>
+              <li><b>長距離</b>（ウェンブリーなど）→ Tube + 徒歩がベスト</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================= -->
+      <!-- 🎸 リバプール観光 -->
+      <!-- ======================= -->
+      <div id="sec-liverpool" class="scene-section scene-liverpool">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-guitar"></i> リバプール観光</div>
+            <div class="scene-subtitle">The Beatles City</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">マシュー・ストリートはどこですか？</div>
+              <div class="phrase-main phrase-en">How do I get to Mathew Street?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">キャバーン・クラブの入場料はいりますか？</div>
+              <div class="phrase-main phrase-en">Is there an entry fee for the Cavern Club?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ビートルズ・ストーリーのチケットを3枚ください</div>
+              <div class="phrase-main phrase-en">Three tickets for the Beatles Story, please.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">おすすめのレストランはありますか？</div>
+              <div class="phrase-main phrase-en">Can you recommend a good restaurant around here?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">アルバート・ドックまで歩いてどのくらい？</div>
+              <div class="phrase-main phrase-en">How far is it to the Albert Dock on foot?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">タクシー呼んでもらえますか？</div>
+              <div class="phrase-main phrase-en">Could you call a taxi for us?</div>
+              <div class="phrase-alt">Is there a taxi rank nearby?</div>
+              <div class="uk-note">🇬🇧 "taxi rank" = タクシー乗り場</div>
+            </div>
+          </div>
+          <div class="tip-box" style="border-color:#c8102e;">
+            <div class="tip-box-title" style="color:#c8102e;"><i class="fa-solid fa-comment-dots"></i> リバプール方言（Scouse）メモ</div>
+            <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.9;">
+              <li><b>Alright, la?</b> = 元気？（男性への呼びかけ）</li>
+              <li><b>Ta</b> = ありがとう</li>
+              <li><b>Sound</b> = いいね、OK</li>
+              <li><b>Boss</b> = すごい、最高</li>
+              <li>聞き取れなくても笑顔で "Pardon?" と言えばOK</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================= -->
+      <!-- 🎵 ビートルズツアー -->
+      <!-- ======================= -->
+      <div id="sec-beatles" class="scene-section scene-beatles">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1601142634808-38923eb7c560?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-music"></i> ビートルズツアー</div>
+            <div class="scene-subtitle">You and Beatles Tour with Marie</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">ジョン・レノンの幼少期の家はどこですか？</div>
+              <div class="phrase-main phrase-en">Where is John Lennon's childhood home?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ストロベリー・フィールドで写真撮ってもいいですか？</div>
+              <div class="phrase-main phrase-en">Can I take photos at Strawberry Field?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ペニー・レインの標識と写真撮ろう！</div>
+              <div class="phrase-main phrase-en">Let's take a photo with the Penny Lane sign!</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ジョン・レノンが一番好きです</div>
+              <div class="phrase-main phrase-en">John Lennon is my favourite.</div>
+              <div class="uk-note">🇬🇧 "favorite" ではなく "favourite" がUKスペル</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">子供の頃からビートルズが大好きなんです</div>
+              <div class="phrase-main phrase-en">I've loved the Beatles since I was a kid.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">父もビートルズの大ファンで、一緒に連れてきました</div>
+              <div class="phrase-main phrase-en">My dad is a huge Beatles fan too, so I brought him along.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ずっとここに来たかったんです</div>
+              <div class="phrase-main phrase-en">I've always wanted to come here.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">感動しました</div>
+              <div class="phrase-main phrase-en">I'm so moved. / This is incredible.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ここでビートルズが演奏したんですね</div>
+              <div class="phrase-main phrase-en">So this is where the Beatles used to play.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ビートルズグッズのお店はありますか？</div>
+              <div class="phrase-main phrase-en">Is there a good shop for Beatles souvenirs?</div>
+            </div>
+          </div>
+          <div class="tip-box" style="border-color:#5c6b3c;">
+            <div class="tip-box-title" style="color:#5c6b3c;"><i class="fa-solid fa-music"></i> ビートルズスポット</div>
+            <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.9;">
+              <li><b>Strawberry Field</b> = ジョンが子供時代に遊んだ場所</li>
+              <li><b>Penny Lane</b> = ポールの幼少期の思い出の通り</li>
+              <li><b>Mendips</b> = ジョンが育ったミミおばさんの家</li>
+              <li><b>20 Forthlin Road</b> = ポールの実家</li>
+              <li><b>The Cavern Club</b> = ビートルズがデビュー前に292回演奏</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================= -->
+      <!-- 🍺 パブ文化 -->
+      <!-- ======================= -->
+      <div id="sec-pub" class="scene-section scene-pub">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-beer-mug-empty"></i> パブ・レストラン</div>
+            <div class="scene-subtitle">British Pub Culture</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">ビール1パイントください</div>
+              <div class="phrase-main phrase-en">A pint of lager, please.</div>
+              <div class="phrase-alt">A half pint, please.（半パイント）</div>
+            </div>
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">店員</span>
+              <div class="phrase-jp">何になさいますか？</div>
+              <div class="phrase-main phrase-en">What can I get you?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">おすすめの地ビールは？</div>
+              <div class="phrase-main phrase-en">What's good on tap?</div>
+              <div class="phrase-alt">What local ales do you have?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">フィッシュ＆チップスを3つ</div>
+              <div class="phrase-main phrase-en">Three fish and chips, please.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">サンデーローストはありますか？</div>
+              <div class="phrase-main phrase-en">Do you do a Sunday roast?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">食事もできますか？</div>
+              <div class="phrase-main phrase-en">Do you serve food?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">3人ですがテーブルありますか？</div>
+              <div class="phrase-main phrase-en">Is there a table for three?</div>
+            </div>
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">店員</span>
+              <div class="phrase-jp">ここで食べる？持ち帰り？</div>
+              <div class="phrase-main phrase-en">Eat in or takeaway?</div>
+              <div class="uk-note">🇬🇧 "to go" はアメリカ英語。UKでは "takeaway"</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">乾杯！</div>
+              <div class="phrase-main phrase-en">Cheers!</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">お会計お願いします</div>
+              <div class="phrase-main phrase-en">Can I have the bill, please?</div>
+              <div class="uk-note">🇬🇧 "check" ではなく "bill"</div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-box-title"><i class="fa-solid fa-beer-mug-empty"></i> イギリスのパブ文化</div>
+            <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.9;">
+              <li><b>カウンターで注文・前払いが基本</b>（テーブルで呼ばない）</li>
+              <li><b>Lager</b> = 普通のビール / <b>Ale</b> = エール（ぬるめ・濃い）</li>
+              <li><b>Pint</b> ≈ 568ml / <b>Half</b> = 半分</li>
+              <li><b>Tap water</b> = 水道水（無料で頼める）</li>
+              <li><b>チップ</b>：パブは不要、レストランは10-12%</li>
+              <li><b>"I'll get this round."</b> = この回はおごるよ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================= -->
+      <!-- 👨‍👩‍👦 両親と一緒 -->
+      <!-- ======================= -->
+      <div id="sec-family" class="scene-section scene-family">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-users"></i> 両親と一緒に使えるフレーズ</div>
+            <div class="scene-subtitle">Travelling with Parents</div>
+          </div>
+        </div>
+        <div class="scene-body">
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">彼らは英語を話せないので、私が通訳します</div>
+              <div class="phrase-main phrase-en">They don't speak English, so I'll translate for them.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">3人で写真を撮ってもらえますか？</div>
+              <div class="phrase-main phrase-en">Could you take a photo of the three of us?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">少し待ってもらえますか？</div>
+              <div class="phrase-main phrase-en">Could you give us a moment, please?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">メニューに写真はありますか？</div>
+              <div class="phrase-main phrase-en">Do you have a menu with pictures?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">彼らの分も一緒に注文します</div>
+              <div class="phrase-main phrase-en">I'll order for them as well.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">3人とも同じもので</div>
+              <div class="phrase-main phrase-en">The same thing for all three of us, please.</div>
+              <div class="phrase-alt">Make that three, please.</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">3人で隣同士に座れますか？</div>
+              <div class="phrase-main phrase-en">Can the three of us sit together?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">少し休憩できる場所はありますか？</div>
+              <div class="phrase-main phrase-en">Is there somewhere we can sit down for a bit?</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">おごるよ（両親に）</div>
+              <div class="phrase-main phrase-en">It's on me! / My treat!</div>
             </div>
           </div>
         </div>
@@ -738,6 +1412,7 @@
       document.getElementById('tab-de').className = lang === 'de' ? 'active-de' : '';
       document.getElementById('section-en').className = 'lang-section' + (lang === 'en' ? ' active' : '');
       document.getElementById('section-de').className = 'lang-section' + (lang === 'de' ? ' active' : '');
+      document.getElementById('quick-nav-en').style.display = lang === 'en' ? 'flex' : 'none';
       window.scrollTo(0, 0);
     }
 
