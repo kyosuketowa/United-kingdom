@@ -117,6 +117,9 @@
     /* 印刷ボタン */
     .print-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:2px solid var(--blue);border-radius:50px;background:#fff;color:var(--blue);font-size:14px;font-weight:700;cursor:pointer;margin-top:16px;transition:all 0.2s;}
     .print-btn:hover{background:var(--blue);color:#fff;}
+    .print-all-bar{display:flex;justify-content:center;margin-bottom:20px;}
+    .print-all-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border:3px solid #2563eb;border-radius:50px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;font-size:15px;font-weight:900;cursor:pointer;transition:all 0.2s;box-shadow:0 2px 8px rgba(37,99,235,0.3);}
+    .print-all-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(37,99,235,0.4);}
 
     @media(max-width:520px){
       .scene-header{height:140px;}
@@ -128,21 +131,93 @@
 
     /* 印刷用スタイル */
     @media print{
-      body{background:#fff!important;}
-      body *{visibility:hidden;}
-      #sec-flight,#sec-flight *{visibility:visible;}
-      #sec-flight{position:absolute;left:0;top:0;width:100%;margin:0;box-shadow:none;border-radius:0;}
-      #sec-flight .scene-header{height:auto;padding:16px 20px;background:#2563eb!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-      #sec-flight .scene-header::before{display:none;}
-      #sec-flight .scene-body{padding:12px 16px;}
-      #sec-flight .phrase-card{box-shadow:none;border:1px solid #ddd;margin-bottom:6px;padding:8px 10px;page-break-inside:avoid;}
-      #sec-flight .phrase-main{font-size:16px;}
-      #sec-flight .phrase-jp{font-size:13px;}
-      #sec-flight .phrase-pron{font-size:12px;}
-      #sec-flight .tip-box{page-break-inside:avoid;}
-      #sec-flight .sub-scene{margin:12px 0 6px;}
-      .print-btn{display:none!important;}
-      .site-header,nav,.lang-tab,.quick-nav,.site-footer,footer{display:none!important;}
+      /* 基本リセット */
+      body{background:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+      .site-header,.site-nav,nav,.lang-tab,.quick-nav,.site-footer,footer,.print-btn,.print-all-bar{display:none!important;}
+      .page-title,.container>p:first-of-type{display:none!important;}
+      .lang-section{display:block!important;}
+
+      /* 全セクション印刷モード */
+      body.print-all .lang-section{display:block!important;}
+      body.print-all #section-de{display:block!important;}
+      body.print-all .scene-section{
+        box-shadow:none;border-radius:0;margin-bottom:0;
+        page-break-inside:avoid;border:1px solid #e5e7eb;
+      }
+      body.print-all .scene-header{
+        height:auto;padding:10px 16px;
+        background:#1e3a5f!important;
+        -webkit-print-color-adjust:exact;print-color-adjust:exact;
+      }
+      body.print-all .scene-header::before{display:none;}
+      body.print-all .scene-title{font-size:16px;gap:8px;text-shadow:none;}
+      body.print-all .scene-title i{font-size:18px;}
+      body.print-all .scene-subtitle{font-size:11px;}
+      body.print-all .scene-body{padding:10px 14px;background:#fff!important;}
+      body.print-all .phrase-card{
+        box-shadow:none;border:1px solid #e5e7eb;border-left:3px solid #2563eb;
+        margin-bottom:4px;padding:6px 10px;border-radius:6px;
+        page-break-inside:avoid;
+      }
+      body.print-all .phrase-card-staff{border-left-color:#e67e22;background:#fff9f0!important;}
+      body.print-all .phrase-card-reply{border-left-color:#10b981;background:#f0fdf4!important;margin-left:8px;}
+      body.print-all .phrase-card-de{border-left-color:#f59e0b;}
+      body.print-all .phrase-card-urgent{border-left-color:#dc2626;background:#fef2f2!important;}
+      body.print-all .phrase-jp{font-size:12px;margin-bottom:2px;}
+      body.print-all .phrase-main{font-size:14px;margin-bottom:1px;}
+      body.print-all .phrase-pron{font-size:11px;padding:2px 6px;}
+      body.print-all .phrase-alt{font-size:11px;}
+      body.print-all .phrase-situation{font-size:10px;margin-bottom:2px;}
+      body.print-all .phrase-label{font-size:9px;padding:1px 5px;}
+      body.print-all .uk-note{font-size:10px;}
+      body.print-all .sub-scene{font-size:12px;margin:10px 0 4px;}
+      body.print-all .phrase-grid{gap:4px;}
+      body.print-all .tip-box{
+        padding:8px 10px;margin-top:8px;page-break-inside:avoid;
+        border-width:1px;
+      }
+      body.print-all .tip-box-title{font-size:12px;margin-bottom:4px;}
+      body.print-all .tip-box ul,.tip-box p{font-size:12px!important;line-height:1.6!important;}
+      body.print-all .alert{font-size:12px;padding:8px;}
+      body.print-all .food-card{padding:8px;box-shadow:none;border:1px solid #e5e7eb;}
+      body.print-all .food-name{font-size:14px;}
+      body.print-all .food-pron{font-size:11px;}
+      body.print-all .food-desc{font-size:11px;}
+      /* 印刷ヘッダー */
+      body.print-all .print-header{
+        display:block!important;text-align:center;padding:16px 0 8px;
+        border-bottom:3px solid #1e3a5f;margin-bottom:12px;
+      }
+      body.print-all .print-header h1{font-size:20px;font-weight:900;color:#1e3a5f;margin:0 0 4px;}
+      body.print-all .print-header p{font-size:12px;color:#6b7280;margin:0;}
+      /* セクション区切りで改ページ（主要セクション） */
+      body.print-all .scene-section.page-break-before{page-break-before:always;}
+      /* 2カラムグリッドを解除 */
+      body.print-all .phrase-grid-2{grid-template-columns:1fr!important;}
+
+      /* 単一セクション印刷モード */
+      body.print-section *{visibility:hidden;}
+      body.print-section .print-target,body.print-section .print-target *{visibility:visible;}
+      body.print-section .print-target{
+        position:absolute;left:0;top:0;width:100%;
+        margin:0;box-shadow:none;border-radius:0;
+      }
+      body.print-section .print-target .scene-header{
+        height:auto;padding:14px 20px;
+        background:#2563eb!important;
+        -webkit-print-color-adjust:exact;print-color-adjust:exact;
+      }
+      body.print-section .print-target .scene-header::before{display:none;}
+      body.print-section .print-target .scene-body{padding:12px 16px;}
+      body.print-section .print-target .phrase-card{
+        box-shadow:none;border:1px solid #ddd;margin-bottom:6px;padding:8px 10px;
+        page-break-inside:avoid;
+      }
+      body.print-section .print-target .phrase-main{font-size:16px;}
+      body.print-section .print-target .phrase-jp{font-size:13px;}
+      body.print-section .print-target .phrase-pron{font-size:12px;}
+      body.print-section .print-target .tip-box{page-break-inside:avoid;}
+      body.print-section .print-target .sub-scene{margin:12px 0 6px;}
     }
   </style>
 </head>
@@ -167,10 +242,23 @@
       <i class="fa-solid fa-comments" style="color:#9333ea;"></i> 旅行会話集
     </h1>
 
+    <!-- 印刷用ヘッダー（画面では非表示） -->
+    <div class="print-header" style="display:none;">
+      <h1>🇬🇧🇩🇪 渡英・渡独トラベル英会話</h1>
+      <p>Morishita Family Trip — London → Liverpool → Munich — March 30 – April 6, 2026</p>
+    </div>
+
     <p style="text-align:center;font-size:16px;color:var(--text-muted);margin-bottom:24px;line-height:1.8;">
       シチュエーション別にすぐ使えるフレーズを収録<br>
       <b>カタカナ読み付き</b>で安心！
     </p>
+
+    <!-- 全セクション印刷ボタン -->
+    <div class="print-all-bar">
+      <button class="print-all-btn" onclick="printAll()">
+        <i class="fa-solid fa-print"></i> 全フレーズを印刷する
+      </button>
+    </div>
 
     <!-- 言語切り替えタブ -->
     <div class="lang-tab">
@@ -394,8 +482,8 @@
             </ul>
           </div>
 
-          <button class="print-btn" onclick="window.print()">
-            <i class="fa-solid fa-print"></i> この機内フレーズを印刷する
+          <button class="print-btn" onclick="printSection('sec-flight')">
+            <i class="fa-solid fa-print"></i> この機内フレーズだけ印刷する
           </button>
 
         </div>
@@ -1639,6 +1727,26 @@
       document.getElementById('section-de').className = 'lang-section' + (lang === 'de' ? ' active' : '');
       document.getElementById('quick-nav-en').style.display = lang === 'en' ? 'flex' : 'none';
       window.scrollTo(0, 0);
+    }
+
+    /* 全セクション印刷 */
+    function printAll() {
+      document.body.classList.add('print-all');
+      document.body.classList.remove('print-section');
+      document.querySelectorAll('.print-target').forEach(function(el) { el.classList.remove('print-target'); });
+      window.print();
+      document.body.classList.remove('print-all');
+    }
+
+    /* 単一セクション印刷 */
+    function printSection(id) {
+      document.body.classList.add('print-section');
+      document.body.classList.remove('print-all');
+      document.querySelectorAll('.print-target').forEach(function(el) { el.classList.remove('print-target'); });
+      document.getElementById(id).classList.add('print-target');
+      window.print();
+      document.body.classList.remove('print-section');
+      document.getElementById(id).classList.remove('print-target');
     }
 
     if ('serviceWorker' in navigator) {
