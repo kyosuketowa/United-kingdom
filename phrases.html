@@ -111,12 +111,38 @@
     /* 英語サブテキスト */
     .phrase-alt{font-size:14px;color:#6b7280;margin-top:2px;}
 
+    /* 機内シーン */
+    .scene-flight .scene-body{background:linear-gradient(135deg,#eef2ff,#e0e7ff);}
+
+    /* 印刷ボタン */
+    .print-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:2px solid var(--blue);border-radius:50px;background:#fff;color:var(--blue);font-size:14px;font-weight:700;cursor:pointer;margin-top:16px;transition:all 0.2s;}
+    .print-btn:hover{background:var(--blue);color:#fff;}
+
     @media(max-width:520px){
       .scene-header{height:140px;}
       .scene-title{font-size:20px;}
       .phrase-main{font-size:18px;}
       .phrase-jp{font-size:14px;}
       .quick-nav a{padding:7px 12px;font-size:12px;}
+    }
+
+    /* 印刷用スタイル */
+    @media print{
+      body{background:#fff!important;}
+      body *{visibility:hidden;}
+      #sec-flight,#sec-flight *{visibility:visible;}
+      #sec-flight{position:absolute;left:0;top:0;width:100%;margin:0;box-shadow:none;border-radius:0;}
+      #sec-flight .scene-header{height:auto;padding:16px 20px;background:#2563eb!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+      #sec-flight .scene-header::before{display:none;}
+      #sec-flight .scene-body{padding:12px 16px;}
+      #sec-flight .phrase-card{box-shadow:none;border:1px solid #ddd;margin-bottom:6px;padding:8px 10px;page-break-inside:avoid;}
+      #sec-flight .phrase-main{font-size:16px;}
+      #sec-flight .phrase-jp{font-size:13px;}
+      #sec-flight .phrase-pron{font-size:12px;}
+      #sec-flight .tip-box{page-break-inside:avoid;}
+      #sec-flight .sub-scene{margin:12px 0 6px;}
+      .print-btn{display:none!important;}
+      .site-header,nav,.lang-tab,.quick-nav,.site-footer,footer{display:none!important;}
     }
   </style>
 </head>
@@ -158,6 +184,7 @@
 
     <!-- クイックナビ -->
     <div class="quick-nav" id="quick-nav-en">
+      <a href="#sec-flight">✈️ 機内</a>
       <a href="#sec-immigration">🛂 入国</a>
       <a href="#sec-train">🚆 鉄道</a>
       <a href="#sec-london">🏙️ ロンドン</a>
@@ -175,6 +202,204 @@
     <!-- 英語セクション -->
     <!-- ======================= -->
     <div id="section-en" class="lang-section active">
+
+      <!-- ======================= -->
+      <!-- ✈️ 機内で使える英語 -->
+      <!-- ======================= -->
+      <div id="sec-flight" class="scene-section scene-flight">
+        <div class="scene-header" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80');">
+          <div class="scene-header-content">
+            <div class="scene-title"><i class="fa-solid fa-plane"></i> 機内で使える英語</div>
+            <div class="scene-subtitle">On the Plane — よく使うフレーズ集</div>
+          </div>
+        </div>
+        <div class="scene-body">
+
+          <div class="sub-scene">💺 座席・搭乗</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">すみません、私の席はどこですか？</div>
+              <div class="phrase-main phrase-en">Excuse me, where is my seat?</div>
+              <div class="phrase-pron">エクスキューズミー ウェア イズ マイ シート？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">ここは私の席だと思うのですが</div>
+              <div class="phrase-main phrase-en">I think this is my seat.</div>
+              <div class="phrase-pron">アイ シンク ディス イズ マイ シート</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">荷物を上の棚に入れるのを手伝ってもらえますか？</div>
+              <div class="phrase-main phrase-en">Could you help me put my bag up there?</div>
+              <div class="phrase-pron">クジュー ヘルプミー プット マイバッグ アップゼア？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">席を替わってもらえますか？家族で隣に座りたいのですが</div>
+              <div class="phrase-main phrase-en">Would you mind swapping seats? We'd like to sit together.</div>
+              <div class="phrase-pron">ウジュー マインド スワッピング シーツ？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">通してもらえますか？</div>
+              <div class="phrase-main phrase-en">Excuse me, may I get through?</div>
+              <div class="phrase-pron">エクスキューズミー メイアイ ゲット スルー？</div>
+            </div>
+          </div>
+
+          <div class="sub-scene">🍽️ 機内食・飲み物</div>
+          <div class="phrase-grid">
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">CA</span>
+              <div class="phrase-jp">チキンとビーフ、どちらになさいますか？</div>
+              <div class="phrase-main phrase-en">Chicken or beef?</div>
+              <div class="phrase-pron">チキン オア ビーフ？</div>
+            </div>
+            <div class="phrase-card phrase-card-reply">
+              <span class="phrase-label phrase-label-reply">返答</span>
+              <div class="phrase-jp">チキンをお願いします</div>
+              <div class="phrase-main phrase-en" style="color:#059669;">Chicken, please.</div>
+              <div class="phrase-pron">チキン プリーズ</div>
+            </div>
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">CA</span>
+              <div class="phrase-jp">お飲み物はいかがですか？</div>
+              <div class="phrase-main phrase-en">Would you like something to drink?</div>
+              <div class="phrase-pron">ウジューライク サムシング トゥ ドリンク？</div>
+            </div>
+            <div class="phrase-card phrase-card-reply">
+              <span class="phrase-label phrase-label-reply">返答</span>
+              <div class="phrase-jp">オレンジジュースをください</div>
+              <div class="phrase-main phrase-en" style="color:#059669;">Orange juice, please.</div>
+              <div class="phrase-pron">オレンジジュース プリーズ</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">コーヒーをもう1杯もらえますか？</div>
+              <div class="phrase-main phrase-en">Could I have another coffee, please?</div>
+              <div class="phrase-pron">クダイ ハブ アナザー コーヒー プリーズ？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">お水をもらえますか？</div>
+              <div class="phrase-main phrase-en">Can I have some water, please?</div>
+              <div class="phrase-pron">キャナイ ハブ サム ウォーター プリーズ？</div>
+            </div>
+          </div>
+
+          <div class="sub-scene">🛎️ お願い・リクエスト</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">毛布をもう1枚もらえますか？</div>
+              <div class="phrase-main phrase-en">Could I have another blanket, please?</div>
+              <div class="phrase-pron">クダイ ハブ アナザー ブランケット プリーズ？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">枕をもらえますか？</div>
+              <div class="phrase-main phrase-en">May I have a pillow?</div>
+              <div class="phrase-pron">メイアイ ハブ ア ピロー？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">イヤホンをもらえますか？</div>
+              <div class="phrase-main phrase-en">Could I get a pair of headphones?</div>
+              <div class="phrase-pron">クダイ ゲット ア ペア オブ ヘッドフォンズ？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">入国カードをもらえますか？</div>
+              <div class="phrase-main phrase-en">Could I have a landing card, please?</div>
+              <div class="phrase-pron">クダイ ハブ ア ランディングカード プリーズ？</div>
+            </div>
+          </div>
+
+          <div class="sub-scene">🚻 通路・トイレ</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">トイレに行きたいので通してください</div>
+              <div class="phrase-main phrase-en">Excuse me, I need to use the lavatory.</div>
+              <div class="phrase-pron">エクスキューズミー アイニード トゥ ユーズ ザ ラバトリー</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">トイレは空いていますか？</div>
+              <div class="phrase-main phrase-en">Is the toilet free?</div>
+              <div class="phrase-pron">イズ ザ トイレット フリー？</div>
+            </div>
+          </div>
+
+          <div class="sub-scene">🔄 乗り継ぎ（ミュンヘン経由）</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">ロンドン行きの乗り継ぎです</div>
+              <div class="phrase-main phrase-en">I'm connecting to a flight to London.</div>
+              <div class="phrase-pron">アイム コネクティング トゥ ア フライト トゥ ロンドン</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">乗り継ぎゲートはどこですか？</div>
+              <div class="phrase-main phrase-en">Where is the connecting gate?</div>
+              <div class="phrase-pron">ウェア イズ ザ コネクティング ゲート？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">乗り継ぎ時間が短いのですが間に合いますか？</div>
+              <div class="phrase-main phrase-en">My connection is tight. Will I make it?</div>
+              <div class="phrase-pron">マイ コネクション イズ タイト。ウィル アイ メイキット？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">荷物はロンドンまで届きますか？</div>
+              <div class="phrase-main phrase-en">Will my luggage go through to London?</div>
+              <div class="phrase-pron">ウィル マイ ラゲッジ ゴー スルー トゥ ロンドン？</div>
+            </div>
+          </div>
+
+          <div class="sub-scene">⚠️ 体調・トラブル</div>
+          <div class="phrase-grid">
+            <div class="phrase-card">
+              <div class="phrase-jp">気分が悪いです</div>
+              <div class="phrase-main phrase-en">I'm not feeling well.</div>
+              <div class="phrase-pron">アイム ノット フィーリング ウェル</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">酔い止めの薬はありますか？</div>
+              <div class="phrase-main phrase-en">Do you have anything for motion sickness?</div>
+              <div class="phrase-pron">ドゥーユーハブ エニシング フォー モーション シックネス？</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">父/母の具合が悪いのですが</div>
+              <div class="phrase-main phrase-en">My father/mother isn't feeling well.</div>
+              <div class="phrase-pron">マイ ファーザー/マザー イズント フィーリング ウェル</div>
+            </div>
+          </div>
+
+          <div class="sub-scene">🛬 到着前</div>
+          <div class="phrase-grid">
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">CA</span>
+              <div class="phrase-jp">シートベルトを締めてください</div>
+              <div class="phrase-main phrase-en">Please fasten your seatbelt.</div>
+              <div class="phrase-pron">プリーズ ファスン ユア シートベルト</div>
+            </div>
+            <div class="phrase-card phrase-card-staff">
+              <span class="phrase-label phrase-label-staff">CA</span>
+              <div class="phrase-jp">テーブルを元の位置に戻してください</div>
+              <div class="phrase-main phrase-en">Please put your tray table up.</div>
+              <div class="phrase-pron">プリーズ プット ユア トレイテーブル アップ</div>
+            </div>
+            <div class="phrase-card">
+              <div class="phrase-jp">あとどのくらいで着きますか？</div>
+              <div class="phrase-main phrase-en">How much longer until we land?</div>
+              <div class="phrase-pron">ハウマッチ ロンガー アンティル ウィー ランド？</div>
+            </div>
+          </div>
+
+          <div class="tip-box">
+            <div class="tip-box-title"><i class="fa-solid fa-lightbulb"></i> 機内での便利メモ</div>
+            <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.9;">
+              <li>困ったら <b>"Excuse me"</b> + 指さし でOK</li>
+              <li><b>"please"</b> と <b>"thank you"</b> を忘れずに</li>
+              <li>ご両親の分もまとめて <b>"Three ◯◯, please."</b> で注文</li>
+              <li>ルフトハンザ便はドイツ語アナウンス → 英語の順で流れます</li>
+            </ul>
+          </div>
+
+          <button class="print-btn" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> この機内フレーズを印刷する
+          </button>
+
+        </div>
+      </div>
 
       <!-- ======================= -->
       <!-- 🛂 入国審査 -->
